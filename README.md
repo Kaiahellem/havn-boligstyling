@@ -1,4 +1,4 @@
-# HAVn Boligstyling
+# HAVN Boligstyling
 
 Nettside for HAVn Boligstyling bygget med Next.js, Formspree og Netlify.
 
