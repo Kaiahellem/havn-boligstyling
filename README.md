@@ -1,6 +1,6 @@
-# HAVn Boligstyling
+# HAVN Boligstyling
 
-Nettside for HAVn Boligstyling bygget med Next.js, Formspree og Netlify.
+Nettside for HAVN Boligstyling bygget med Next.js, Formspree og Netlify.
 
 ## Tech Stack
 

@@ -9,11 +9,11 @@ export default function OmPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="font-serif text-4xl sm:text-5xl font-semibold text-havna-900 mb-6">
-                Om HAVn Boligstyling
+                Om HAVN Boligstyling
               </h1>
               <div className="prose prose-lg text-havna-700 max-w-none">
                 <p className="leading-relaxed">
-                  HAVn Boligstyling ble startet med en enkel visjon: å hjelpe
+                  HAVN Boligstyling ble startet med en enkel visjon: å hjelpe
                   folk å skape hjem som speiler hvem de er. Vi tror på at hvert
                   rom har potensial til å bli et sted du virkelig trives –
                   uansett størrelse eller budsjett.
@@ -34,7 +34,7 @@ export default function OmPage() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-sand-200">
               <Image
                 src="https://picsum.photos/seed/havn-om/800/1000"
-                alt="Om HAVn Boligstyling"
+                alt="Om HAVN Boligstyling"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

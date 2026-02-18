@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="font-[family-name:var(--font-cormorant)] text-lg text-sand-200">
-            HAVn Boligstyling
+            HAVN Boligstyling
           </p>
           <nav className="flex gap-6">
             <Link
@@ -35,7 +35,7 @@ export default function Footer() {
           </nav>
         </div>
         <div className="mt-8 pt-8 border-t border-havna-700 text-center text-sm text-sand-300">
-          © {currentYear} HAVn Boligstyling. Alle rettigheter reservert.
+          © {currentYear} HAVN Boligstyling. Alle rettigheter reservert.
         </div>
       </div>
     </footer>
