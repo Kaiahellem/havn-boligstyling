@@ -9,7 +9,7 @@ import ProjectModal from "@/components/ProjectModal";
 const heroGalleryItems = [
   {
     projectId: "1",
-    image: projects[0].afterImage,
+    image: projects[0].image,
     alt: projects[0].title,
     w: 350,
     h: 480,
@@ -18,7 +18,7 @@ const heroGalleryItems = [
   },
   {
     projectId: "2",
-    image: projects[1].afterImage,
+    image: projects[1].image,
     alt: projects[1].title,
     w: 350,
     h: 440,
@@ -27,7 +27,7 @@ const heroGalleryItems = [
   },
   {
     projectId: "3",
-    image: projects[2].afterImage,
+    image: projects[2].image,
     alt: projects[2].title,
     w: 400,
     h: 490,
@@ -36,7 +36,7 @@ const heroGalleryItems = [
   },
   {
     projectId: "4",
-    image: projects[3]?.afterImage ?? projects[0].afterImage,
+    image: projects[3]?.image ?? projects[0].image,
     alt: projects[3]?.title ?? projects[0].title,
     w: 300,
     h: 450,
@@ -45,7 +45,7 @@ const heroGalleryItems = [
   },
   {
     projectId: "5",
-    image: projects[4]?.afterImage ?? projects[0].afterImage,
+    image: projects[4]?.image ?? projects[0].image,
     alt: projects[4]?.title ?? projects[0].title,
     w: 300,
     h: 500,
@@ -54,7 +54,7 @@ const heroGalleryItems = [
   },
   {
     projectId: "6",
-    image: projects[5]?.afterImage ?? projects[0].afterImage,
+    image: projects[5]?.image ?? projects[0].image,
     alt: projects[5]?.title ?? projects[0].title,
     w: 400,
     h: 480,
@@ -144,7 +144,7 @@ export default function HomePage() {
             className="w-full max-w-sm mx-auto mb-8"
           />
           <p className="font-serif text-lg sm:text-xl text-havna-700 leading-relaxed">
-            HAVN Boligstyling hjelper deg med å skape et hjem som speiler ditt unike uttrykk.
+            Vi hjelper deg med å skape et hjem som speiler ditt unike uttrykk.
             Vi tilbyr boligstyling, konsultasjon og utleiestyling – fra små justeringer
             til fullstendig transformasjon.
           </p>
@@ -196,6 +196,20 @@ export default function HomePage() {
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        hasPrev={selectedProject ? projects.findIndex((p) => p.id === selectedProject.id) > 0 : false}
+        hasNext={
+          selectedProject ? projects.findIndex((p) => p.id === selectedProject.id) < projects.length - 1 : false
+        }
+        onPrev={() => {
+          if (!selectedProject) return;
+          const idx = projects.findIndex((p) => p.id === selectedProject.id);
+          if (idx > 0) setSelectedProject(projects[idx - 1]);
+        }}
+        onNext={() => {
+          if (!selectedProject) return;
+          const idx = projects.findIndex((p) => p.id === selectedProject.id);
+          if (idx < projects.length - 1) setSelectedProject(projects[idx + 1]);
+        }}
       />
     </div>
   );

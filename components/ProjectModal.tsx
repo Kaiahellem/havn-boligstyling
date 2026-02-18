@@ -7,8 +7,7 @@ import Link from "next/link";
 export interface Project {
   id: string;
   title: string;
-  beforeImage: string;
-  afterImage: string;
+  image: string;
   description?: string;
   city?: string;
   service?: string;
@@ -17,9 +16,13 @@ export interface Project {
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
+  onPrev?: () => void;
+  onNext?: () => void;
+  hasPrev?: boolean;
+  hasNext?: boolean;
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev, hasNext }: ProjectModalProps) {
   useEffect(() => {
     if (project) {
       document.body.style.overflow = "hidden";
@@ -55,7 +58,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
       {/* Modal content - slides in from bottom */}
       <div
-        className="relative w-full max-w-[1200px] max-h-[90vh] overflow-y-auto bg-[var(--background)] shadow-2xl animate-slide-in-bottom"
+        className="relative w-full max-w-[1200px] h-[90vh] max-h-[90vh] overflow-y-auto bg-[var(--background)] shadow-2xl animate-slide-in-bottom"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -69,39 +72,73 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </svg>
         </button>
 
-        <div className="relative aspect-[4/3] overflow-hidden">
-          <Image
-            src={project.afterImage}
-            alt={project.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 672px"
-          />
-        </div>
+        <div className="flex flex-col md:flex-row min-h-full">
+          {/* Bilde til venstre */}
+          <div className="flex-1 flex flex-col justify-center items-start p-6 sm:p-16 pt-0 md:pt-8 md:pr-4 order-1 md:order-1">
+            <div className="relative aspect-[3/4] w-full max-w-md overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
 
-        <div className="p-6 sm:p-8">
-          <div className="flex flex-wrap gap-2 mb-3">
-            {project.service && (
-              <span className="text-xs font-medium text-havna-600 bg-havna-100 px-2 py-1 rounded">
-                {project.service}
-              </span>
-            )}
-            {project.city && (
-              <span className="text-xs text-havna-500">{project.city}</span>
+          {/* Tekst til høyre */}
+          <div className="flex-1 p-6 sm:p-8 flex flex-col justify-center order-2 md:order-2">
+            <div className="flex flex-wrap gap-2 mb-3">
+              {project.service && (
+                <span className="text-xs font-medium text-havna-600 bg-havna-100 px-2 py-1 rounded">
+                  {project.service}
+                </span>
+              )}
+              {project.city && (
+                <span className="text-xs text-havna-500">{project.city}</span>
+              )}
+            </div>
+            <h2 id="modal-title" className="font-serif text-2xl sm:text-3xl font-semibold text-havna-900 mb-4">
+              {project.title}
+            </h2>
+            {project.description && (
+              <p className="text-havna-700 mb-6 leading-relaxed">{project.description}</p>
             )}
           </div>
-          <h2 id="modal-title" className="font-serif text-2xl sm:text-3xl font-semibold text-havna-900 mb-4">
-            {project.title}
-          </h2>
-          {project.description && (
-            <p className="text-havna-700 mb-6 leading-relaxed">{project.description}</p>
-          )}
+        </div>
+
+        {/* Navigasjon og lenke nederst til høyre */}
+        <div className="absolute bottom-6 right-6 flex items-center gap-4">
           <Link
             href="/prosjekter"
-            className="inline-block bg-havna-800 text-white px-6 py-3 rounded-md font-medium hover:bg-havna-700 transition-colors"
+            className="text-havna-700 font-medium underline underline-offset-4 decoration-2 transition-all duration-200 hover:decoration-transparent"
           >
             Se alle prosjekter
           </Link>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onPrev}
+              disabled={!hasPrev}
+              className="w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Forrige prosjekt"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              onClick={onNext}
+              disabled={!hasNext}
+              className="w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              aria-label="Neste prosjekt"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>

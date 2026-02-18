@@ -32,7 +32,7 @@ export default function ProsjekterPage() {
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src={project.afterImage}
+                    src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover"
