@@ -108,7 +108,7 @@ export default function HomePage() {
             {[...heroGalleryItems, ...heroGalleryItems, ...heroGalleryItems].map((item, i) => (
               <Link
                 key={`${item.projectId}-${i}`}
-                href={`/prosjekter/${item.projectId}`}
+                href={`/prosjekter#prosjekt-${item.projectId}`}
                 className="group relative shrink-0 overflow-hidden bg-sand-100 shadow-lg hover:z-10"
                 style={{
                   width: item.w,
