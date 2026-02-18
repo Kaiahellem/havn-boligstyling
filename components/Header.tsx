@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-const navLinks = [
-  { href: "/", label: "Hjem" },
-  { href: "/tjenester", label: "Tjenester" },
-  { href: "/prosjekter", label: "Prosjekter" },
-  { href: "/om", label: "Om" },
-  { href: "/kontakt", label: "Kontakt" },
+const leftNavLinks = [
+  
+  { href: "/tjenester", label: "TJENESTER" },
+  { href: "/prosjekter", label: "PROSJEKTER" },
+];
+const rightNavLinks = [
+  { href: "/om", label: "OM" },
+  { href: "/kontakt", label: "KONTAKT" },
 ];
 
 interface HeaderProps {
@@ -33,7 +35,7 @@ export default function Header({ logoUrl }: HeaderProps) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1400) {
+      if (window.innerWidth >= 1100) {
         setSideMenuOpen(false);
       }
     };
@@ -45,14 +47,14 @@ export default function Header({ logoUrl }: HeaderProps) {
     <>
       <div
         role="banner"
-        className="sticky top-0 z-50 bg-[#ECE9E3] border-b border-[#e0dfdc]"
+        className="sticky top-0 z-50 bg-[#f3f1ed] border-b border-[#f3f1ed]"
       >
         <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-28">
-            <div className="flex-1 flex items-center gap-6">
+            <div className="flex-1 flex items-center gap-16">
               <button
                 type="button"
-                className="p-2 -ml-2 text-havna-800 hover:text-havna-700 min-[1400px]:hidden"
+                className="p-2 -ml-2 text-havna-800 hover:text-havna-700 min-[1100px]:hidden"
                 onClick={() => setSideMenuOpen(true)}
                 aria-label="Åpne meny"
               >
@@ -70,11 +72,11 @@ export default function Header({ logoUrl }: HeaderProps) {
                   />
                 </svg>
               </button>
-              {navLinks.map((link) => (
+              {leftNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1400px]:block"
+                  className="text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block"
                 >
                   {link.label}
                 </Link>
@@ -90,7 +92,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={logoSrc}
-                    alt="HAVn Boligstyling logo"
+                    alt="HAVN Boligstyling logo"
                     className="w-full h-full object-contain"
                     onError={() => setLogoError(true)}
                   />
@@ -102,14 +104,33 @@ export default function Header({ logoUrl }: HeaderProps) {
               )}
             </Link>
 
-            <div className="flex-1 flex items-center justify-end gap-6">
-              <Link
-                href="/kontakt"
-                className="bg-havna-800 text-white px-5 py-2.5 rounded-md hover:bg-havna-700 transition-colors font-medium hidden min-[1400px]:inline-block"
+            <div className="flex-1 flex items-center justify-end gap-20">
+              {rightNavLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-havna-800 hover:text-havna-700 transition-colors p-1"
+                aria-label="Instagram"
               >
-                Bestill befaring
-              </Link>
-              <div className="w-10 h-10 min-[1400px]:hidden" aria-hidden="true" />
+                <svg
+                  className="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <div className="w-10 h-10 min-[1100px]:hidden" aria-hidden="true" />
             </div>
           </div>
         </nav>
@@ -117,13 +138,8 @@ export default function Header({ logoUrl }: HeaderProps) {
 
       {sideMenuOpen && (
         <>
-          <div
-            className="fixed inset-0 bg-black/40 z-[60] animate-fade-in min-[1400px]:hidden"
-            onClick={() => setSideMenuOpen(false)}
-            aria-hidden="true"
-          />
           <aside
-            className="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#ECE9E3] shadow-xl z-[70] flex flex-col animate-slide-in min-[1400px]:hidden"
+            className="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#ECE9E3] shadow-xl z-[70] flex flex-col animate-slide-in min-[1100px]:hidden"
             role="dialog"
             aria-label="Navigasjonsmeny"
           >
@@ -150,7 +166,7 @@ export default function Header({ logoUrl }: HeaderProps) {
               </button>
             </div>
             <nav className="flex flex-col p-4 gap-1">
-              {navLinks.map((link) => (
+              {[...leftNavLinks, ...rightNavLinks].map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -160,13 +176,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/kontakt"
-                className="mt-4 py-3 px-4 bg-havna-800 text-white rounded-md text-center font-medium hover:bg-havna-700 transition-colors"
-                onClick={() => setSideMenuOpen(false)}
-              >
-                Bestill befaring
-              </Link>
+             
             </nav>
           </aside>
         </>
