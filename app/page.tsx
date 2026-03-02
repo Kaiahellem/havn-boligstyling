@@ -144,12 +144,24 @@ export default function HomePage() {
             className="w-full max-w-sm mx-auto mb-8"
           />
           <p className="font-serif text-lg sm:text-xl text-havna-700 leading-relaxed">
-            Vi hjelper deg med å skape et hjem som speiler ditt unike uttrykk.
-            Vi tilbyr boligstyling, konsultasjon og utleiestyling – fra små justeringer
-            til fullstendig transformasjon.
+          Vi gjør boligen din klar for markedet.
+          Vi tilbyr boligstyling, rådgivning og styling for utleie – fra små grep til full klargjøring før visning og annonsering
           </p>
         </div>
       </section>
+
+      <section className="py-14 sm:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h1 className="font-serif text-xl sm:text-3xl text-havna-900 mb-6">
+              Derfor lønner boligstyling seg
+              </h1>
+          <p className="font-serif text-lg sm:text-xl text-havna-700 leading-relaxed">
+          Boligstyling handler om å gjøre boligen mer attraktiv for flest mulig kjøpere.
+          Ved å fremheve boligens styrker og skape et ryddig, helhetlig uttrykk, øker du sjansen for flere interessenter – og et bedre utgangspunkt i budrunden.
+          </p>
+        </div>
+      </section>
+
       {/* Quick links */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

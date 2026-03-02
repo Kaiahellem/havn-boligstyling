@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const leftNavLinks = [
   
@@ -18,6 +19,7 @@ interface HeaderProps {
 }
 
 export default function Header({ logoUrl }: HeaderProps) {
+  const pathname = usePathname();
   const logoSrc = logoUrl ?? "/logo.svg";
   const [logoError, setLogoError] = useState(false);
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
@@ -72,15 +74,23 @@ export default function Header({ logoUrl }: HeaderProps) {
                   />
                 </svg>
               </button>
-              {leftNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {leftNavLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="relative text-havna-800 hover:text-havna-700 transition-colors hidden min-[1100px]:block group py-2"
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-px bg-havna-800 transition-all duration-300 ease-out ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
             </div>
 
             <Link
@@ -105,15 +115,23 @@ export default function Header({ logoUrl }: HeaderProps) {
             </Link>
 
             <div className="flex-1 flex items-center justify-end gap-20">
-              {rightNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {rightNavLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="relative text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block group py-2"
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-px bg-havna-800 transition-all duration-300 ease-out ${
+                        isActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
               <a
                 href="https://instagram.com"
                 target="_blank"
