@@ -1,66 +1,9 @@
-export const projects = [
-  {
-    id: "1",
-    title: "Eksempelprosjekt 1",
-    image: "/prosjektBilde1.jpg",
-    images: ["/prosjektBilde1.jpg", "/prosjektBilde2.jpg"],
-    description: "Transformasjon av stue og kjøkken.",
-    city: "Oslo",
-    service: "Boligstyling",
-  },
-  {
-    id: "2",
-    title: "Eksempelprosjekt 2",
-    image: "/prosjektBilde2.jpg",
-    images: [
-      "/prosjektBilde2.jpg",
-      "/prosjektBilde3.jpg",
-      "/prosjektBilde4.jpg",
-      "/prosjektBilde5.jpg",
-      "/prosjektBilde6.jpg",
-      "/prosjektBilde1.jpg",
-    ],
-    description: "Utleiestyling for salg.",
-    city: "Bergen",
-    service: "Utleiestyling",
-  },
-  {
-    id: "3",
-    title: "Eksempelprosjekt 3",
-    image: "/prosjektBilde3.jpg",
-    images: ["/prosjektBilde3.jpg"],
-    description: "Konsultasjon og fargeråd.",
-    service: "Konsultasjon",
-  },
-  {
-    id: "4",
-    title: "Eksempelprosjekt 4",
-    image: "/prosjektBilde5.jpg",
-    images: ["/prosjektBilde5.jpg", "/prosjektBilde6.jpg"],
-    description: "Konsultasjon og fargeråd.",
-    service: "Konsultasjon",
-  },
-  {
-    id: "5",
-    title: "Eksempelprosjekt 5",
-    image: "/prosjektBilde4.jpg",
-    images: [
-      "/prosjektBilde4.jpg",
-      "/prosjektBilde5.jpg",
-      "/prosjektBilde6.jpg",
-      "/prosjektBilde1.jpg",
-      "/prosjektBilde2.jpg",
-      "/prosjektBilde3.jpg",
-    ],
-    description: "Konsultasjon og fargeråd.",
-    service: "Konsultasjon",
-  },
-  {
-    id: "6",
-    title: "Eksempelprosjekt 6",
-    image: "/prosjektBilde6.jpg",
-    images: ["/prosjektBilde6.jpg"],
-    description: "Konsultasjon og fargeråd.",
-    service: "Konsultasjon",
-  },
-];
+export interface Project {
+  _id: string;
+  title: string;
+  image: string;
+  images?: string[];
+  description?: string;
+  city?: string;
+  service?: string;
+}

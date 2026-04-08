@@ -7,9 +7,18 @@
   --background: #f3f1ed;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
+}
+
+/* Forbedret typografi */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
 }
 
 @keyframes slide-in-left {
@@ -51,4 +60,13 @@ body {
 
 .animate-slide-in-bottom {
   animation: slide-in-bottom 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 22s linear infinite;
 }

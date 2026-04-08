@@ -6,6 +6,9 @@ interface ContactFormProps {
   formspreeId: string;
 }
 
+const inputClass =
+  "w-full bg-transparent border-b border-havna-200 focus:border-havna-800 py-3 text-havna-900 placeholder:text-havna-400 outline-none transition-colors duration-200";
+
 export default function ContactForm({ formspreeId }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
@@ -40,21 +43,21 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
 
   if (!formspreeId) {
     return (
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-6 text-amber-800">
-        <p className="font-medium mb-2">Skjema ikke konfigurert</p>
-        <p className="text-sm">
-          Legg til Formspree ID i <code className="bg-amber-100 px-1 rounded">.env.local</code> som{" "}
-          <code className="bg-amber-100 px-1 rounded">NEXT_PUBLIC_FORMSPREE_ID</code> for å aktivere
-          kontaktskjemaet.
+      <div className="border border-havna-200 p-6 text-havna-600 text-sm">
+        <p className="font-medium mb-1 text-havna-800">Skjema ikke konfigurert</p>
+        <p>
+          Legg til{" "}
+          <code className="bg-havna-100 px-1">NEXT_PUBLIC_FORMSPREE_ID</code> i{" "}
+          <code className="bg-havna-100 px-1">.env.local</code> for å aktivere kontaktskjemaet.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-havna-700 mb-2">
+        <label htmlFor="name" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
           Navn
         </label>
         <input
@@ -62,12 +65,13 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
           id="name"
           name="name"
           required
-          className="w-full px-4 py-3 rounded-lg border border-sand-300 focus:ring-2 focus:ring-havna-700 focus:border-havna-700 outline-none transition-colors"
+          className={inputClass}
           placeholder="Ditt navn"
         />
       </div>
+
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-havna-700 mb-2">
+        <label htmlFor="email" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
           E-post
         </label>
         <input
@@ -75,24 +79,26 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
           id="email"
           name="email"
           required
-          className="w-full px-4 py-3 rounded-lg border border-sand-300 focus:ring-2 focus:ring-havna-700 focus:border-havna-700 outline-none transition-colors"
+          className={inputClass}
           placeholder="din@epost.no"
         />
       </div>
+
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-havna-700 mb-2">
+        <label htmlFor="phone" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
           Telefon
         </label>
         <input
           type="tel"
           id="phone"
           name="phone"
-          className="w-full px-4 py-3 rounded-lg border border-sand-300 focus:ring-2 focus:ring-havna-700 focus:border-havna-700 outline-none transition-colors"
+          className={inputClass}
           placeholder="+47 xxx xx xxx"
         />
       </div>
+
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-havna-700 mb-2">
+        <label htmlFor="message" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
           Melding
         </label>
         <textarea
@@ -100,26 +106,26 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
           name="message"
           rows={5}
           required
-          className="w-full px-4 py-3 rounded-lg border border-sand-300 focus:ring-2 focus:ring-havna-700 focus:border-havna-700 outline-none transition-colors resize-none"
+          className={`${inputClass} resize-none`}
           placeholder="Fortell oss om prosjektet ditt eller still spørsmål..."
         />
       </div>
 
       {status === "success" && (
-        <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
+        <p className="text-sm text-havna-700 border-l-2 border-havna-400 pl-4">
           Takk for meldingen! Vi tar kontakt så snart vi kan.
-        </div>
+        </p>
       )}
       {status === "error" && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+        <p className="text-sm text-havna-700 border-l-2 border-red-400 pl-4">
           Noe gikk galt. Prøv igjen eller ta kontakt på e-post.
-        </div>
+        </p>
       )}
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full bg-havna-800 text-white px-10 py-4 rounded-lg text-lg font-medium hover:bg-havna-700 disabled:opacity-70 disabled:cursor-not-allowed transition-colors"
+        className="w-full bg-havna-900 text-sand-100 py-4 text-sm font-bold tracking-widest uppercase hover:bg-havna-800 disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200"
       >
         {status === "submitting" ? "Sender..." : "Send melding"}
       </button>

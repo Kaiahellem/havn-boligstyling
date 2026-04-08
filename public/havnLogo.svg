@@ -7,10 +7,6 @@
    width="378.84869"
    height="285.23538"
    viewBox="0 0 378.84869 285.23538"
-   sodipodi:docname="HAVN_komplett_logo.svg"
-   inkscape:version="1.4.3 (0d15f750, 2025-12-25)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
@@ -111,38 +107,8 @@
          id="path16-0" />
     </clipPath>
   </defs>
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.2436837"
-     inkscape:cx="248.85749"
-     inkscape:cy="144.3293"
-     inkscape:window-width="1512"
-     inkscape:window-height="854"
-     inkscape:window-x="0"
-     inkscape:window-y="38"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g1">
-    <inkscape:page
-       x="6.8449617e-07"
-       y="9.1898562e-07"
-       inkscape:label="1"
-       id="page1"
-       width="378.84869"
-       height="285.23538"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
   <g
      id="g1"
-     inkscape:groupmode="layer"
-     inkscape:label="1"
      transform="translate(-61.163029,-110.35349)">
     <g
        id="g20"
@@ -184,8 +150,7 @@
          style="fill:#544f4d;fill-opacity:1;fill-rule:nonzero;stroke:none"
          aria-label="HAVN"
          transform="matrix(1.1107669,0,0,1.1107669,59.278452,390.16918)"
-         id="path10-1"
-         sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccc" />
+         id="path10-1" />
     </g>
     <g
        id="g2"

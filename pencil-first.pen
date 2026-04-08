@@ -1,0 +1,5222 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "3Npoc",
+      "x": 0,
+      "y": 0,
+      "name": "HAVN Landing Page",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "E9bdt",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "#F4F2EF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0Ntma",
+              "name": "Logo Zone",
+              "width": 240,
+              "height": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "padding": [
+                0,
+                60
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "J5QHd",
+                  "name": "logoText",
+                  "fill": "#1A1A1A",
+                  "content": "HAVN",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "i0xz3",
+              "name": "Nav Links",
+              "width": "fill_container",
+              "height": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "oSbRS",
+                  "name": "navTjenester",
+                  "height": "fill_container",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "#E5E0D8"
+                  },
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IFXkA",
+                      "name": "navTjenesterText",
+                      "fill": "#4A4A4A",
+                      "content": "TJENESTER",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gNfIk",
+                  "name": "navProsjekter",
+                  "height": "fill_container",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "#E5E0D8"
+                  },
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "vHMdY",
+                      "name": "navProsjekterText",
+                      "fill": "#4A4A4A",
+                      "content": "PROSJEKTER",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "g0TOv",
+                  "name": "navOm",
+                  "height": "fill_container",
+                  "stroke": {
+                    "align": "outside",
+                    "thickness": {
+                      "right": 1
+                    },
+                    "fill": "#E5E0D8"
+                  },
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "q8Muj",
+                      "name": "navOmText",
+                      "fill": "#4A4A4A",
+                      "content": "OM OSS",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ySFhe",
+                  "name": "navSpacer",
+                  "width": "fill_container",
+                  "height": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Qx1rR",
+              "name": "ctaZone",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#544f4c",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "left": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kddFQ",
+                  "name": "ctaText",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "3SSdH",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 680,
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "OYGJh",
+              "name": "Hero Left",
+              "width": "fill_container",
+              "height": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                80,
+                60
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "nrORV",
+                  "name": "heroLabel",
+                  "fill": "#666666",
+                  "content": "BOLIGSTYLING",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "frame",
+                  "id": "1xV7P",
+                  "name": "heroHeadline",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4nmlb",
+                      "name": "heroH1a",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Vi gjør boligen",
+                      "lineHeight": 1.05,
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 88,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MRm6F",
+                      "name": "heroH1b",
+                      "fill": "#1a1a1aff",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "din klar for",
+                      "lineHeight": 1.05,
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 88,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v3xPG",
+                      "name": "heroH1c",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "markedet.",
+                      "lineHeight": 1.05,
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 88,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Nkmzi",
+                  "name": "heroSpacer",
+                  "width": 1,
+                  "height": "fill_container"
+                },
+                {
+                  "type": "text",
+                  "id": "aPOR7",
+                  "name": "heroBody",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "En stylet bolig skaper det første inntrykket som teller. Vi fremhever boligens styrker og øker sjansen for en bedre budrunde.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Geist",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "nbpFK",
+                  "name": "heroCta",
+                  "fill": "#544f4c",
+                  "padding": [
+                    18,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pIWAE",
+                      "name": "heroCtaText",
+                      "fill": "#FFFFFF",
+                      "content": "BESTILL BEFARING",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pPjdA",
+              "name": "Hero Right",
+              "metadata": {
+                "type": "unsplash",
+                "username": "claybanks",
+                "link": "https://unsplash.com/@claybanks",
+                "author": "Clay Banks"
+              },
+              "width": 560,
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1696986951858-05c9ae004463?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzI4MDE5MTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jgn3T",
+          "name": "Ticker Banner",
+          "width": "fill_container",
+          "height": 48,
+          "fill": "#544f4c",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "gap": 60,
+          "padding": [
+            0,
+            60
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "bSesg",
+              "name": "t1",
+              "fill": "#bdb8b8",
+              "content": "BOLIGSTYLING",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            },
+            {
+              "type": "rectangle",
+              "id": "hyAD5",
+              "name": "td1",
+              "fill": "#C8B496",
+              "width": 4,
+              "height": 4
+            },
+            {
+              "type": "text",
+              "id": "E514H",
+              "name": "t2",
+              "fill": "#bdb8b8ff",
+              "content": "KONSULTASJON",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            },
+            {
+              "type": "rectangle",
+              "id": "8z5BY",
+              "name": "td2",
+              "fill": "#C8B496",
+              "width": 4,
+              "height": 4
+            },
+            {
+              "type": "text",
+              "id": "5TLWo",
+              "name": "t3",
+              "fill": "#bdb8b8",
+              "content": "UTLEIESTYLING",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            },
+            {
+              "type": "rectangle",
+              "id": "RwbQe",
+              "name": "td3",
+              "fill": "#C8B496",
+              "width": 4,
+              "height": 4
+            },
+            {
+              "type": "text",
+              "id": "fVXJx",
+              "name": "t4",
+              "fill": "#bdb8b8",
+              "content": "BEFARING",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            },
+            {
+              "type": "rectangle",
+              "id": "fJO0g",
+              "name": "td4",
+              "fill": "#C8B496",
+              "width": 4,
+              "height": 4
+            },
+            {
+              "type": "text",
+              "id": "WScPx",
+              "name": "t5",
+              "fill": "#bdb8b8",
+              "content": "TRANSFORMASJON",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jzFAx",
+          "name": "Services",
+          "width": "fill_container",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "gmaIL",
+              "name": "Svc 1",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "7sHGh",
+                  "name": "svc1num",
+                  "fill": "#C8B496",
+                  "content": "01",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "2PgKI",
+                  "name": "svc1title",
+                  "fill": "#1A1A1A",
+                  "content": "Boligstyling",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "d4KCV",
+                  "name": "svc1desc",
+                  "fill": "#777777",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Profesjonell innredning og staging for salg. Vi fremhever boligens beste egenskaper.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "pPZZE",
+                  "name": "svc1cta",
+                  "fill": "#1A1A1A",
+                  "content": "LES MER →",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kS1NW",
+              "name": "Svc 2",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Ov5MA",
+                  "name": "svc2num",
+                  "fill": "#C8B496",
+                  "content": "02",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "gUdYg",
+                  "name": "svc2title",
+                  "fill": "#1A1A1A",
+                  "content": "Konsultasjon",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "AIitj",
+                  "name": "svc2desc",
+                  "fill": "#777777",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Konkrete råd og veiledning for ditt hjem. Personlig tilpasset din situasjon.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "mA7oT",
+                  "name": "svc2cta",
+                  "fill": "#1A1A1A",
+                  "content": "LES MER →",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nXpty",
+              "name": "Svc 3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iXsyS",
+                  "name": "svc3num",
+                  "fill": "#C8B496",
+                  "content": "03",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "BlW3r",
+                  "name": "svc3title",
+                  "fill": "#1A1A1A",
+                  "content": "Utleiestyling",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 28,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "1LO8w",
+                  "name": "svc3desc",
+                  "fill": "#777777",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Styling tilpasset korttids- og langtidsutleie. Maksimer verdien av din eiendom.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "yyuQ6",
+                  "name": "svc3cta",
+                  "fill": "#1A1A1A",
+                  "content": "LES MER →",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ncjfK",
+          "name": "Editorial Block",
+          "width": "fill_container",
+          "height": 620,
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "a3go5",
+              "name": "Editorial Image",
+              "metadata": {
+                "type": "unsplash",
+                "username": "huumsauna",
+                "link": "https://unsplash.com/@huumsauna",
+                "author": "HUUM"
+              },
+              "width": 640,
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "https://images.unsplash.com/photo-1770625467974-b1a83037ee3b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzI4MDE5ODN8&ixlib=rb-4.1.0&q=80&w=1080",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "3NoVr",
+              "name": "Editorial Text",
+              "width": "fill_container",
+              "height": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "left": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                80,
+                60
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vGK6j",
+                  "name": "editLabel",
+                  "fill": "#666666",
+                  "content": "HVORFOR BOLIGSTYLING",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "dLauW",
+                  "name": "editHeadline",
+                  "fill": "#1A1A1A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Et bedre utgangspunkt i budrunden.",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 52,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "S4tWC",
+                  "name": "editSpacer",
+                  "width": 1,
+                  "height": "fill_container"
+                },
+                {
+                  "type": "text",
+                  "id": "pxKdj",
+                  "name": "editBody",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "En stylet bolig skaper det første inntrykket som teller. Vi fremhever boligens styrker, skaper helhet og ro – og øker sjansen for at flest mulig finner seg hjemme allerede under visningen.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "rectangle",
+                  "id": "tijqv",
+                  "name": "editDivider",
+                  "fill": "#E5E0D8",
+                  "width": 40,
+                  "height": 1
+                },
+                {
+                  "type": "text",
+                  "id": "MNVMD",
+                  "name": "editQuote",
+                  "fill": "#1a1a1aff",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "«Vi fikk 15% over prisantydning etter styling med HAVN.»",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 20,
+                  "fontWeight": "normal",
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "OK76n",
+                  "name": "editQuoteAttr",
+                  "fill": "#777777",
+                  "content": "— ANNA K., OSLO",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "lokh1",
+                  "name": "editCtaLink",
+                  "fill": "#1A1A1A",
+                  "content": "SE ALLE TJENESTENE →",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "adIw6",
+      "x": 1540,
+      "y": 0,
+      "name": "Tjenester",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "lEZj7",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "#F4F2EF",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "hNCvq",
+              "name": "thl",
+              "width": 240,
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "padding": [
+                0,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bXAOe",
+                  "name": "thlogo",
+                  "fill": "#1A1A1A",
+                  "content": "HAVN",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8hBqk",
+              "name": "thnav",
+              "height": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X8tLP",
+                  "name": "thn1",
+                  "height": "fill_container",
+                  "fill": "#ECEAE6",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2aW7L",
+                      "name": "thn1t",
+                      "fill": "#1A1A1A",
+                      "content": "TJENESTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pqw0N",
+                  "name": "thn2",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "a3DCz",
+                      "name": "thn2t",
+                      "fill": "#4A4A4A",
+                      "content": "PROSJEKTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "oZB99",
+                  "name": "thn3",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "laJsT",
+                      "name": "thn3t",
+                      "fill": "#4A4A4A",
+                      "content": "OM",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SqB7P",
+                  "name": "thn4",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "abE7m",
+                      "name": "thn4t",
+                      "fill": "#4A4A4A",
+                      "content": "KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qkl9k",
+              "name": "thspacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "XJpnr",
+              "name": "thcta",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#544f4c",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "lm5Qs",
+                  "name": "thctat",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SFfpf",
+          "name": "thdivh",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "2Eg2a",
+          "name": "Page Title",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            64,
+            64,
+            56,
+            64
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ibHZQ",
+              "name": "tptlbl",
+              "fill": "#666666",
+              "content": "HVA VI TILBYR",
+              "fontFamily": "Geist Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 2
+            },
+            {
+              "type": "text",
+              "id": "wrJCm",
+              "name": "tpth1",
+              "fill": "#1A1A1A",
+              "content": "Våre tjenester",
+              "lineHeight": 1.03,
+              "fontFamily": "Playfair Display",
+              "fontSize": 80
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YtnWb",
+          "name": "tjenester-hero",
+          "metadata": {
+            "type": "unsplash",
+            "username": "alextyson195",
+            "link": "https://unsplash.com/@alextyson195",
+            "author": "Alex Tyson"
+          },
+          "width": "fill_container",
+          "height": 480,
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1723257129578-a41a852d18ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzI5Nzc2MjN8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          }
+        },
+        {
+          "type": "frame",
+          "id": "iJqpZ",
+          "name": "tpdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "YMHXs",
+          "name": "Boligstyling",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Ikgvj",
+              "name": "svc1l",
+              "width": 340,
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Bx01m",
+                  "name": "svc1lnum",
+                  "fill": "#C8B496",
+                  "content": "01",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "oDNbf",
+                  "name": "svc1ltitle",
+                  "fill": "#1A1A1A",
+                  "content": "Boligstyling",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 36
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NBxOw",
+              "name": "svc1div",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "SKfy6",
+              "name": "svc1r",
+              "width": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UIAOT",
+                  "name": "svc1rdesc",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Vi transformerer boligen din til et hjem som speiler din personlighet. Fra møblering og innredning til farger og detaljer – vi skaper et helhetlig uttrykk som gjør at du føler deg hjemme.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "0seHL",
+                  "name": "svc1hl",
+                  "width": "fill_container",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "RnxGo",
+                      "name": "svc1h1",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "4XuV6",
+                          "name": "svc1h1dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "XmpLl",
+                          "name": "svc1h1t",
+                          "fill": "#777777",
+                          "content": "Møblering og innredning",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZuEPV",
+                      "name": "svc1h2",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "eqAYf",
+                          "name": "svc1h2dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3kKom",
+                          "name": "svc1h2t",
+                          "fill": "#777777",
+                          "content": "Fargevalg og materialer",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JlQLE",
+                      "name": "svc1h3",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "O0M20",
+                          "name": "svc1h3dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3gMqq",
+                          "name": "svc1h3t",
+                          "fill": "#777777",
+                          "content": "Dekorasjon og detaljer",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mPclr",
+                      "name": "svc1h4",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dadCT",
+                          "name": "svc1h4dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hbdWR",
+                          "name": "svc1h4t",
+                          "fill": "#777777",
+                          "content": "Helhetlig designkonsept",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IWavG",
+                  "name": "c1",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "36aOb",
+                      "fill": "#544f4c",
+                      "content": "Bestill befaring",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FXQtf",
+                      "width": 28,
+                      "height": 1,
+                      "fill": "#544f4c"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RLYX1",
+              "name": "s1div",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rvLXc",
+          "name": "svc1bdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "2fsBh",
+          "name": "Konsultasjon",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "e5bw1",
+              "name": "svc2l",
+              "width": 340,
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3yHa7",
+                  "name": "svc2lnum",
+                  "fill": "#C8B496",
+                  "content": "02",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "ILwye",
+                  "name": "svc2ltitle",
+                  "fill": "#1A1A1A",
+                  "content": "Konsultasjon",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 36
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Q5ks4",
+              "name": "svc2divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "5Ffwc",
+              "name": "svc2r",
+              "width": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5TPrY",
+                  "name": "svc2rdesc",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Trenger du råd uten full boligstyling? Vi tilbyr konsultasjoner der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "Xzk1v",
+                  "name": "svc2hl",
+                  "width": "fill_container",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "HdC5z",
+                      "name": "s2h1",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "tqp3Z",
+                          "name": "s2h1dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "dTJfT",
+                          "name": "s2h1t",
+                          "fill": "#777777",
+                          "content": "Rom-for-rom vurdering",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "w66Ag",
+                      "name": "s2h2",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "3NNLG",
+                          "name": "s2h2dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mU2EY",
+                          "name": "s2h2t",
+                          "fill": "#777777",
+                          "content": "Konkrete anbefalinger",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "1tBuo",
+                      "name": "s2h3",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "jf6Td",
+                          "name": "s2h3dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "7mImU",
+                          "name": "s2h3t",
+                          "fill": "#777777",
+                          "content": "Kjøpsveiledning",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XFjfh",
+                      "name": "s2h4",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "BSq94",
+                          "name": "s2h4dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cnOlf",
+                          "name": "s2h4t",
+                          "fill": "#777777",
+                          "content": "Farge- og stilråd",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "b22fO",
+                  "name": "c2",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TBm7f",
+                      "fill": "#544f4c",
+                      "content": "Bestill konsultasjon",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JvG4k",
+                      "width": 28,
+                      "height": 1,
+                      "fill": "#544f4c"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XqIh4",
+              "name": "s2div",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "cqDSi",
+          "name": "svc2bdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "ORdsJ",
+          "name": "Utleiestyling",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "zxXkd",
+              "name": "svc3l",
+              "width": 340,
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yE2aN",
+                  "name": "svc3lnum",
+                  "fill": "#C8B496",
+                  "content": "03",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "jlRRE",
+                  "name": "svc3ltitle",
+                  "fill": "#1A1A1A",
+                  "content": "Utleiestyling",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 36
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zTd1i",
+              "name": "svc3divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "auw0m",
+              "name": "svc3r",
+              "width": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                56,
+                64
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5Uymg",
+                  "name": "svc3rdesc",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Skal du leie ut boligen? Vi stiler for salg og utleie slik at potensielle leietakere ser verdien. Profesjonelle bilder og et innbydende inntrykk øker interessen betydelig.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "9953a",
+                  "name": "svc3hl",
+                  "width": "fill_container",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "WcZzX",
+                      "name": "s3h1",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ZJqMK",
+                          "name": "s3h1dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hoax2",
+                          "name": "s3h1t",
+                          "fill": "#777777",
+                          "content": "Staging for utleie/salg",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ZwOtU",
+                      "name": "s3h2",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qb8iu",
+                          "name": "s3h2dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "z10XC",
+                          "name": "s3h2t",
+                          "fill": "#777777",
+                          "content": "Fotovennlig innredning",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0tynv",
+                      "name": "s3h3",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Wbj2c",
+                          "name": "s3h3dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lDn1P",
+                          "name": "s3h3t",
+                          "fill": "#777777",
+                          "content": "Maksimalt første inntrykk",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cKZuk",
+                      "name": "s3h4",
+                      "gap": 12,
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Mwedb",
+                          "name": "s3h4dot",
+                          "width": 4,
+                          "height": 4,
+                          "fill": "#C8B496"
+                        },
+                        {
+                          "type": "text",
+                          "id": "L7nor",
+                          "name": "s3h4t",
+                          "fill": "#777777",
+                          "content": "Rask gjennomføring",
+                          "fontFamily": "Geist Mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wVhd3",
+                  "name": "c3",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oFbGn",
+                      "fill": "#544f4c",
+                      "content": "Bestill befaring",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5u2hk",
+                      "width": 28,
+                      "height": 1,
+                      "fill": "#544f4c"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "3QGJN",
+              "name": "s3div",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "6YEoG",
+          "name": "tsvc3div",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "W6ZxN",
+          "name": "CTA Dark",
+          "width": "fill_container",
+          "fill": "#544f4c",
+          "children": [
+            {
+              "type": "frame",
+              "id": "BHQ4l",
+              "name": "tctal",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5AOB3",
+                  "name": "tctah",
+                  "fill": "#FFFFFF",
+                  "content": "Usikker på hva som passer for deg?",
+                  "lineHeight": 1.08,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "Gtyae",
+                  "name": "tctap",
+                  "fill": "#ffffff",
+                  "content": "Vi hjelper deg gjerne med å finne ut av det.",
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MZvZs",
+              "name": "tctar",
+              "height": 201,
+              "padding": [
+                48,
+                64
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ew4iD",
+                  "name": "tctabtn",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#ffffff"
+                  },
+                  "padding": [
+                    18,
+                    36
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fZ6OF",
+                      "name": "tctabtnt",
+                      "fill": "#FFFFFF",
+                      "content": "BESTILL BEFARING",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "wBY59",
+              "name": "tctadivv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#333333"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "AAaFn",
+          "name": "newft1",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "id": "bzBN1",
+              "type": "ref",
+              "ref": "Xm1Ti"
+            },
+            {
+              "type": "frame",
+              "id": "9zLD1",
+              "name": "Footer Nav Tjenester",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CFY6L",
+                  "name": "footerNav1Label",
+                  "fill": "#1A1A1A",
+                  "content": "TJENESTER",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "lolUE",
+                  "name": "footerNav1a",
+                  "fill": "#777777",
+                  "content": "Boligstyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "4kSyS",
+                  "name": "footerNav1b",
+                  "fill": "#777777",
+                  "content": "Konsultasjon",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "4OkYj",
+                  "name": "footerNav1c",
+                  "fill": "#777777",
+                  "content": "Utleiestyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xNaXh",
+              "name": "Footer Nav Selskap",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "teTYL",
+                  "name": "footerNav2Label",
+                  "fill": "#1A1A1A",
+                  "content": "SELSKAP",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "SNr5R",
+                  "name": "footerNav2a",
+                  "fill": "#777777",
+                  "content": "Om oss",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "y5CEW",
+                  "name": "footerNav2b",
+                  "fill": "#777777",
+                  "content": "Prosjekter",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "FL9ji",
+                  "name": "footerNav2c",
+                  "fill": "#777777",
+                  "content": "Kontakt",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "X7j6s",
+              "name": "Footer Contact",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HkJiV",
+                  "name": "footerNav3Label",
+                  "fill": "#1A1A1A",
+                  "content": "KONTAKT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "pB6zV",
+                  "name": "footerEmail",
+                  "fill": "#777777",
+                  "content": "hei@havn.no",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "SM8jk",
+                  "name": "footerPhone",
+                  "fill": "#777777",
+                  "content": "+47 400 00 000",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ZvKzJ",
+                  "name": "footerCity",
+                  "fill": "#777777",
+                  "content": "Oslo, Norge",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "4JoOz",
+      "x": 0,
+      "y": 1926,
+      "name": "Footer",
+      "width": "fill_container(1440)",
+      "fill": "#F4F2EF",
+      "stroke": {
+        "align": "outside",
+        "thickness": {
+          "top": 1
+        },
+        "fill": "#E5E0D8"
+      },
+      "children": [
+        {
+          "type": "frame",
+          "id": "Xm1Ti",
+          "name": "Footer Brand",
+          "reusable": true,
+          "width": 340,
+          "height": 250,
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "layout": "vertical",
+          "gap": 24,
+          "padding": 60,
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "qR8GI",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./HAVN_komplett_logo.jpg",
+                "mode": "fill"
+              },
+              "width": 118,
+              "height": "fill_container"
+            },
+            {
+              "type": "text",
+              "id": "VtN4l",
+              "name": "footerCopyright",
+              "fill": "#777777",
+              "content": "© 2025 HAVN Boligstyling",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "pqclb",
+          "name": "Footer Nav Tjenester",
+          "width": "fill_container",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 60,
+          "children": [
+            {
+              "type": "text",
+              "id": "AERtp",
+              "name": "footerNav1Label",
+              "fill": "#1A1A1A",
+              "content": "TJENESTER",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            },
+            {
+              "type": "text",
+              "id": "D3str",
+              "name": "footerNav1a",
+              "fill": "#777777",
+              "content": "Boligstyling",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "YZ7WA",
+              "name": "footerNav1b",
+              "fill": "#777777",
+              "content": "Konsultasjon",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "iU1SP",
+              "name": "footerNav1c",
+              "fill": "#777777",
+              "content": "Utleiestyling",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "0AGZu",
+          "name": "Footer Nav Selskap",
+          "width": "fill_container",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "right": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 60,
+          "children": [
+            {
+              "type": "text",
+              "id": "0G8q7",
+              "name": "footerNav2Label",
+              "fill": "#1A1A1A",
+              "content": "SELSKAP",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            },
+            {
+              "type": "text",
+              "id": "3bAKT",
+              "name": "footerNav2a",
+              "fill": "#777777",
+              "content": "Om oss",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Egumo",
+              "name": "footerNav2b",
+              "fill": "#777777",
+              "content": "Prosjekter",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "UOWdk",
+              "name": "footerNav2c",
+              "fill": "#777777",
+              "content": "Kontakt",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "YBYRS",
+          "name": "Footer Contact",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": 60,
+          "children": [
+            {
+              "type": "text",
+              "id": "ar6Js",
+              "name": "footerNav3Label",
+              "fill": "#1A1A1A",
+              "content": "KONTAKT",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            },
+            {
+              "type": "text",
+              "id": "gYLKj",
+              "name": "footerEmail",
+              "fill": "#777777",
+              "content": "hei@havn.no",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "anava",
+              "name": "footerPhone",
+              "fill": "#777777",
+              "content": "+47 400 00 000",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "PWBSN",
+              "name": "footerCity",
+              "fill": "#777777",
+              "content": "Oslo, Norge",
+              "fontFamily": "Geist",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "dxldD",
+      "x": 3080,
+      "y": 0,
+      "name": "Om",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "31gSJ",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "#F4F2EF",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "F4cum",
+              "name": "omhl",
+              "width": 240,
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "padding": [
+                0,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PQiMF",
+                  "name": "omhlogo",
+                  "fill": "#1A1A1A",
+                  "content": "HAVN",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OwVVL",
+              "name": "omhnav",
+              "height": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BaJ42",
+                  "name": "omhn1",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "7YgUZ",
+                      "name": "omhn1t",
+                      "fill": "#4A4A4A",
+                      "content": "TJENESTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WbU5X",
+                  "name": "omhn2",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xSMY5",
+                      "name": "omhn2t",
+                      "fill": "#4A4A4A",
+                      "content": "PROSJEKTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "6pgeH",
+                  "name": "omhn3",
+                  "height": "fill_container",
+                  "fill": "#ECEAE6",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FRAbb",
+                      "name": "omhn3t",
+                      "fill": "#1A1A1A",
+                      "content": "OM",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fQiVA",
+                  "name": "omhn4",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "iYdA1",
+                      "name": "omhn4t",
+                      "fill": "#4A4A4A",
+                      "content": "KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "b589t",
+              "name": "omhspacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "00dSM",
+              "name": "omhcta",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#544f4c",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "P1u3a",
+                  "name": "omhctat",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xCYGV",
+          "name": "omhdivh",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "FdY1T",
+          "name": "Hero",
+          "width": "fill_container",
+          "height": 500,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "wUhuh",
+              "name": "omherol",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "pUWeR",
+                  "name": "omhlogotext",
+                  "fill": "#1A1A1A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "«Vi startet HAVN fordi vi tror hvert hjem har et uforløst potensial — uansett størrelse eller budsjett.»",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 32,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "S1uQ9",
+                  "name": "heroname",
+                  "fill": "#777777",
+                  "content": "— Martine, grunnlegger av HAVN",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "A8xpE",
+              "name": "omherodiv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "anr2D",
+              "name": "omheror",
+              "width": 560,
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1772967664871.png",
+                "mode": "fill"
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "9ZnN8",
+          "name": "Values",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "pYUFW",
+              "name": "omvlbl",
+              "width": 260,
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "padding": [
+                56,
+                40
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "hVFMm",
+                  "name": "omvlblt",
+                  "fill": "#666666",
+                  "content": "VÅRE VERDIER",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CKkUy",
+              "name": "omvdivl",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "W7DVv",
+              "name": "omvcols",
+              "width": "fill_container",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lQySf",
+                  "name": "omvc1",
+                  "width": "fill_container",
+                  "fill": "#F4F2EF",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qHxYH",
+                      "name": "n1",
+                      "fill": "#C8B496",
+                      "content": "01",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "H2uIG",
+                      "name": "omvc1t",
+                      "fill": "#1A1A1A",
+                      "content": "Helhet",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "RWADU",
+                      "name": "omvc1d",
+                      "fill": "#777777",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Vi ser hele rommet, ikke bare enkeltdetaljer. Hvert valg henger sammen.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Geist",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "3wG37",
+                  "name": "omvdiv1",
+                  "width": 1,
+                  "height": "fill_container",
+                  "fill": "#E5E0D8"
+                },
+                {
+                  "type": "frame",
+                  "id": "nQhTk",
+                  "name": "omvc2",
+                  "width": "fill_container",
+                  "fill": "#F4F2EF",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2kez5",
+                      "name": "n2",
+                      "fill": "#C8B496",
+                      "content": "02",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "4PCzd",
+                      "name": "omvc2t",
+                      "fill": "#1A1A1A",
+                      "content": "Enkelhet",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "2gn83",
+                      "name": "omvc2d",
+                      "fill": "#777777",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Det beste resultatet kommer fra å fjerne det som ikke tilhører – ikke å legge til mer.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Geist",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zHfyr",
+                  "name": "omvdiv2",
+                  "width": 1,
+                  "height": "fill_container",
+                  "fill": "#E5E0D8"
+                },
+                {
+                  "type": "frame",
+                  "id": "Iuz1R",
+                  "name": "omvc3",
+                  "width": "fill_container",
+                  "fill": "#F4F2EF",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": 56,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "1ot2Z",
+                      "name": "n3",
+                      "fill": "#C8B496",
+                      "content": "03",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "OQsqU",
+                      "name": "omvc3t",
+                      "fill": "#1A1A1A",
+                      "content": "Funksjon",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q6f7c",
+                      "name": "omvc3d",
+                      "fill": "#777777",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Estetikk uten funksjon holder ikke. Vi designer rom du faktisk bor i.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Geist",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "lzEoj",
+          "name": "omvaldiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "FGAKN",
+          "name": "About",
+          "width": "fill_container",
+          "height": 540,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "etPUn",
+              "name": "omaboutimg",
+              "width": 520,
+              "height": "fill_container",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1772967702067.png",
+                "mode": "fill"
+              }
+            },
+            {
+              "type": "frame",
+              "id": "tCLjj",
+              "name": "omaboutdiv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "Z9a7B",
+              "name": "omaboutr",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PxTGW",
+                  "name": "personlbl",
+                  "fill": "#999999",
+                  "content": "MARTINE GULLORD ENGEBRÅTEN · GRUNNLEGGER",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "vD7To",
+                  "name": "omaboutp1",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Jeg startet HAVN etter år med å se boliger bli solgt langt under potensial — ikke fordi de var dårlige, men fordi de ikke ble presentert riktig. En stylet bolig handler ikke om å pynte, det handler om å hjelpe kjøperen å se seg selv bo der.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 16
+                },
+                {
+                  "type": "text",
+                  "id": "Qt42C",
+                  "name": "omaboutp2",
+                  "fill": "#4A4A4A",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "I dag jobber vi med alt fra leiligheter til eneboliger, fra korttidsutleie til salg. Hvert prosjekt er unikt, men målet er alltid det samme: at du sitter igjen med et resultat du er stolt av.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 16
+                },
+                {
+                  "type": "frame",
+                  "id": "c7jJs",
+                  "name": "omaboutbtn",
+                  "fill": "#544f4c",
+                  "padding": [
+                    18,
+                    36
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "AgDdn",
+                      "name": "omaboutbtnt",
+                      "fill": "#FFFFFF",
+                      "content": "TA KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "zVVL9",
+          "name": "statsdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "OX5nF",
+          "name": "Social Proof",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0c29V",
+              "name": "s1",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 56,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "B6P3q",
+                  "name": "s1num",
+                  "fill": "#C8B496",
+                  "content": "200+",
+                  "lineHeight": 1,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 64,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "4hftO",
+                  "name": "s1lbl",
+                  "fill": "#777777",
+                  "content": "PROSJEKTER FULLFØRT",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 10,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "MjsuC",
+                  "name": "s1desc",
+                  "fill": "#777777",
+                  "content": "Hvert prosjekt gjennomføres med presisjon og omsorg.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OgNje",
+              "name": "sd1",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "bRToH",
+              "name": "s2",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 56,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "FuMXJ",
+                  "name": "s2num",
+                  "fill": "#C8B496",
+                  "content": "98%",
+                  "lineHeight": 1,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 64,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "ujZIJ",
+                  "name": "s2lbl",
+                  "fill": "#777777",
+                  "content": "FORNØYDE KUNDER",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 10,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "gHzy1",
+                  "name": "s2desc",
+                  "fill": "#777777",
+                  "content": "Fornøyde kunder er vår beste markedsføring.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "A9ADh",
+              "name": "sd2",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "0qWf1",
+              "name": "s3",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 56,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "H4257",
+                  "name": "s3num",
+                  "fill": "#C8B496",
+                  "content": "15%",
+                  "lineHeight": 1,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 64,
+                  "fontStyle": "italic"
+                },
+                {
+                  "type": "text",
+                  "id": "NsPHq",
+                  "name": "s3lbl",
+                  "fill": "#777777",
+                  "content": "HØYERE SALGSPRIS",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 10,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "MIO9V",
+                  "name": "s3desc",
+                  "fill": "#777777",
+                  "content": "Stylede boliger oppnår gjennomsnittlig høyere salgspris.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rvDDr",
+          "name": "ctadiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "gtL9T",
+          "name": "CTA Dark",
+          "width": "fill_container",
+          "fill": "#544f4cff",
+          "children": [
+            {
+              "type": "frame",
+              "id": "rGTT0",
+              "name": "ctal",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3Cl03",
+                  "name": "ctah",
+                  "fill": "#FFFFFF",
+                  "content": "Klar for en forandring?",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 52
+                },
+                {
+                  "type": "text",
+                  "id": "gr7LT",
+                  "name": "ctap",
+                  "fill": "#666666",
+                  "content": "La oss hjelpe deg med å presentere boligen din på sitt aller beste.",
+                  "fontFamily": "Geist",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "58N4e",
+              "name": "ctadvv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#333333"
+            },
+            {
+              "type": "frame",
+              "id": "OmShJ",
+              "name": "ctar",
+              "height": 213,
+              "padding": [
+                48,
+                64
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "6JRnx",
+                  "name": "ctabtn",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#ffffff"
+                  },
+                  "padding": [
+                    18,
+                    36
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "snapE",
+                      "name": "ctabtnt",
+                      "fill": "#FFFFFF",
+                      "content": "TA KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "W9NRk",
+          "name": "footdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "eDJ0S",
+          "name": "newft2",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "id": "kqEQH",
+              "type": "ref",
+              "ref": "Xm1Ti"
+            },
+            {
+              "type": "frame",
+              "id": "k7LwK",
+              "name": "Footer Nav Tjenester",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x3A6q",
+                  "name": "footerNav1Label",
+                  "fill": "#1A1A1A",
+                  "content": "TJENESTER",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "ryPs8",
+                  "name": "footerNav1a",
+                  "fill": "#777777",
+                  "content": "Boligstyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "6RGzj",
+                  "name": "footerNav1b",
+                  "fill": "#777777",
+                  "content": "Konsultasjon",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "4LwGj",
+                  "name": "footerNav1c",
+                  "fill": "#777777",
+                  "content": "Utleiestyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "3TRzF",
+              "name": "Footer Nav Selskap",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GgZlQ",
+                  "name": "footerNav2Label",
+                  "fill": "#1A1A1A",
+                  "content": "SELSKAP",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "W3rZd",
+                  "name": "footerNav2a",
+                  "fill": "#777777",
+                  "content": "Om oss",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "qqcxP",
+                  "name": "footerNav2b",
+                  "fill": "#777777",
+                  "content": "Prosjekter",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "US5Ss",
+                  "name": "footerNav2c",
+                  "fill": "#777777",
+                  "content": "Kontakt",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "5sSER",
+              "name": "Footer Contact",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "6P8U7",
+                  "name": "footerNav3Label",
+                  "fill": "#1A1A1A",
+                  "content": "KONTAKT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "JQSnm",
+                  "name": "footerEmail",
+                  "fill": "#777777",
+                  "content": "hei@havn.no",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "b0eRE",
+                  "name": "footerPhone",
+                  "fill": "#777777",
+                  "content": "+47 400 00 000",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Offj2",
+                  "name": "footerCity",
+                  "fill": "#777777",
+                  "content": "Oslo, Norge",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hZpRp",
+      "x": 4620,
+      "y": 0,
+      "name": "Kontakt",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "H0sar",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "#F4F2EF",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "FERoJ",
+              "name": "khl",
+              "width": 240,
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "padding": [
+                0,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "P4EFo",
+                  "name": "khlogo",
+                  "fill": "#1A1A1A",
+                  "content": "HAVN",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JFols",
+              "name": "khnav",
+              "height": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AQliZ",
+                  "name": "khn1",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A42W1",
+                      "name": "khn1t",
+                      "fill": "#4A4A4A",
+                      "content": "TJENESTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DfRfV",
+                  "name": "khn2",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8VVpU",
+                      "name": "khn2t",
+                      "fill": "#4A4A4A",
+                      "content": "PROSJEKTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Dm9An",
+                  "name": "khn3",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "b2L6Q",
+                      "name": "khn3t",
+                      "fill": "#4A4A4A",
+                      "content": "OM",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fuMQc",
+                  "name": "khn4",
+                  "height": "fill_container",
+                  "fill": "#ECEAE6",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "daWEZ",
+                      "name": "khn4t",
+                      "fill": "#1A1A1A",
+                      "content": "KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "xgsoe",
+              "name": "khspacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "CFNK9",
+              "name": "khcta",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#544f4c",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "4NlVJ",
+                  "name": "khctat",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "234j9",
+          "name": "khdivh",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "rL0bQ",
+          "name": "Main",
+          "width": "fill_container",
+          "height": 600,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fIyPW",
+              "name": "kml",
+              "width": 420,
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "padding": 64,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "magR4",
+                  "name": "kmltop",
+                  "width": 278,
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "6waMN",
+                      "name": "kmllbl",
+                      "fill": "#666666",
+                      "content": "KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "text",
+                      "id": "Srq9n",
+                      "name": "kmlh1",
+                      "fill": "#1A1A1A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "La oss ta en prat!",
+                      "lineHeight": 1.03,
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 64
+                    },
+                    {
+                      "type": "text",
+                      "id": "rZcxP",
+                      "name": "kmlp",
+                      "fill": "#4A4A4A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi kontakt så snart vi kan.",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Geist",
+                      "fontSize": 16
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "nNqCf",
+                  "name": "kmlinsta",
+                  "fill": "#777777",
+                  "content": "Følg oss på Instagram →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pPZrY",
+              "name": "kmldiv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "CFqbE",
+              "name": "kmr",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": 64,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Qn4K8",
+                  "name": "kf1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "EH2l3",
+                      "name": "kf1lbl",
+                      "fill": "#777777",
+                      "content": "NAVN",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3q1Ck",
+                      "name": "kf1inp",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#00000000",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tchIx",
+                          "name": "kf1inpph",
+                          "fill": "#CCCCCC",
+                          "content": "Ditt navn",
+                          "fontFamily": "Geist",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "agZne",
+                      "name": "kf1div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#C8B496"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vRYz6",
+                  "name": "kf2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "OOGiJ",
+                      "name": "kf2lbl",
+                      "fill": "#777777",
+                      "content": "E-POST",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Kbsnw",
+                      "name": "kf2inp",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#00000000",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bWAZn",
+                          "name": "kf2inpph",
+                          "fill": "#CCCCCC",
+                          "content": "din@epost.no",
+                          "fontFamily": "Geist",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2Yv3Z",
+                      "name": "kf2div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#C8B496"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "UgnW6",
+                  "name": "kf3",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Y13U3",
+                      "name": "kf3lbl",
+                      "fill": "#777777",
+                      "content": "TELEFON",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "8O8rN",
+                      "name": "kf3inp",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#00000000",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VPcLz",
+                          "name": "kf3inpph",
+                          "fill": "#CCCCCC",
+                          "content": "+47 xxx xx xxx",
+                          "fontFamily": "Geist",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "my7Ws",
+                      "name": "kf3div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#C8B496"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q8eRb",
+                  "name": "kf4",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HMKiF",
+                      "name": "kf4lbl",
+                      "fill": "#777777",
+                      "content": "MELDING",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 2
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RjmIG",
+                      "name": "kf4inp",
+                      "width": "fill_container",
+                      "height": 100,
+                      "fill": "#00000000",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "fSOau",
+                          "name": "kf4inpph",
+                          "fill": "#CCCCCC",
+                          "content": "Fortell oss om prosjektet ditt eller still spørsmål...",
+                          "fontFamily": "Geist",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fZKhE",
+                      "name": "kf4div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#C8B496"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "joS8V",
+                  "name": "kfbtn",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "#544f4c",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bNKsJ",
+                      "name": "kfbtnt",
+                      "fill": "#FFFFFF",
+                      "content": "SEND MELDING",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 3
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kvT6K",
+          "name": "newft3",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "id": "hZWCE",
+              "type": "ref",
+              "ref": "Xm1Ti"
+            },
+            {
+              "type": "frame",
+              "id": "0ME74",
+              "name": "Footer Nav Tjenester",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "sHPnF",
+                  "name": "footerNav1Label",
+                  "fill": "#1A1A1A",
+                  "content": "TJENESTER",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "RKMNv",
+                  "name": "footerNav1a",
+                  "fill": "#777777",
+                  "content": "Boligstyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "kmvyP",
+                  "name": "footerNav1b",
+                  "fill": "#777777",
+                  "content": "Konsultasjon",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "RiDZn",
+                  "name": "footerNav1c",
+                  "fill": "#777777",
+                  "content": "Utleiestyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vQj6u",
+              "name": "Footer Nav Selskap",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fZqua",
+                  "name": "footerNav2Label",
+                  "fill": "#1A1A1A",
+                  "content": "SELSKAP",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "4t2bf",
+                  "name": "footerNav2a",
+                  "fill": "#777777",
+                  "content": "Om oss",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "EXLjT",
+                  "name": "footerNav2b",
+                  "fill": "#777777",
+                  "content": "Prosjekter",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "nNrXX",
+                  "name": "footerNav2c",
+                  "fill": "#777777",
+                  "content": "Kontakt",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "FLXHu",
+              "name": "Footer Contact",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aFqzm",
+                  "name": "footerNav3Label",
+                  "fill": "#1A1A1A",
+                  "content": "KONTAKT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "WXrBD",
+                  "name": "footerEmail",
+                  "fill": "#777777",
+                  "content": "hei@havn.no",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "q6SaO",
+                  "name": "footerPhone",
+                  "fill": "#777777",
+                  "content": "+47 400 00 000",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "1qbsz",
+                  "name": "footerCity",
+                  "fill": "#777777",
+                  "content": "Oslo, Norge",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "6MbbH",
+      "x": 6130,
+      "y": 69,
+      "name": "Prosjekter – Grid",
+      "width": 1440,
+      "fill": "#F4F2EF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "8Udgl",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 70,
+          "fill": "#F4F2EF",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "cKF8g",
+              "name": "pghl",
+              "width": 240,
+              "height": "fill_container",
+              "fill": "#F4F2EF",
+              "padding": [
+                0,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QdzW5",
+                  "name": "pghlogo",
+                  "fill": "#1A1A1A",
+                  "content": "HAVN",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 22,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "b1uC6",
+              "name": "pghnav",
+              "height": "fill_container",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yT13x",
+                  "name": "pghn1",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "3jPml",
+                      "name": "pghn1t",
+                      "fill": "#4A4A4A",
+                      "content": "TJENESTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aogMx",
+                  "name": "pghn2",
+                  "height": "fill_container",
+                  "fill": "#ECEAE6",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aBHzO",
+                      "name": "pghn2t",
+                      "fill": "#1A1A1A",
+                      "content": "PROSJEKTER",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MqNCL",
+                  "name": "pghn3",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ypl58",
+                      "name": "pghn3t",
+                      "fill": "#4A4A4A",
+                      "content": "OM",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "e7rNN",
+                  "name": "pghn4",
+                  "height": "fill_container",
+                  "padding": [
+                    0,
+                    40
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "rWPhF",
+                      "name": "pghn4t",
+                      "fill": "#4A4A4A",
+                      "content": "KONTAKT",
+                      "fontFamily": "Geist Mono",
+                      "fontSize": 13,
+                      "fontWeight": "500",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IEPwO",
+              "name": "pghspacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "frame",
+              "id": "0xFKG",
+              "name": "pghcta",
+              "width": 200,
+              "height": "fill_container",
+              "fill": "#544f4c",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kspdZ",
+                  "name": "pghctat",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "EpdjM",
+          "name": "pghdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "iwadA",
+          "name": "Page Title",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "padding": [
+            64,
+            64,
+            56,
+            64
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Iqjj7",
+              "name": "pgtlbl",
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gw3iZ",
+                  "name": "pgtlbl1",
+                  "fill": "#666666",
+                  "content": "PORTEFØLJE",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "0T5Jq",
+                  "name": "pgtlbl2",
+                  "fill": "#1A1A1A",
+                  "content": "Prosjekter",
+                  "lineHeight": 1.03,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 80
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "vbIDM",
+              "name": "pgtcount",
+              "fill": "#999999",
+              "content": "6 prosjekter",
+              "fontFamily": "Geist Mono",
+              "fontSize": 13,
+              "fontWeight": "500",
+              "letterSpacing": 1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Q7BG5",
+          "name": "pgtilediv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "322H9",
+          "name": "d1",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "Im9s7",
+          "name": "Prosjekt 3",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "0ptLU",
+              "name": "p3img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#BEB0A8"
+            },
+            {
+              "type": "frame",
+              "id": "vt33E",
+              "name": "p3divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "RxMuv",
+              "name": "p3txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "GOSJX",
+                  "name": "p3lbl",
+                  "fill": "#C8B496",
+                  "content": "KONSULTASJON",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "D0cFl",
+                  "name": "p3title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 1",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "si7Vm",
+                  "name": "p3desc",
+                  "fill": "#4A4A4A",
+                  "content": "Konsultasjon og fargeråd. Konkrete anbefalinger tilpasset rommets lys, størrelse og eksisterende møbler.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "d6LKD",
+                  "name": "p3link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J2UMX",
+          "name": "Prosjekt 2",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "justifyContent": "end",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "daOI8",
+              "name": "p2txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "0k4wI",
+                  "name": "p2lbl",
+                  "fill": "#C8B496",
+                  "content": "UTLEIESTYLING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "5SRYm",
+                  "name": "p2title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 2",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "dZAY2",
+                  "name": "p2city",
+                  "fill": "#777777",
+                  "content": "Bergen",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "SON6e",
+                  "name": "p2desc",
+                  "fill": "#4A4A4A",
+                  "content": "Utleiestyling for salg. Skreddersydd innredning som appellerer til flest mulig og maksimerer verdien av eiendommen.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "ZKeyW",
+                  "name": "p2link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OPEQ2",
+              "name": "p2img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#C9BDB2"
+            },
+            {
+              "type": "frame",
+              "id": "4bHKn",
+              "name": "p2divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K2Xe8",
+          "name": "d2",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "5UdzY",
+          "name": "Prosjekt 3",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "GRAh5",
+              "name": "p3img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#BEB0A8"
+            },
+            {
+              "type": "frame",
+              "id": "1vZ8c",
+              "name": "p3divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "Elfli",
+              "name": "p3txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "V4c2q",
+                  "name": "p3lbl",
+                  "fill": "#C8B496",
+                  "content": "KONSULTASJON",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "xQMRo",
+                  "name": "p3title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 3",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "m6KgU",
+                  "name": "p3desc",
+                  "fill": "#4A4A4A",
+                  "content": "Konsultasjon og fargeråd. Konkrete anbefalinger tilpasset rommets lys, størrelse og eksisterende møbler.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "8CsAK",
+                  "name": "p3link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "fatJC",
+          "name": "d3",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "RyVsT",
+          "name": "Prosjekt 4",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "TpCe9",
+              "name": "p4txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "1Z18X",
+                  "name": "p4lbl",
+                  "fill": "#C8B496",
+                  "content": "KONSULTASJON",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "Y63lX",
+                  "name": "p4title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 4",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "dp8N3",
+                  "name": "p4desc",
+                  "fill": "#4A4A4A",
+                  "content": "Konsultasjon og fargeråd. Rom-for-rom gjennomgang med konkrete produktanbefalinger og stilråd.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "NyqKr",
+                  "name": "p4link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "J0pyV",
+              "name": "p4divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "NAhgj",
+              "name": "p4img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#C2B5AC"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "LsLEM",
+          "name": "d4",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "NNtYX",
+          "name": "Prosjekt 5",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "wxn9Y",
+              "name": "p5img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#D4CBC0"
+            },
+            {
+              "type": "frame",
+              "id": "FNrkm",
+              "name": "p5divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "xeDoz",
+              "name": "p5txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "x9lwq",
+                  "name": "p5lbl",
+                  "fill": "#C8B496",
+                  "content": "KONSULTASJON",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "UtDGD",
+                  "name": "p5title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 5",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "XQke0",
+                  "name": "p5desc",
+                  "fill": "#4A4A4A",
+                  "content": "Konsultasjon og fargeråd. Helhetlig plan for oppussing og innredning med fokus på funksjon og estetikk.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "jjhcj",
+                  "name": "p5link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hUbL1",
+          "name": "d5",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "rfrWh",
+          "name": "Prosjekt 6",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "#F4F2EF",
+          "children": [
+            {
+              "type": "frame",
+              "id": "6zl6z",
+              "name": "p6txt",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 64,
+              "justifyContent": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MsmI8",
+                  "name": "p6lbl",
+                  "fill": "#C8B496",
+                  "content": "KONSULTASJON",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 11,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "m9OWH",
+                  "name": "p6title",
+                  "fill": "#1A1A1A",
+                  "content": "Eksempelprosjekt 6",
+                  "lineHeight": 1.05,
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 40
+                },
+                {
+                  "type": "text",
+                  "id": "Xb7uw",
+                  "name": "p6desc",
+                  "fill": "#4A4A4A",
+                  "content": "Konsultasjon og fargeråd. Detaljert styling av stue, soverom og entre for maksimalt første inntrykk ved visning.",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Geist",
+                  "fontSize": 15
+                },
+                {
+                  "type": "text",
+                  "id": "t3IBE",
+                  "name": "p6link",
+                  "fill": "#1A1A1A",
+                  "content": "Se prosjekt →",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uM1aZ",
+              "name": "p6divv",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#E5E0D8"
+            },
+            {
+              "type": "frame",
+              "id": "m2I68",
+              "name": "p6img",
+              "width": 560,
+              "height": "fill_container",
+              "fill": "#C9BDB2"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "z36kJ",
+          "name": "fdiv",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "#E5E0D8"
+        },
+        {
+          "type": "frame",
+          "id": "QQ5KN",
+          "name": "CTA",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "padding": [
+            48,
+            64
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "dCqvb",
+              "name": "pctabtn",
+              "fill": "#544f4cff",
+              "padding": [
+                16,
+                40
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5OyhT",
+                  "name": "pctabtnt",
+                  "fill": "#FFFFFF",
+                  "content": "BESTILL BEFARING",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sdXZL",
+          "name": "pfoot",
+          "width": "fill_container",
+          "fill": "#F4F2EF",
+          "stroke": {
+            "align": "outside",
+            "thickness": {
+              "top": 1
+            },
+            "fill": "#E5E0D8"
+          },
+          "children": [
+            {
+              "id": "AJ7r4",
+              "type": "ref",
+              "ref": "Xm1Ti"
+            },
+            {
+              "type": "frame",
+              "id": "aMqRq",
+              "name": "Footer Nav Tjenester",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "IrcCV",
+                  "name": "footerNav1Label",
+                  "fill": "#1A1A1A",
+                  "content": "TJENESTER",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "RX1sO",
+                  "name": "footerNav1a",
+                  "fill": "#777777",
+                  "content": "Boligstyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "0RNLP",
+                  "name": "footerNav1b",
+                  "fill": "#777777",
+                  "content": "Konsultasjon",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "oSXlT",
+                  "name": "footerNav1c",
+                  "fill": "#777777",
+                  "content": "Utleiestyling",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "k5e45",
+              "name": "Footer Nav Selskap",
+              "width": "fill_container",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "right": 1
+                },
+                "fill": "#E5E0D8"
+              },
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "REjfS",
+                  "name": "footerNav2Label",
+                  "fill": "#1A1A1A",
+                  "content": "SELSKAP",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "1cVqO",
+                  "name": "footerNav2a",
+                  "fill": "#777777",
+                  "content": "Om oss",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "0hmZJ",
+                  "name": "footerNav2b",
+                  "fill": "#777777",
+                  "content": "Prosjekter",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "PRQmP",
+                  "name": "footerNav2c",
+                  "fill": "#777777",
+                  "content": "Kontakt",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ti825",
+              "name": "Footer Contact",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 60,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "fYInV",
+                  "name": "footerNav3Label",
+                  "fill": "#1A1A1A",
+                  "content": "KONTAKT",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 1
+                },
+                {
+                  "type": "text",
+                  "id": "15W5w",
+                  "name": "footerEmail",
+                  "fill": "#777777",
+                  "content": "hei@havn.no",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Z3yrj",
+                  "name": "footerPhone",
+                  "fill": "#777777",
+                  "content": "+47 400 00 000",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "ho7i5",
+                  "name": "footerCity",
+                  "fill": "#777777",
+                  "content": "Oslo, Norge",
+                  "fontFamily": "Geist",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yL4p4",
+      "x": 0,
+      "y": 1712,
+      "name": "CTA Dark",
+      "width": "fill_container(1440)",
+      "fill": "#544f4cff",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Ee1Mc",
+          "name": "ctal",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": 64,
+          "justifyContent": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "dH2Sb",
+              "name": "ctah",
+              "fill": "#FFFFFF",
+              "content": "Klar for en forandring?",
+              "lineHeight": 1.05,
+              "fontFamily": "Playfair Display",
+              "fontSize": 52
+            },
+            {
+              "type": "text",
+              "id": "bAVsg",
+              "name": "ctap",
+              "fill": "#ffffff",
+              "content": "La oss hjelpe deg med å presentere boligen din på sitt aller beste.",
+              "fontFamily": "Geist",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "RwGLB",
+          "name": "ctadvv",
+          "width": 1,
+          "height": "fill_container",
+          "fill": "#333333"
+        },
+        {
+          "type": "frame",
+          "id": "cBiV2",
+          "name": "ctar",
+          "height": 213,
+          "padding": [
+            48,
+            64
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Kw3Pb",
+              "name": "ctabtn",
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "#ffffff"
+              },
+              "padding": [
+                18,
+                36
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "8WgVg",
+                  "name": "ctabtnt",
+                  "fill": "#FFFFFF",
+                  "content": "TA KONTAKT",
+                  "fontFamily": "Geist Mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

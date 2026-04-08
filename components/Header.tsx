@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useScrollLock } from "@/lib/useScrollLock";
 
-const leftNavLinks = [
-  
+const navLinks = [
   { href: "/tjenester", label: "TJENESTER" },
   { href: "/prosjekter", label: "PROSJEKTER" },
-];
-const rightNavLinks = [
   { href: "/om", label: "OM" },
   { href: "/kontakt", label: "KONTAKT" },
 ];
@@ -20,20 +18,12 @@ interface HeaderProps {
 
 export default function Header({ logoUrl }: HeaderProps) {
   const pathname = usePathname();
-  const logoSrc = logoUrl ?? "/logo.svg";
+  const logoSrc = logoUrl ?? "/HAVN_BS_kuntekst.svg";
   const [logoError, setLogoError] = useState(false);
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
+  const drawerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    if (sideMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [sideMenuOpen]);
+  useScrollLock(sideMenuOpen);
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,156 +35,160 @@ export default function Header({ logoUrl }: HeaderProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Focus trap for drawer
+  useEffect(() => {
+    if (!sideMenuOpen) return;
+    const el = drawerRef.current;
+    if (!el) return;
+
+    const getFocusables = () =>
+      Array.from(
+        el.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => !el.hasAttribute("disabled"));
+
+    getFocusables()[0]?.focus();
+
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSideMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const focusables = getFocusables();
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, [sideMenuOpen]);
+
   return (
     <>
-      <div
+      <header
         role="banner"
-        className="sticky top-0 z-50 bg-[#f3f1ed] border-b border-[#f3f1ed]"
+        className="sticky top-0 z-50 bg-[#F4F2EF] border-b border-[#E5E0D8] flex h-[70px] items-stretch"
       >
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-28">
-            <div className="flex-1 flex items-center gap-16">
-              <button
-                type="button"
-                className="p-2 -ml-2 text-havna-800 hover:text-havna-700 min-[1100px]:hidden"
-                onClick={() => setSideMenuOpen(true)}
-                aria-label="Åpne meny"
-              >
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-              {leftNavLinks.map((link) => {
-                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="relative text-havna-800 hover:text-havna-700 transition-colors hidden min-[1100px]:block group py-2"
-                  >
-                    {link.label}
-                    <span
-                      className={`absolute bottom-0 left-0 h-px bg-havna-800 transition-all duration-300 ease-out ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                    />
-                  </Link>
-                );
-              })}
-            </div>
+        {/* Logo zone */}
+        <Link
+          href="/"
+          className="flex items-center px-8 sm:px-10 border-r border-[#E5E0D8] shrink-0 w-[180px] sm:w-[240px]"
+        >
+          {logoSrc && !logoError ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={logoSrc}
+              alt="HAVN Boligstyling logo"
+              className="h-7 w-auto object-contain object-left"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <span className="font-serif text-[22px] font-bold text-[#1A1A1A] tracking-[2px]">HAVN</span>
+          )}
+        </Link>
 
-            <Link
-              href="/"
-              className="absolute left-1/2 -translate-x-1/2 flex items-center"
-            >
-              {logoSrc && !logoError ? (
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={logoSrc}
-                    alt="HAVN Boligstyling logo"
-                    className="w-full h-full object-contain"
-                    onError={() => setLogoError(true)}
-                  />
-                </div>
-              ) : (
-                <div className="w-24 h-24 sm:w-28 sm:h-28 bg-havna-200/50 rounded-lg flex items-center justify-center border-2 border-dashed border-havna-300 text-havna-600 text-xs text-center p-1">
-                  Logo
-                </div>
-              )}
-            </Link>
-
-            <div className="flex-1 flex items-center justify-end gap-20">
-              {rightNavLinks.map((link) => {
-                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="relative text-havna-800 hover:text-havna-700 font-medium transition-colors hidden min-[1100px]:block group py-2"
-                  >
-                    {link.label}
-                    <span
-                      className={`absolute bottom-0 left-0 h-px bg-havna-800 transition-all duration-300 ease-out ${
-                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                      }`}
-                    />
-                  </Link>
-                );
-              })}
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-havna-800 hover:text-havna-700 transition-colors p-1"
-                aria-label="Instagram"
+        {/* Desktop nav links */}
+        <nav className="hidden min-[1100px]:flex items-stretch flex-1">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center px-10 border-r border-[#E5E0D8] font-mono text-[13px] font-medium tracking-[1px] uppercase transition-colors duration-150 ${
+                  isActive ? "text-[#1A1A1A] bg-[#ECEAE6]" : "text-[#4A4A4A] hover:text-[#1A1A1A] hover:bg-[#ECEAE6]"
+                }`}
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
-              <div className="w-10 h-10 min-[1100px]:hidden" aria-hidden="true" />
-            </div>
-          </div>
+                {link.label}
+              </Link>
+            );
+          })}
+          <div className="flex-1" />
         </nav>
-      </div>
+
+        {/* Mobile spacer */}
+        <div className="flex-1 min-[1100px]:hidden" />
+
+        {/* Desktop CTA */}
+        <Link
+          href="/kontakt"
+          className="hidden min-[1100px]:flex items-center justify-center w-[200px] bg-[#1E1E1E] border-l border-[#E5E0D8] font-mono text-[11px] font-medium tracking-[2px] uppercase text-white hover:bg-[#333] transition-colors shrink-0"
+        >
+          Bestill befaring
+        </Link>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          className="flex items-center justify-center w-[70px] border-l border-[#E5E0D8] text-[#1A1A1A] min-[1100px]:hidden"
+          onClick={() => setSideMenuOpen(true)}
+          aria-label="Åpne meny"
+          aria-expanded={sideMenuOpen}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </header>
 
       {sideMenuOpen && (
         <>
+          <div
+            className="fixed inset-0 bg-black/40 z-[60] animate-fade-in min-[1100px]:hidden"
+            onClick={() => setSideMenuOpen(false)}
+            aria-hidden="true"
+          />
           <aside
-            className="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#ECE9E3] shadow-xl z-[70] flex flex-col animate-slide-in min-[1100px]:hidden"
+            ref={drawerRef}
+            className="fixed top-0 left-0 h-full w-72 bg-[#F4F2EF] z-[70] flex flex-col animate-slide-in min-[1100px]:hidden"
             role="dialog"
             aria-label="Navigasjonsmeny"
+            aria-modal="true"
           >
-            <div className="flex justify-end p-4 border-b border-[#e0dfdc]">
+            <div className="flex items-center justify-between h-[70px] px-8 border-b border-[#E5E0D8]">
+              <span className="font-mono text-[13px] font-medium tracking-[2px] uppercase text-[#777777]">Meny</span>
               <button
                 type="button"
-                className="p-2 -mr-2 text-havna-800 hover:text-havna-700 transition-colors"
+                className="text-[#1A1A1A]"
                 onClick={() => setSideMenuOpen(false)}
                 aria-label="Lukk meny"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <nav className="flex flex-col p-4 gap-1">
-              {[...leftNavLinks, ...rightNavLinks].map((link) => (
+            <nav className="flex flex-col">
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="py-3 px-4 text-havna-800 hover:text-havna-700 hover:bg-sand-200 rounded-md font-medium transition-colors"
+                  className="px-8 py-5 border-b border-[#E5E0D8] font-mono text-[13px] font-medium tracking-[1px] uppercase text-[#4A4A4A] hover:text-[#1A1A1A] hover:bg-[#ECEAE6] transition-colors"
                   onClick={() => setSideMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-             
+              <Link
+                href="/kontakt"
+                className="mx-8 mt-8 flex items-center justify-center bg-[#1E1E1E] font-mono text-[11px] font-medium tracking-[2px] uppercase text-white py-4"
+                onClick={() => setSideMenuOpen(false)}
+              >
+                Bestill befaring
+              </Link>
             </nav>
           </aside>
         </>

@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Playfair_Display, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const ibmMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-ibm-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "HAVN Boligstyling | Profesjonell boligstyling i Norge",
@@ -16,8 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="no">
-      <body className="font-sans antialiased min-h-screen flex flex-col">
-        <Header logoUrl={process.env.NEXT_PUBLIC_LOGO_URL ?? "/logo.svg"} />
+      <body className={`${playfair.variable} ${ibmMono.variable} font-sans antialiased min-h-screen flex flex-col`}>
+        <Header logoUrl={process.env.NEXT_PUBLIC_LOGO_URL ?? "/HAVN_BS_kuntekst.svg"} />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

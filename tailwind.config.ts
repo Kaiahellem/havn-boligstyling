@@ -33,7 +33,12 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        serif: ["var(--font-playfair)", "Georgia", "Cambria", "Times New Roman", "serif"],
+        mono: ["var(--font-ibm-mono)", "monospace"],
+      },
+      boxShadow: {
+        card: "0 2px 16px 0 rgba(84, 79, 77, 0.08)",
+        "card-hover": "0 8px 32px 0 rgba(84, 79, 77, 0.18)",
       },
     },
   },
