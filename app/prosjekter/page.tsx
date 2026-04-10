@@ -16,9 +16,6 @@ export default async function ProsjekterPage() {
             Prosjekter
           </h1>
         </div>
-        <span className="font-mono text-[12px] font-medium tracking-[2px] uppercase text-[#777777] pb-2">
-          Alle
-        </span>
       </div>
 
       <ProsjekterGrid projects={projects} />

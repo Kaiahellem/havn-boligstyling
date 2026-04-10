@@ -85,7 +85,7 @@ export default function Header({ logoUrl }: HeaderProps) {
         {/* Logo zone */}
         <Link
           href="/"
-          className="flex items-center px-8 sm:px-10 border-r border-[#E5E0D8] shrink-0 w-[180px] sm:w-[240px]"
+          className="flex items-center px-8 sm:px-10 sm:border-r border-[#E5E0D8] shrink-0 w-[180px] sm:w-[240px]"
         >
           {logoSrc && !logoError ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -133,7 +133,7 @@ export default function Header({ logoUrl }: HeaderProps) {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="flex items-center justify-center w-[70px] border-l border-[#E5E0D8] text-[#1A1A1A] min-[1100px]:hidden"
+          className="flex items-center justify-center w-[70px] sm:border-l border-[#E5E0D8] text-[#1A1A1A] min-[1100px]:hidden"
           onClick={() => setSideMenuOpen(true)}
           aria-label="Åpne meny"
           aria-expanded={sideMenuOpen}

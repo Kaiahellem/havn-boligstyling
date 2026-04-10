@@ -8,7 +8,7 @@ export default function KontaktPage() {
     <div className="bg-[#F4F2EF]">
       <section className="flex flex-col lg:flex-row border-b border-[#E5E0D8] min-h-[600px]">
         {/* Left: heading + info */}
-        <div className="flex flex-col justify-between px-10 sm:px-16 py-16 gap-6 border-b lg:border-b-0 lg:border-r border-[#E5E0D8] lg:w-[420px] shrink-0">
+        <div className="flex flex-col justify-between px-10 sm:px-16 py-16 gap-6 border-b lg:border-b-0 lg:border-r border-[#E5E0D8] lg:w-[400px] shrink-0">
           <div className="flex flex-col gap-5">
             <p className="font-mono text-[13px] font-medium tracking-[2px] uppercase text-[#666666]">Kontakt</p>
             <h1 className="font-serif text-[clamp(48px,5vw,72px)] text-[#1A1A1A] leading-[1.03]">
