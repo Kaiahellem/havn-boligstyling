@@ -5,7 +5,7 @@ export default async function ProsjekterPage() {
   const projects = await getProjects();
 
   return (
-    <div className="bg-[#F4F2EF]">
+    <div className="bg-[#F4F2EF] pt-[70px]">
       {/* Title */}
       <div className="border-b border-[#E5E0D8] flex items-end justify-between px-10 sm:px-16 pt-16 pb-14">
         <div>

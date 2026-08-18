@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #544F4D;
-  --background: #f3f1ed;
+  --foreground: #544f4d;
+  --background: #f7f4ee;
 }
 
 html {
@@ -14,11 +14,6 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-}
-
-/* Forbedret typografi */
-h1, h2, h3 {
-  letter-spacing: -0.02em;
 }
 
 @keyframes slide-in-left {
@@ -60,13 +55,4 @@ h1, h2, h3 {
 
 .animate-slide-in-bottom {
   animation: slide-in-bottom 0.35s cubic-bezier(0.32, 0.72, 0, 1) forwards;
-}
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.animate-ticker {
-  animation: ticker 22s linear infinite;
 }

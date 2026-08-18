@@ -29,7 +29,7 @@ const fallback = [
 export default async function TjenesterPage() {
   const data = await getTjenester();
 
-  const heroImage = data[0]?.heroImage ?? "/prosjektBilde5.jpg";
+  const heroImage = data[0]?.heroImage ?? "/placeholder.svg";
 
   const services = data.length > 0
     ? data.map((t, i) => ({
@@ -42,7 +42,7 @@ export default async function TjenesterPage() {
     : fallback;
 
   return (
-    <div className="bg-[#F4F2EF]">
+    <div className="bg-[#F4F2EF] pt-[70px]">
 
       {/* Hero — title left, image right */}
       <section className="flex flex-col lg:flex-row border-b border-[#E5E0D8] min-h-[580px]">

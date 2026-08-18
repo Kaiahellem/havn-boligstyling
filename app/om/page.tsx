@@ -17,8 +17,8 @@ const fallbackStats = [
 export default async function OmPage() {
   const d = await getOmOss();
 
-  const heroImage = d.heroImage ?? "/prosjektBilde3.jpg";
-  const aboutImage = d.aboutImage ?? "/prosjektBilde2.jpg";
+  const heroImage = d.heroImage ?? "/placeholder.svg";
+  const aboutImage = d.aboutImage ?? "/placeholder.svg";
   const quote = d.quote ??"«Vi startet HAVN fordi vi tror at et godt hjem er utgangspunktet for alt annet – uansett størrelse eller budsjett.»";
   const quoteAuthor = d.quoteAuthor ?? "— Grunnlegger, HAVN Boligstyling";
   const bodyText1 = d.bodyText1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
@@ -27,7 +27,7 @@ export default async function OmPage() {
   const stats = d.stats?.length ? d.stats : fallbackStats;
 
   return (
-    <div className="bg-[#F4F2EF]">
+    <div className="bg-[#F4F2EF] pt-[70px]">
 
       {/* Hero — quote + image */}
       <section className="flex flex-col lg:flex-row border-b border-[#E5E0D8] min-h-[500px]">

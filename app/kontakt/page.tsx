@@ -5,7 +5,7 @@ export default function KontaktPage() {
   const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 
   return (
-    <div className="bg-[#F4F2EF]">
+    <div className="bg-[#F4F2EF] pt-[70px]">
       <section className="flex flex-col lg:flex-row border-b border-[#E5E0D8] min-h-[600px]">
         {/* Left: heading + info */}
         <div className="flex flex-col justify-between px-10 sm:px-16 py-16 gap-6 border-b lg:border-b-0 lg:border-r border-[#E5E0D8] lg:w-[400px] shrink-0">

@@ -7,7 +7,7 @@ interface ContactFormProps {
 }
 
 const inputClass =
-  "w-full bg-transparent border-b border-havna-200 focus:border-havna-800 py-3 text-havna-900 placeholder:text-havna-400 outline-none transition-colors duration-200";
+  "w-full bg-transparent border-b border-ink/30 focus:border-ink py-3 text-body text-ink placeholder:text-ink/40 outline-none transition-colors duration-200";
 
 export default function ContactForm({ formspreeId }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -43,12 +43,12 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
 
   if (!formspreeId) {
     return (
-      <div className="border border-havna-200 p-6 text-havna-600 text-sm">
-        <p className="font-medium mb-1 text-havna-800">Skjema ikke konfigurert</p>
+      <div className="border border-ink p-6 text-body text-ink/70">
+        <p className="font-medium mb-1 text-ink">Skjema ikke konfigurert</p>
         <p>
           Legg til{" "}
-          <code className="bg-havna-100 px-1">NEXT_PUBLIC_FORMSPREE_ID</code> i{" "}
-          <code className="bg-havna-100 px-1">.env.local</code> for å aktivere kontaktskjemaet.
+          <code className="bg-ink/5 px-1">NEXT_PUBLIC_FORMSPREE_ID</code> i{" "}
+          <code className="bg-ink/5 px-1">.env.local</code> for å aktivere kontaktskjemaet.
         </p>
       </div>
     );
@@ -57,7 +57,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <label htmlFor="name" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
+        <label htmlFor="name" className="block text-body-sm font-medium uppercase text-ink mb-2">
           Navn
         </label>
         <input
@@ -71,7 +71,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
+        <label htmlFor="email" className="block text-body-sm font-medium uppercase text-ink mb-2">
           E-post
         </label>
         <input
@@ -85,7 +85,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
+        <label htmlFor="phone" className="block text-body-sm font-medium uppercase text-ink mb-2">
           Telefon
         </label>
         <input
@@ -98,7 +98,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-xs font-bold tracking-[0.15em] uppercase text-havna-500 mb-2">
+        <label htmlFor="message" className="block text-body-sm font-medium uppercase text-ink mb-2">
           Melding
         </label>
         <textarea
@@ -112,12 +112,12 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       </div>
 
       {status === "success" && (
-        <p className="text-sm text-havna-700 border-l-2 border-havna-400 pl-4">
+        <p className="text-body-sm text-ink border-l border-ink pl-4">
           Takk for meldingen! Vi tar kontakt så snart vi kan.
         </p>
       )}
       {status === "error" && (
-        <p className="text-sm text-havna-700 border-l-2 border-red-400 pl-4">
+        <p className="text-body-sm text-ink border-l border-ink pl-4">
           Noe gikk galt. Prøv igjen eller ta kontakt på e-post.
         </p>
       )}
@@ -125,7 +125,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full bg-havna-900 text-sand-100 py-4 text-sm font-bold tracking-widest uppercase hover:bg-havna-800 disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-200"
+        className="w-full rounded-lg border border-ink py-[10px] text-body font-medium text-ink hover:bg-ink hover:text-paper disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
       >
         {status === "submitting" ? "Sender..." : "Send melding"}
       </button>

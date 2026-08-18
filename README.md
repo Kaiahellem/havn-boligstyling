@@ -1,20 +1,34 @@
 # HAVN Boligstyling
 
-Nettside for HAVN Boligstyling bygget med Next.js, Formspree og Netlify.
+Nettside for HAVN Boligstyling bygget med Next.js, Sanity CMS og Vercel.
 
 ## Tech Stack
 
-- **Frontend:** Next.js 14 (App Router)
-- **Skjema:** Formspree
-- **Hosting:** Netlify
+- **Frontend:** Next.js 15 (App Router) + TypeScript
+- **Styling:** Tailwind CSS
+- **CMS:** Sanity (hostet Studio + `@sanity/client`)
+- **Bilder:** Sanity CDN via `@sanity/image-url`
+- **Kontaktskjema:** Formspree
+- **Hosting:** Vercel
 
 ## Sider
 
-- **Hjem** – Hero + CTA «Bestill befaring»
-- **Tjenester** – Boligstyling, konsultasjon, utleiestyling
-- **Prosjekter** – Før/etter-galleri (statisk innhold)
-- **Om** – Historie + bilde
-- **Kontakt** – Skjema (Formspree) + Instagram-lenke
+| Side | Rute | Beskrivelse |
+|------|------|-------------|
+| Hjem | `/` | Hero + CTA «Bestill befaring» |
+| Tjenester | `/tjenester` | Boligstyling, konsultasjon, utleiestyling |
+| Prosjekter | `/prosjekter` | Bildegalleri med modal, data fra Sanity |
+| Om | `/om` | Historie + bilde, data fra Sanity |
+| Kontakt | `/kontakt` | Skjema (Formspree) + Instagram-lenke |
+
+## Sanity-skjemaer
+
+Definert i `studio/schemaTypes/`:
+
+- `project.js` – prosjekter med bilder, by og tjenestetype
+- `tjeneste.js` – tjenestebeskrivelser
+- `omOss.js` – innhold til Om-siden
+- `siteSettings.js` – globale innstillinger
 
 ## Kom i gang
 
@@ -24,33 +38,23 @@ Nettside for HAVN Boligstyling bygget med Next.js, Formspree og Netlify.
 npm install
 ```
 
-### 2. Formspree-oppsett
+### 2. Miljøvariabler
 
-1. Opprett konto på [formspree.io](https://formspree.io)
-2. Lag et nytt skjema og kopier Form ID (f.eks. `xyzabcde`)
-3. Opprett `.env.local`:
+Opprett `.env.local` i prosjektroten:
 
-```
+```env
+# Sanity
+NEXT_PUBLIC_SANITY_PROJECT_ID=ditt-prosjekt-id
+NEXT_PUBLIC_SANITY_DATASET=production
+
+# Kontaktskjema
 NEXT_PUBLIC_FORMSPREE_ID=xyzabcde
-```
 
-### 3. Logo (valgfritt)
-
-Legg logo i `public/logo.png` og legg til i `.env.local`:
-
-```
-NEXT_PUBLIC_LOGO_URL=/logo.png
-```
-
-### 4. Instagram (valgfritt)
-
-Legg til i `.env.local` for å vise Instagram-lenke på kontaktsiden:
-
-```
+# Valgfritt
 NEXT_PUBLIC_INSTAGRAM_URL=https://instagram.com/din-profil
 ```
 
-### 5. Kjør utviklingsserver
+### 3. Kjør utviklingsserver
 
 ```bash
 npm run dev
@@ -58,18 +62,30 @@ npm run dev
 
 Åpne [http://localhost:3000](http://localhost:3000).
 
+### 4. Kjør Sanity Studio
+
+```bash
+cd studio
+npx sanity dev
+```
+
+Åpne [http://localhost:3333](http://localhost:3333).
+
 ## Redigere innhold
 
-Alt innhold er statisk og redigeres direkte i koden:
+Alt dynamisk innhold administreres via Sanity Studio:
 
-- **Prosjekter:** `app/prosjekter/page.tsx` – legg til/endre prosjekter i `projects`-arrayet
-- **Om oss:** `app/om/page.tsx` – tekst og bilde
-- **Tjenester:** `app/tjenester/page.tsx`
+- **Prosjekter** – legg til/endre prosjekter med bilder, by og tjenestetype
+- **Tjenester** – rediger tjenestebeskrivelser
+- **Om oss** – rediger tekst og bilde
+- **Innstillinger** – globale siteinnstillinger
 
-For prosjektbilder: legg bilder i `public/prosjekter/` og bruk f.eks. `/prosjekter/før-1.jpg` som bilde-URL.
+## Deploy
 
-## Deploy til Netlify
+Prosjektet deployes automatisk via Vercel ved push til `main`.
 
-1. Koble repo til Netlify
-2. Legg til miljøvariabler: `NEXT_PUBLIC_FORMSPREE_ID`, evt. `NEXT_PUBLIC_LOGO_URL` og `NEXT_PUBLIC_INSTAGRAM_URL`
-3. Build command: `npm run build`
+Legg til miljøvariablene under **Settings → Environment Variables** i Vercel-dashbordet.
+
+```bash
+npm run build   # Bygg lokalt for å verifisere
+```
