@@ -94,14 +94,14 @@ export default function Header({ logoUrl }: HeaderProps) {
       >
         <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between">
           {/* Desktop nav links */}
-          <nav className="hidden min-[1100px]:flex items-center gap-5">
+          <nav className="hidden min-[1100px]:flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-body font-normal text-ink transition-opacity hover:opacity-60 ${
+                  className={`text-subheading font-medium uppercase text-ink transition-opacity hover:opacity-60 ${
                     isActive ? "underline underline-offset-[3px] decoration-ink" : ""
                   }`}
                 >
@@ -124,23 +124,20 @@ export default function Header({ logoUrl }: HeaderProps) {
             </svg>
           </button>
 
-          {/* Wordmark — centered */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
+          {/* Wordmark — right */}
+          <Link href="/" className="flex items-center">
             {logoSrc && !logoError ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={logoSrc}
                 alt="HAVN Boligstyling logo"
-                className="h-6 w-auto object-contain"
+                className="h-5 sm:h-6 w-auto object-contain"
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <span className="text-heading-sm font-medium text-ink">HAVN</span>
+              <span className="text-heading font-medium text-ink">HAVN</span>
             )}
           </Link>
-
-          {/* Spacer to balance the centered wordmark */}
-          <div className="w-5" aria-hidden="true" />
         </div>
       </header>
 
@@ -176,7 +173,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-body font-normal text-ink hover:opacity-60 transition-opacity"
+                  className="text-subheading font-medium uppercase text-ink hover:opacity-60 transition-opacity"
                   onClick={() => setSideMenuOpen(false)}
                 >
                   {link.label}

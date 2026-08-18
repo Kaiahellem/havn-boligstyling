@@ -49,8 +49,8 @@ export default async function HomePage() {
         />
         <div className="absolute bottom-0 left-0 flex max-w-xl flex-col gap-5 p-6 pb-10 sm:p-10 sm:pb-16 lg:p-16">
           <p className="text-body-sm font-medium uppercase text-paper">{heroLabel}</p>
-          <h1 className="text-display font-normal text-paper whitespace-pre-line">{heroTitle}</h1>
-          <p className="text-body font-normal text-paper/90 max-w-md">{heroBody}</p>
+          <h1 className="text-display font-normal text-ink whitespace-pre-line">{heroTitle}</h1>
+          <p className="text-body font-normal text-ink/90 max-w-md">{heroBody}</p>
           <Link
             href="/kontakt"
             className="inline-flex w-fit items-center justify-center rounded-lg border border-paper px-[18px] py-[10px] text-body font-medium text-paper transition-colors hover:bg-paper hover:text-ink"
