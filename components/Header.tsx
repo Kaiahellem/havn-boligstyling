@@ -88,11 +88,11 @@ export default function Header({ logoUrl }: HeaderProps) {
     <>
       <header
         role="banner"
-        className={`fixed top-0 inset-x-0 z-50 flex h-[70px] items-center px-6 sm:px-10 lg:px-16 transition-colors duration-200 ${
+        className={`fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 transition-colors duration-200 ${
           scrolled ? "bg-paper" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between">
+        <div className="flex w-full items-center justify-between">
           {/* Desktop nav links */}
           <nav className="hidden min-[1100px]:flex items-center gap-6">
             {navLinks.map((link) => {
@@ -131,7 +131,7 @@ export default function Header({ logoUrl }: HeaderProps) {
               <img
                 src={logoSrc}
                 alt="HAVN Boligstyling logo"
-                className="h-5 sm:h-6 w-auto object-contain"
+                className="h-7 sm:h-8 w-auto object-contain"
                 onError={() => setLogoError(true)}
               />
             ) : (
