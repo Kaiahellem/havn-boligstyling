@@ -42,15 +42,15 @@ export default async function TjenesterPage() {
     : fallback;
 
   return (
-    <div className="bg-[#F4F2EF] pt-[70px]">
+    <div className="bg-paper pt-[70px]">
 
       {/* Hero — title left, image right */}
-      <section className="flex flex-col lg:flex-row border-b border-[#E5E0D8] min-h-[580px]">
-        <div className="flex flex-col justify-end flex-1 px-10 sm:px-16 pt-16 pb-14 gap-5 border-b lg:border-b-0 lg:border-r border-[#E5E0D8]">
-          <p className="font-mono text-[13px] font-medium tracking-[2px] uppercase text-[#666666]">
+      <section className="flex flex-col lg:flex-row border-b border-ink min-h-[580px]">
+        <div className="flex flex-col justify-end flex-1 px-10 sm:px-16 pt-16 pb-14 gap-5 border-b lg:border-b-0 lg:border-r border-ink">
+          <p className="text-body-sm font-medium uppercase text-ink">
             Hva vi tilbyr
           </p>
-          <h1 className="font-serif text-[clamp(48px,6vw,80px)] text-[#1A1A1A] leading-[1.03]">
+          <h1 className="text-display font-normal text-ink">
             Våre tjenester
           </h1>
         </div>
@@ -69,18 +69,18 @@ export default async function TjenesterPage() {
       {/* Services list */}
       <section>
         {services.map((service) => (
-          <article key={service.id} id={service.id} className="flex flex-col lg:flex-row border-b border-[#E5E0D8]">
-            <div className="flex flex-col gap-3 px-10 sm:px-16 py-14 lg:w-[340px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#E5E0D8]">
-              <span className="font-mono text-[13px] font-medium tracking-[1px] text-[#C8B496]">{service.num}</span>
-              <h2 className="font-serif text-[36px] text-[#1A1A1A] leading-[1.08]">{service.title}</h2>
+          <article key={service.id} id={service.id} className="flex flex-col lg:flex-row border-b border-ink">
+            <div className="flex flex-col gap-3 px-10 sm:px-16 py-14 lg:w-[340px] shrink-0 border-b lg:border-b-0 lg:border-r border-ink">
+              <span className="text-body-sm font-medium text-ink/60">{service.num}</span>
+              <h2 className="text-heading font-normal text-ink leading-[1.1]">{service.title}</h2>
             </div>
             <div className="flex-1 px-10 sm:px-16 py-14 flex flex-col gap-8">
-              <p className="text-[16px] text-[#4A4A4A] leading-relaxed max-w-2xl">{service.description}</p>
+              <p className="text-body font-normal text-ink/70 max-w-2xl">{service.description}</p>
               {service.highlights.length > 0 && (
                 <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-3">
                   {service.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3 font-mono text-[13px] font-medium tracking-[0.5px] text-[#777777]">
-                      <span className="w-1 h-1 bg-[#C8B496] shrink-0" />
+                    <li key={item} className="flex items-center gap-3 text-body-sm font-medium uppercase text-ink/70">
+                      <span className="w-1 h-1 bg-ink shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -92,17 +92,17 @@ export default async function TjenesterPage() {
       </section>
 
       {/* CTA */}
-      <section className="flex flex-col sm:flex-row items-stretch bg-[#1E1E1E]">
+      <section className="flex flex-col sm:flex-row items-stretch bg-ink">
         <div className="flex-1 flex flex-col justify-center gap-3 px-10 sm:px-16 py-16">
-          <h2 className="font-serif text-[clamp(28px,3vw,40px)] text-white leading-[1.08]">
+          <h2 className="text-heading font-normal text-paper leading-[1.1]">
             Usikker på hva som passer for deg?
           </h2>
-          <p className="text-[15px] text-[#666666]">Vi hjelper deg gjerne med å finne ut av det.</p>
+          <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å finne ut av det.</p>
         </div>
-        <div className="flex items-center justify-center px-10 sm:px-16 py-12 sm:border-l border-[#333333]">
+        <div className="flex items-center justify-center px-10 sm:px-16 py-12 sm:border-l border-paper/20">
           <Link
             href="/kontakt"
-            className="inline-block border border-[#E5E0D8] text-white font-mono text-[13px] font-medium tracking-[2px] uppercase px-9 py-[18px] hover:bg-white hover:text-[#1E1E1E] transition-colors duration-200"
+            className="inline-flex items-center justify-center rounded-lg border border-paper px-[18px] py-[10px] text-body font-medium text-paper hover:bg-paper hover:text-ink transition-colors"
           >
             Bestill befaring
           </Link>

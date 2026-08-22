@@ -98,13 +98,13 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
       {/* Modal content */}
       <div
         ref={modalRef}
-        className="relative w-full max-w-[1200px] h-[90vh] max-h-[90vh] overflow-y-auto bg-[var(--background)] shadow-2xl animate-slide-in-bottom"
+        className="relative w-full max-w-[1200px] h-[90vh] max-h-[90vh] overflow-y-auto bg-paper shadow-2xl animate-slide-in-bottom"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full text-havna-600 hover:text-havna-800 hover:bg-havna-100 transition-colors"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full text-ink/70 hover:text-ink hover:bg-ink/5 transition-colors"
           aria-label="Lukk"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
                   <button
                     type="button"
                     onClick={prevImage}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 transition-colors"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paper/80 hover:bg-paper shadow-md flex items-center justify-center text-ink transition-colors"
                     aria-label="Forrige bilde"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,7 +138,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
                   <button
                     type="button"
                     onClick={nextImage}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-paper/80 hover:bg-paper shadow-md flex items-center justify-center text-ink transition-colors"
                     aria-label="Neste bilde"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +156,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
                     type="button"
                     onClick={() => setImageIndex(idx)}
                     className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                      idx === imageIndex ? "bg-havna-800" : "bg-havna-300"
+                      idx === imageIndex ? "bg-ink" : "bg-ink/25"
                     }`}
                     aria-label={`Bilde ${idx + 1}`}
                   />
@@ -167,21 +167,21 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
 
           {/* Text content */}
           <div className="flex-1 p-6 sm:p-8 flex flex-col justify-center order-2 md:order-2">
-            <div className="flex flex-wrap gap-2 mb-3">
+            <div className="flex flex-wrap gap-3 mb-3">
               {project.service && (
-                <span className="text-xs font-medium text-havna-600 bg-havna-100 px-2 py-1 rounded">
+                <span className="text-body-sm font-medium uppercase text-ink/60">
                   {project.service}
                 </span>
               )}
               {project.city && (
-                <span className="text-xs text-havna-500">{project.city}</span>
+                <span className="text-body-sm font-normal text-ink/60">{project.city}</span>
               )}
             </div>
-            <h2 id="modal-title" className="font-serif text-2xl sm:text-3xl font-semibold text-havna-900 mb-4">
+            <h2 id="modal-title" className="text-heading font-normal text-ink mb-4">
               {project.title}
             </h2>
             {project.description && (
-              <p className="text-havna-700 mb-6 leading-relaxed">{project.description}</p>
+              <p className="text-body font-normal text-ink/70 mb-6">{project.description}</p>
             )}
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
         <div className="absolute bottom-6 right-6 flex items-center gap-4">
           <Link
             href="/prosjekter"
-            className="text-havna-700 font-medium underline underline-offset-4 decoration-2 transition-all duration-200 hover:decoration-transparent"
+            className="text-body font-normal text-ink underline underline-offset-[3px] decoration-ink"
           >
             Se alle prosjekter
           </Link>
@@ -199,7 +199,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
               type="button"
               onClick={onPrev}
               disabled={!hasPrev}
-              className="w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="w-10 h-10 rounded-full bg-paper/80 hover:bg-paper shadow-md flex items-center justify-center text-ink disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               aria-label="Forrige prosjekt"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,7 +210,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
               type="button"
               onClick={onNext}
               disabled={!hasNext}
-              className="w-10 h-10 rounded-full bg-white/80 hover:bg-white shadow-md flex items-center justify-center text-havna-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="w-10 h-10 rounded-full bg-paper/80 hover:bg-paper shadow-md flex items-center justify-center text-ink disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               aria-label="Neste prosjekt"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

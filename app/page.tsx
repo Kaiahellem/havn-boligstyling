@@ -47,13 +47,14 @@ export default async function HomePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute bottom-0 left-0 flex max-w-xl flex-col gap-5 p-6 pb-10 sm:p-10 sm:pb-16 lg:p-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 flex max-w-xl flex-col gap-5 p-6 pb-24 sm:p-10 sm:pb-32 lg:p-16 lg:pb-36 [text-shadow:0_2px_16px_rgba(0,0,0,0.55)]">
           <p className="text-body-sm font-medium uppercase text-paper">{heroLabel}</p>
-          <h1 className="text-display font-normal text-ink whitespace-pre-line">{heroTitle}</h1>
-          <p className="text-body font-normal text-ink/90 max-w-md">{heroBody}</p>
+          <h1 className="text-display font-normal text-paper whitespace-nowrap">{heroTitle}</h1>
+          <p className="text-[18px] leading-[1.55] font-normal text-paper/90 max-w-md">{heroBody}</p>
           <Link
             href="/kontakt"
-            className="inline-flex w-fit items-center justify-center rounded-lg border border-paper px-[18px] py-[10px] text-body font-medium text-paper transition-colors hover:bg-paper hover:text-ink"
+            className="inline-flex w-fit items-center justify-center rounded-none bg-paper px-[18px] py-[10px] text-body font-medium text-ink transition-colors hover:bg-paper/90"
           >
             {heroCta}
           </Link>

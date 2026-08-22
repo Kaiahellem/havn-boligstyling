@@ -18,23 +18,23 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
             key={project._id}
             type="button"
             onClick={() => setSelectedProject(project)}
-            className={`w-full text-left flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} border-b border-[#E5E0D8] group cursor-pointer`}
+            className={`w-full text-left flex flex-col ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} border-b border-ink group cursor-pointer`}
           >
             {/* Text side */}
-            <div className="flex flex-col justify-center gap-5 flex-1 px-10 sm:px-16 py-16 border-b lg:border-b-0 border-[#E5E0D8]">
-              <span className="font-mono text-[13px] font-medium tracking-[1px] text-[#C8B496]">
+            <div className="flex flex-col justify-center gap-5 flex-1 px-10 sm:px-16 py-16 border-b lg:border-b-0 border-ink">
+              <span className="text-body-sm font-medium text-ink/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h2 className="font-serif text-[32px] text-[#1A1A1A] leading-[1.08]">{project.title}</h2>
+              <h2 className="text-heading font-normal text-ink leading-[1.1]">{project.title}</h2>
               {project.description && (
-                <p className="text-[15px] text-[#777777] leading-relaxed max-w-sm">{project.description}</p>
+                <p className="text-body font-normal text-ink/70 max-w-sm">{project.description}</p>
               )}
               {project.service && (
-                <span className="font-mono text-[12px] font-medium tracking-[1px] uppercase text-[#777777]">
+                <span className="text-body-sm font-medium uppercase text-ink/60">
                   {project.service}
                 </span>
               )}
-              <span className="font-mono text-[12px] font-medium tracking-[1px] uppercase text-[#1A1A1A] group-hover:tracking-[3px] transition-all duration-300 w-fit">
+              <span className="text-body-sm font-medium uppercase text-ink underline underline-offset-[3px] decoration-ink w-fit">
                 Se prosjekt →
               </span>
             </div>
@@ -53,10 +53,10 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
       </section>
 
       {/* CTA */}
-      <div className="flex justify-center px-10 sm:px-16 py-16 border-b border-[#E5E0D8]">
+      <div className="flex justify-center px-10 sm:px-16 py-16 border-b border-ink">
         <Link
           href="/kontakt"
-          className="inline-block bg-[#1E1E1E] text-white font-mono text-[13px] font-medium tracking-[2px] uppercase px-9 py-[18px] hover:bg-[#333] transition-colors duration-200"
+          className="inline-flex items-center justify-center rounded-lg border border-ink px-[18px] py-[10px] text-body font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
         >
           Bestill befaring
         </Link>
