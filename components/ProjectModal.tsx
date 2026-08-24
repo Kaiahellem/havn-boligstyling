@@ -190,7 +190,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, hasPrev
         <div className="absolute bottom-6 right-6 flex items-center gap-4">
           <Link
             href="/prosjekter"
-            className="text-body font-normal text-ink underline underline-offset-[3px] decoration-ink"
+            className="text-body font-normal text-ink"
           >
             Se alle prosjekter
           </Link>

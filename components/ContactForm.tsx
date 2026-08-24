@@ -43,7 +43,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
 
   if (!formspreeId) {
     return (
-      <div className="border border-ink p-6 text-body text-ink/70">
+      <div className="p-6 text-body text-ink/70">
         <p className="font-medium mb-1 text-ink">Skjema ikke konfigurert</p>
         <p>
           Legg til{" "}

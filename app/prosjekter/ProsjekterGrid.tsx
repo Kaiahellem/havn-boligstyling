@@ -34,7 +34,7 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
                   {project.service}
                 </span>
               )}
-              <span className="text-body-sm font-medium uppercase text-ink underline underline-offset-[3px] decoration-ink w-fit">
+              <span className="text-body-sm font-medium uppercase text-ink w-fit">
                 Se prosjekt →
               </span>
             </div>

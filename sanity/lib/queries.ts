@@ -34,7 +34,6 @@ export interface SiteSettings {
   editorialBody?: string;
   editorialQuote?: string;
   editorialQuoteAuthor?: string;
-  stats?: { num: string; label: string; desc: string }[];
   ctaTitle?: string;
   ctaBody?: string;
 }
@@ -46,7 +45,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       heroLabel, heroTitle, heroBody, heroCta,
       "editorialImage": editorialImage.asset->url,
       editorialLabel, editorialTitle, editorialBody, editorialQuote, editorialQuoteAuthor,
-      stats, ctaTitle, ctaBody
+      ctaTitle, ctaBody
     }`,
     {},
     revalidate

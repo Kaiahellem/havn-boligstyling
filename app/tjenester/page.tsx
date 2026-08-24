@@ -9,6 +9,7 @@ const fallback = [
     title: "Boligstyling",
     description: "Vi transformerer boligen din til et hjem som speiler din personlighet. Fra møblering og innredning til farger og detaljer – vi skaper et helhetlig uttrykk som gjør at du føler deg hjemme.",
     highlights: ["Møblering og innredning", "Fargevalg og materialer", "Dekorasjon og detaljer", "Helhetlig designkonsept"],
+    heroImage: "/placeholder.svg",
   },
   {
     id: "konsultasjon",
@@ -16,6 +17,7 @@ const fallback = [
     title: "Konsultasjon",
     description: "Trenger du råd uten full boligstyling? Vi tilbyr konsultasjoner der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
     highlights: ["Rom-for-rom vurdering", "Konkrete anbefalinger", "Kjøpsveiledning", "Farge- og stilråd"],
+    heroImage: "/placeholder.svg",
   },
   {
     id: "utleiestyling",
@@ -23,6 +25,7 @@ const fallback = [
     title: "Utleiestyling",
     description: "Skal du leie ut boligen? Vi stiler for salg og utleie slik at potensielle leietakere ser verdien. Profesjonelle bilder og et innbydende inntrykk øker interessen betydelig.",
     highlights: ["Staging for utleie/salg", "Fotovennlig innredning", "Maksimalt første inntrykk", "Rask gjennomføring"],
+    heroImage: "/placeholder.svg",
   },
 ];
 
@@ -38,57 +41,80 @@ export default async function TjenesterPage() {
         title: t.title,
         description: t.description ?? "",
         highlights: t.highlights ?? [],
+        heroImage: t.heroImage ?? "/placeholder.svg",
       }))
     : fallback;
 
   return (
     <div className="bg-paper pt-[70px]">
 
-      {/* Hero — title left, image right */}
-      <section className="flex flex-col lg:flex-row border-b border-ink min-h-[580px]">
-        <div className="flex flex-col justify-end flex-1 px-10 sm:px-16 pt-16 pb-14 gap-5 border-b lg:border-b-0 lg:border-r border-ink">
-          <p className="text-body-sm font-medium uppercase text-ink">
-            Hva vi tilbyr
-          </p>
-          <h1 className="text-display font-normal text-ink">
-            Våre tjenester
-          </h1>
-        </div>
-        <div className="relative w-full lg:w-[60%] min-h-[400px] lg:min-h-0 shrink-0">
+      {/* Title */}
+      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-16 sm:py-20">
+        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
+          Våre tjenester
+        </h1>
+        <p className="text-body font-normal text-ink/70 lg:max-w-[30%]">
+          Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
+        </p>
+      </section>
+
+      {/* Hero — full-width image */}
+      <section className="border-b border-ink">
+        <div className="relative w-full min-h-[400px] lg:min-h-[580px]">
           <Image
             src={heroImage}
             alt="HAVN Boligstyling interiør"
             fill
             className="object-cover"
             priority
-            sizes="(max-width: 1024px) 100vw, 60vw"
+            sizes="100vw"
           />
         </div>
       </section>
 
       {/* Services list */}
-      <section>
-        {services.map((service) => (
-          <article key={service.id} id={service.id} className="flex flex-col lg:flex-row border-b border-ink">
-            <div className="flex flex-col gap-3 px-10 sm:px-16 py-14 lg:w-[340px] shrink-0 border-b lg:border-b-0 lg:border-r border-ink">
-              <span className="text-body-sm font-medium text-ink/60">{service.num}</span>
-              <h2 className="text-heading font-normal text-ink leading-[1.1]">{service.title}</h2>
-            </div>
-            <div className="flex-1 px-10 sm:px-16 py-14 flex flex-col gap-8">
-              <p className="text-body font-normal text-ink/70 max-w-2xl">{service.description}</p>
-              {service.highlights.length > 0 && (
-                <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-3">
-                  {service.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-body-sm font-medium uppercase text-ink/70">
-                      <span className="w-1 h-1 bg-ink shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </article>
-        ))}
+      <section className="flex flex-col gap-16 sm:gap-20 lg:gap-24 py-16 sm:py-20 lg:py-24">
+        {services.map((service, i) => {
+          const reversed = i % 2 === 0;
+          return (
+            <article
+              key={service.id}
+              id={service.id}
+              className={`flex flex-col ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"} items-center lg:items-start gap-10 lg:gap-16 px-10 sm:px-16`}
+            >
+              <div className="relative w-full lg:w-1/2 aspect-[4/3] shrink-0">
+                <Image
+                  src={service.heroImage}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="flex flex-col gap-3 lg:w-1/2">
+                <span className="text-body-sm font-medium text-ink/60">{service.num}</span>
+                <h2 className="text-heading font-normal text-ink leading-[1.1]">{service.title}</h2>
+                <p className="mt-2 text-body font-normal text-ink/70 max-w-2xl">{service.description}</p>
+                {service.highlights.length > 0 && (
+                  <ul className="mt-4 grid sm:grid-cols-2 gap-x-12 gap-y-3">
+                    {service.highlights.map((item) => (
+                      <li key={item} className="flex items-center gap-3 text-body-sm font-medium uppercase text-ink/70">
+                        <span className="w-1 h-1 bg-ink shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <Link
+                  href="/kontakt"
+                  className="mt-4 inline-flex w-fit items-center justify-center rounded-lg border border-ink px-[18px] py-[10px] text-body font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
+                >
+                  Ta kontakt
+                </Link>
+              </div>
+            </article>
+          );
+        })}
       </section>
 
       {/* CTA */}
