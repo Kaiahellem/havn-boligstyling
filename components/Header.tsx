@@ -92,52 +92,78 @@ export default function Header({ logoUrl }: HeaderProps) {
           scrolled ? "bg-paper" : "bg-transparent"
         }`}
       >
-        <div className="flex w-full items-center justify-between">
-          {/* Desktop nav links */}
-          <nav className="hidden min-[1100px]:flex items-center gap-6">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-subheading font-medium uppercase text-ink transition-opacity hover:opacity-60 ${
-                    isActive ? "underline underline-offset-[3px] decoration-ink" : ""
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+        <div className="flex w-full items-center">
+          {/* Mobile: hamburger — wordmark */}
+          <div className="flex w-full items-center justify-between min-[1100px]:hidden">
+            <button
+              type="button"
+              className="flex items-center justify-center text-ink"
+              onClick={() => setSideMenuOpen(true)}
+              aria-label="Åpne meny"
+              aria-expanded={sideMenuOpen}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
 
-          {/* Mobile hamburger (left, mirrors desktop nav position) */}
-          <button
-            type="button"
-            className="flex items-center justify-center text-ink min-[1100px]:hidden"
-            onClick={() => setSideMenuOpen(true)}
-            aria-label="Åpne meny"
-            aria-expanded={sideMenuOpen}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+            <Link href="/" className="flex items-center">
+              {logoSrc && !logoError ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={logoSrc}
+                  alt="HAVN Boligstyling logo"
+                  className="h-6 sm:h-7 w-auto object-contain"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <span className="text-heading font-medium text-ink">HAVN</span>
+              )}
+            </Link>
+          </div>
 
-          {/* Wordmark — right */}
-          <Link href="/" className="flex items-center">
-            {logoSrc && !logoError ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={logoSrc}
-                alt="HAVN Boligstyling logo"
-                className="h-7 sm:h-8 w-auto object-contain"
-                onError={() => setLogoError(true)}
-              />
-            ) : (
-              <span className="text-heading font-medium text-ink">HAVN</span>
-            )}
-          </Link>
+          {/* Desktop: wordmark — nav (centered) — CTA */}
+          <div className="hidden w-full min-[1100px]:flex items-center">
+            <Link href="/" className="flex flex-1 items-center">
+              {logoSrc && !logoError ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={logoSrc}
+                  alt="HAVN Boligstyling logo"
+                  className="h-6 sm:h-7 w-auto object-contain"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <span className="text-heading font-medium text-ink">HAVN</span>
+              )}
+            </Link>
+
+            <nav className="flex shrink-0 items-center gap-6">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`text-body-sm font-medium uppercase tracking-[0.05em] transition-opacity hover:opacity-100 ${
+                      isActive ? "text-ink" : "text-ink/60"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="flex flex-1 items-center justify-end">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
+              >
+                Bestill befaring
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
 

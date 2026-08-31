@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
 import { getSiteSettings, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
+import { placeholderPhotos } from "@/lib/placeholderPhotos";
 
 export default async function HomePage() {
   const [s, om, projects, tjenester, instagramPosts] = await Promise.all([
@@ -17,47 +18,65 @@ export default async function HomePage() {
   const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "";
   const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 
-  const aboutImage = om.aboutImage ?? "/placeholder.svg";
+  const heroImage = s.heroImage ?? placeholderPhotos[0];
+  const aboutImage = om.aboutImage ?? placeholderPhotos[1];
   const bodyText1 = om.bodyText1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
   const bodyText2 = om.bodyText2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
-  const aboutTextSections = tjenester.length > 0
-    ? tjenester.slice(0, 3).map((t) => ({ title: t.title, body: t.description ?? "" }))
+  const services = tjenester.length > 0
+    ? tjenester.slice(0, 3).map((t, i) => ({ title: t.title, body: t.description ?? "", slug: t.slug, image: t.heroImage ?? placeholderPhotos[(i + 2) % placeholderPhotos.length] }))
     : [
-        { title: "Boligstyling", body: "Vi transformerer boligen din til et hjem som speiler din personlighet." },
-        { title: "Konsultasjon", body: "Konkrete råd og veiledning for rom-for-rom, uten full boligstyling." },
-        { title: "Utleiestyling", body: "Vi stiler for salg og utleie slik at potensielle leietakere ser verdien." },
+        { title: "Boligstyling", body: "Vi transformerer boligen din til et hjem som speiler din personlighet.", slug: "boligstyling", image: placeholderPhotos[2] },
+        { title: "Konsultasjon", body: "Konkrete råd og veiledning for rom-for-rom, uten full boligstyling.", slug: "konsultasjon", image: placeholderPhotos[3] },
+        { title: "Utleiestyling", body: "Vi stiler for salg og utleie slik at potensielle leietakere ser verdien.", slug: "utleiestyling", image: placeholderPhotos[4] },
       ];
 
   const workSamples = projects.length > 0
     ? projects.slice(0, 6)
     : [
-        { _id: "1", title: "Villa Bygdøy", image: "/placeholder.svg", description: "Full boligstyling før salg.", service: "Boligstyling" },
-        { _id: "2", title: "Leilighet Grünerløkka", image: "/placeholder.svg", description: "Konsultasjon og møblering.", service: "Konsultasjon" },
-        { _id: "3", title: "Utleiebolig Frogner", image: "/placeholder.svg", description: "Styling for korttidsutleie.", service: "Utleiestyling" },
-        { _id: "4", title: "Rekkehus Nordstrand", image: "/placeholder.svg", description: "Full boligstyling før salg.", service: "Boligstyling" },
+        { _id: "1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Boligstyling" },
+        { _id: "2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
+        { _id: "3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
+        { _id: "4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Boligstyling" },
       ];
 
   return (
-    <div className="bg-paper">
+    <div className="bg-paper pt-[70px]">
+
+      {/* Title */}
+      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
+        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
+          Styling som løfter boligen
+        </h1>
+        <div className="flex flex-col gap-6 lg:max-w-[30%]">
+          <p className="text-body font-normal text-ink/70">
+            Jeg hjelper deg få frem det beste i boligen – enten den skal selges eller bli et bedre sted å bo.
+          </p>
+          <Link
+            href="/kontakt"
+            className="inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
+          >
+            Ta kontakt
+          </Link>
+        </div>
+      </section>
 
       {/* ── HERO ── */}
-      <section className="relative h-screen min-h-[560px] w-full">
-        <Image
-          src={s.heroImage ?? "/placeholder.svg"}
-          alt="HAVN Boligstyling interiør"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+      <section className="w-full bg-paper p-16 box-border">
+        <div className="relative h-[600px] lg:h-[848px] w-full">
+          <Image
+            src={heroImage}
+            alt="HAVN Boligstyling interiør"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
       </section>
 
       {/* ── ABOUT ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
-        <div className="flex flex-col gap-5 max-w-2xl">
-          <p className="text-body-sm font-medium uppercase text-ink">Om Havn</p>
-          <h2 className="text-heading font-normal text-ink">Et hjem som speiler hvem du er.</h2>
-        </div>
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
+        <p className="text-body-sm font-medium uppercase text-ink">Om meg</p>
 
         <div className="mt-12 flex flex-col sm:flex-row items-start gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
           <div className="relative w-40 sm:w-48 lg:w-56 aspect-[4/5] shrink-0">
@@ -76,23 +95,29 @@ export default async function HomePage() {
               href="/om"
               className="w-fit text-body font-normal text-ink"
             >
-              Les mer om oss →
+              Les mer om Havn boligstyling →
             </Link>
           </div>
         </div>
+      </section>
 
-        <div className="relative left-1/2 w-screen -translate-x-1/2 bg-ink">
-          <div className="mx-auto flex w-full max-w-[1280px] flex-col px-6 sm:flex-row sm:px-10 lg:px-16">
-            {aboutTextSections.map(({ title, body }, i) => (
-              <div
-                key={title}
-                className={`flex-1 flex flex-col gap-2.5 py-10 ${i > 0 ? "sm:pl-10" : ""} ${i < aboutTextSections.length - 1 ? "sm:pr-10" : ""}`}
-              >
-                <h3 className="text-body-sm font-medium uppercase text-paper">{title}</h3>
-                <p className="text-body-sm font-normal text-paper/70">{body}</p>
+      {/* ── SERVICES ── */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
+        <div className="flex flex-col gap-10 sm:flex-row sm:gap-8">
+          {services.map(({ title, body, slug, image }) => (
+            <div key={title} className="flex flex-1 flex-col gap-6">
+              <div className="relative w-full aspect-[4/3]">
+                <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
               </div>
-            ))}
-          </div>
+              <div className="flex flex-col gap-2.5">
+                <h2 className="text-heading-sm font-normal text-ink">{title}</h2>
+                <p className="text-body-sm font-normal text-ink/70">{body}</p>
+                <Link href={`/tjenester#${slug}`} className="mt-1 w-fit text-body-sm font-medium uppercase text-ink underline underline-offset-[3px]">
+                  Se tjeneste →
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getTjenester } from "@/sanity/lib/queries";
+import { placeholderPhotos } from "@/lib/placeholderPhotos";
 
 const fallback = [
   {
@@ -9,7 +10,7 @@ const fallback = [
     title: "Boligstyling",
     description: "Vi transformerer boligen din til et hjem som speiler din personlighet. Fra møblering og innredning til farger og detaljer – vi skaper et helhetlig uttrykk som gjør at du føler deg hjemme.",
     highlights: ["Møblering og innredning", "Fargevalg og materialer", "Dekorasjon og detaljer", "Helhetlig designkonsept"],
-    heroImage: "/placeholder.svg",
+    heroImage: placeholderPhotos[0],
   },
   {
     id: "konsultasjon",
@@ -17,7 +18,7 @@ const fallback = [
     title: "Konsultasjon",
     description: "Trenger du råd uten full boligstyling? Vi tilbyr konsultasjoner der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
     highlights: ["Rom-for-rom vurdering", "Konkrete anbefalinger", "Kjøpsveiledning", "Farge- og stilråd"],
-    heroImage: "/placeholder.svg",
+    heroImage: placeholderPhotos[1],
   },
   {
     id: "utleiestyling",
@@ -25,14 +26,14 @@ const fallback = [
     title: "Utleiestyling",
     description: "Skal du leie ut boligen? Vi stiler for salg og utleie slik at potensielle leietakere ser verdien. Profesjonelle bilder og et innbydende inntrykk øker interessen betydelig.",
     highlights: ["Staging for utleie/salg", "Fotovennlig innredning", "Maksimalt første inntrykk", "Rask gjennomføring"],
-    heroImage: "/placeholder.svg",
+    heroImage: placeholderPhotos[2],
   },
 ];
 
 export default async function TjenesterPage() {
   const data = await getTjenester();
 
-  const heroImage = data[0]?.heroImage ?? "/placeholder.svg";
+  const heroImage = data[0]?.heroImage ?? placeholderPhotos[3];
 
   const services = data.length > 0
     ? data.map((t, i) => ({
@@ -41,7 +42,7 @@ export default async function TjenesterPage() {
         title: t.title,
         description: t.description ?? "",
         highlights: t.highlights ?? [],
-        heroImage: t.heroImage ?? "/placeholder.svg",
+        heroImage: t.heroImage ?? placeholderPhotos[(i + 3) % placeholderPhotos.length],
       }))
     : fallback;
 
@@ -49,18 +50,26 @@ export default async function TjenesterPage() {
     <div className="bg-paper pt-[70px]">
 
       {/* Title */}
-      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-16 sm:py-20">
+      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
         <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
           Våre tjenester
         </h1>
-        <p className="text-body font-normal text-ink/70 lg:max-w-[30%]">
-          Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
-        </p>
+        <div className="flex flex-col gap-6 lg:max-w-[30%]">
+          <p className="text-body font-normal text-ink/70">
+            Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
+          </p>
+          <Link
+            href="/kontakt"
+            className="inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
+          >
+            Bestill befaring
+          </Link>
+        </div>
       </section>
 
       {/* Hero — full-width image */}
-      <section className="border-b border-ink">
-        <div className="relative w-full min-h-[400px] lg:min-h-[580px]">
+      <section className="bg-paper p-16 box-border">
+        <div className="relative w-full min-h-[400px] lg:min-h-[480px]">
           <Image
             src={heroImage}
             alt="HAVN Boligstyling interiør"
@@ -107,7 +116,7 @@ export default async function TjenesterPage() {
                 )}
                 <Link
                   href="/kontakt"
-                  className="mt-4 inline-flex w-fit items-center justify-center rounded-lg border border-ink px-[18px] py-[10px] text-body font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
+                  className="mt-4 inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
                 >
                   Ta kontakt
                 </Link>
@@ -125,10 +134,10 @@ export default async function TjenesterPage() {
           </h2>
           <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å finne ut av det.</p>
         </div>
-        <div className="flex items-center justify-center px-10 sm:px-16 py-12 sm:border-l border-paper/20">
+        <div className="flex items-center justify-center px-10 sm:px-16 py-12">
           <Link
             href="/kontakt"
-            className="inline-flex items-center justify-center rounded-lg border border-paper px-[18px] py-[10px] text-body font-medium text-paper hover:bg-paper hover:text-ink transition-colors"
+            className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
           >
             Bestill befaring
           </Link>

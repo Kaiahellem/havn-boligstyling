@@ -36,8 +36,7 @@ const config: Config = {
         greige: "#e1ded8",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        serif: ["var(--font-playfair)", "Georgia", "Cambria", "Times New Roman", "serif"],
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         mono: ["var(--font-ibm-mono)", "monospace"],
       },
       fontSize: {

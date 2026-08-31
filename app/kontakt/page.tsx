@@ -6,18 +6,33 @@ export default function KontaktPage() {
 
   return (
     <div className="bg-paper pt-[70px]">
-      <section className="flex flex-col lg:flex-row border-b border-ink min-h-[600px]">
-        {/* Left: heading + info */}
-        <div className="flex flex-col justify-between px-10 sm:px-16 py-16 gap-6 border-b lg:border-b-0 lg:border-r border-ink lg:w-[400px] shrink-0">
-          <div className="flex flex-col gap-5">
-            <p className="text-body-sm font-medium uppercase text-ink">Kontakt</p>
-            <h1 className="text-display font-normal text-ink">
-              La oss ta en prat!
-            </h1>
-            <p className="text-body font-normal text-ink/70 max-w-sm">
-              Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi
-              kontakt så snart vi kan.
-            </p>
+
+      {/* Title */}
+      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
+        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
+          La oss ta en prat
+        </h1>
+        <p className="text-body font-normal text-ink/70 lg:max-w-[30%]">
+          Ønsker du en befaring eller har du spørsmål om boligstyling? Fyll ut skjemaet, så tar vi kontakt så snart vi kan.
+        </p>
+      </section>
+
+      {/* Content — info + form */}
+      <section className="flex flex-col lg:flex-row items-start gap-10 lg:gap-12 px-10 sm:px-16 pb-16 sm:pb-24">
+        <div className="flex flex-col lg:w-[360px] shrink-0 gap-10 lg:gap-16">
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-1.5">
+              <span className="text-body-sm font-medium uppercase text-ink/60">E-post</span>
+              <span className="text-body font-normal text-ink">hei@havn.no</span>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <span className="text-body-sm font-medium uppercase text-ink/60">Telefon</span>
+              <span className="text-body font-normal text-ink">+47 400 00 000</span>
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <span className="text-body-sm font-medium uppercase text-ink/60">Område</span>
+              <span className="text-body font-normal text-ink">Oslo og omegn</span>
+            </div>
           </div>
 
           {instagramUrl && (
@@ -33,8 +48,7 @@ export default function KontaktPage() {
           )}
         </div>
 
-        {/* Right: form */}
-        <div className="flex-1 px-10 sm:px-16 py-16">
+        <div className="flex-1 w-full">
           <ContactForm formspreeId={formspreeId} />
         </div>
       </section>
