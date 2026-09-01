@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
+import ScrollHero from "@/components/ScrollHero";
+import ParallaxGallery from "@/components/ParallaxGallery";
 import { getSiteSettings, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
@@ -43,25 +45,11 @@ export default async function HomePage() {
     <div className="bg-paper pt-[70px]">
 
       {/* ── HERO ── */}
-      <section className="w-full bg-paper p-16 pb-0 box-border">
-        <div className="relative h-[600px] lg:h-[848px] w-full">
-          <Image
-            src={heroImage}
-            alt="HAVN Boligstyling interiør"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </div>
-      </section>
+      <ScrollHero image={heroImage} heading="Styling som løfter boligen" />
 
-      {/* Title */}
+      {/* Intro */}
       <section className="px-10 sm:px-16 pt-8 sm:pt-10">
-        <h1 className="text-display font-normal text-ink max-w-2xl">
-          Styling som løfter boligen
-        </h1>
-        <p className="mt-6 text-body font-normal text-ink/70 max-w-md">
+        <p className="text-body font-normal text-ink/70 max-w-md">
           Jeg hjelper deg få frem det beste i boligen – enten den skal selges eller bli et bedre sted å bo.
         </p>
       </section>
@@ -91,6 +79,9 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── GALLERY ── */}
+      <ParallaxGallery images={placeholderPhotos} />
 
       {/* ── SERVICES ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
