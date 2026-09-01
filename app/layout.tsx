@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,6 +9,13 @@ const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-ibm-mono",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -25,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="no">
-      <body className={`${GeistSans.variable} ${ibmMono.variable} font-sans antialiased min-h-screen flex flex-col bg-paper text-ink`}>
+      <body className={`${GeistSans.variable} ${ibmMono.variable} ${fraunces.variable} font-sans antialiased min-h-screen flex flex-col bg-paper text-ink`}>
         <Header logoUrl={process.env.NEXT_PUBLIC_LOGO_URL ?? "/HAVN_BS_kuntekst.svg"} />
         <main className="flex-1">{children}</main>
         <Footer />

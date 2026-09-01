@@ -16,6 +16,18 @@ body {
   background: var(--background);
 }
 
+h1,
+h2 {
+  font-family: var(--font-heading), serif;
+}
+
+/* Fraunces at 400 reads heavier than Geist did — thin it out for headings
+   specifically, without touching font-normal's meaning everywhere else. */
+h1.font-normal,
+h2.font-normal {
+  font-weight: 300;
+}
+
 @keyframes slide-in-left {
   from {
     transform: translateX(-100%);

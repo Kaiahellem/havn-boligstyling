@@ -31,24 +31,6 @@ export default async function OmPage() {
   return (
     <div className="bg-paper pt-[70px]">
 
-      {/* Title */}
-      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
-        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
-          Om meg
-        </h1>
-        <div className="flex flex-col gap-6 lg:max-w-[30%]">
-          <p className="text-body font-normal text-ink/70">
-            Vi er et boligstylingbyrå som tror på at gode hjem starter med helhetstenkning – ikke overflatisk pynt.
-          </p>
-          <Link
-            href="/kontakt"
-            className="inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
-          >
-            Ta kontakt
-          </Link>
-        </div>
-      </section>
-
       {/* Portrait — photo + intro */}
       <section className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-24 px-10 sm:px-16 py-16">
         <div className="relative w-full lg:w-[460px] aspect-[460/552] lg:h-[552px] shrink-0">

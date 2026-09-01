@@ -49,26 +49,8 @@ export default async function TjenesterPage() {
   return (
     <div className="bg-paper pt-[70px]">
 
-      {/* Title */}
-      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
-        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
-          Våre tjenester
-        </h1>
-        <div className="flex flex-col gap-6 lg:max-w-[30%]">
-          <p className="text-body font-normal text-ink/70">
-            Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
-          </p>
-          <Link
-            href="/kontakt"
-            className="inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
-          >
-            Bestill befaring
-          </Link>
-        </div>
-      </section>
-
       {/* Hero — full-width image */}
-      <section className="bg-paper p-16 box-border">
+      <section className="bg-paper p-16 pb-0 box-border">
         <div className="relative w-full min-h-[400px] lg:min-h-[480px]">
           <Image
             src={heroImage}
@@ -81,10 +63,20 @@ export default async function TjenesterPage() {
         </div>
       </section>
 
+      {/* Title */}
+      <section className="px-10 sm:px-16 pt-12 sm:pt-16">
+        <h1 className="text-display font-normal text-ink max-w-2xl">
+          Tjenester
+        </h1>
+        <p className="mt-6 text-body font-normal text-ink/70 max-w-md">
+          Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
+        </p>
+      </section>
+
       {/* Services list */}
       <section className="flex flex-col gap-16 sm:gap-20 lg:gap-24 py-16 sm:py-20 lg:py-24">
         {services.map((service, i) => {
-          const reversed = i % 2 === 0;
+          const reversed = i % 2 !== 0;
           return (
             <article
               key={service.id}

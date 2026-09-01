@@ -42,26 +42,8 @@ export default async function HomePage() {
   return (
     <div className="bg-paper pt-[70px]">
 
-      {/* Title */}
-      <section className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 px-10 sm:px-16 py-8 sm:py-10">
-        <h1 className="text-display font-normal text-ink lg:max-w-[55%]">
-          Styling som løfter boligen
-        </h1>
-        <div className="flex flex-col gap-6 lg:max-w-[30%]">
-          <p className="text-body font-normal text-ink/70">
-            Jeg hjelper deg få frem det beste i boligen – enten den skal selges eller bli et bedre sted å bo.
-          </p>
-          <Link
-            href="/kontakt"
-            className="inline-flex w-fit items-center justify-center bg-ink px-[18px] py-[10px] text-body font-medium text-paper hover:opacity-90 transition-opacity"
-          >
-            Ta kontakt
-          </Link>
-        </div>
-      </section>
-
       {/* ── HERO ── */}
-      <section className="w-full bg-paper p-16 box-border">
+      <section className="w-full bg-paper p-16 pb-0 box-border">
         <div className="relative h-[600px] lg:h-[848px] w-full">
           <Image
             src={heroImage}
@@ -74,21 +56,30 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Title */}
+      <section className="px-10 sm:px-16 pt-8 sm:pt-10">
+        <h1 className="text-display font-normal text-ink max-w-2xl">
+          Styling som løfter boligen
+        </h1>
+        <p className="mt-6 text-body font-normal text-ink/70 max-w-md">
+          Jeg hjelper deg få frem det beste i boligen – enten den skal selges eller bli et bedre sted å bo.
+        </p>
+      </section>
+
       {/* ── ABOUT ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
-        <p className="text-body-sm font-medium uppercase text-ink">Om meg</p>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-start gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
-          <div className="relative w-40 sm:w-48 lg:w-56 aspect-[4/5] shrink-0">
+        <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
+          <div className="relative w-56 sm:w-72 lg:w-96 aspect-[4/5] shrink-0">
             <Image
               src={aboutImage}
               alt="HAVN Boligstyling prosjekt"
               fill
               className="object-cover"
-              sizes="224px"
+              sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 384px"
             />
           </div>
           <div className="flex flex-col gap-5 flex-1">
+            <h2 className="text-heading font-normal text-ink">Om meg</h2>
             <p className="text-body font-normal text-ink">{bodyText1}</p>
             <p className="text-body font-normal text-ink">{bodyText2}</p>
             <Link

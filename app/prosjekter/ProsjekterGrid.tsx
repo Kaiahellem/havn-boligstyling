@@ -67,21 +67,21 @@ function galleryForProject(project: Project, index: number) {
 }
 
 export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const projectGalleries = projects.map((project, i) => galleryForProject(project, i));
+  const allImages = projectGalleries.flatMap((gallery) => gallery.flat().map((tile) => tile.src));
+
+  let globalCursor = 0;
 
   return (
     <>
       {/* Projects — each with a staggered gallery of interior photos */}
       <section>
         {projects.map((project, i) => {
-          const gallery = galleryForProject(project, i);
+          const gallery = projectGalleries[i];
           return (
-            <button
-              key={project._id}
-              type="button"
-              onClick={() => setSelectedProject(project)}
-              className="w-full text-left block group cursor-pointer"
-            >
+            <div key={project._id} className="w-full">
               <div className="flex flex-col gap-2 px-10 sm:px-16 pt-16 pb-8">
                 <span className="text-body font-medium text-ink/50">
                   {String(i + 1).padStart(2, "0")}
@@ -97,26 +97,34 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 px-10 sm:px-16 pb-16">
                 {gallery.map((column, ci) => (
                   <div key={ci} className="flex flex-1 flex-col gap-8">
-                    {column.map((tile, ti) => (
-                      <div key={ti} className="flex flex-col gap-2">
-                        <div className={`relative w-full overflow-hidden ${tile.aspect}`}>
-                          <Image
-                            src={tile.src}
-                            alt={project.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                            sizes="(max-width: 640px) 100vw, 33vw"
-                          />
+                    {column.map((tile, ti) => {
+                      const imageIndex = globalCursor;
+                      globalCursor += 1;
+                      return (
+                        <div key={ti} className="flex flex-col gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedIndex(imageIndex)}
+                            className={`relative block w-full overflow-hidden group cursor-pointer ${tile.aspect}`}
+                          >
+                            <Image
+                              src={tile.src}
+                              alt={project.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                            />
+                          </button>
+                          {tile.caption && (
+                            <p className="text-body-sm font-normal text-ink/55">{tile.caption}</p>
+                          )}
                         </div>
-                        {tile.caption && (
-                          <p className="text-body-sm font-normal text-ink/55">{tile.caption}</p>
-                        )}
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 ))}
               </div>
-            </button>
+            </div>
           );
         })}
       </section>
@@ -140,24 +148,11 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
       </section>
 
       <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        hasPrev={selectedProject ? projects.findIndex((p) => p._id === selectedProject._id) > 0 : false}
-        hasNext={
-          selectedProject
-            ? projects.findIndex((p) => p._id === selectedProject._id) < projects.length - 1
-            : false
-        }
-        onPrev={() => {
-          if (!selectedProject) return;
-          const idx = projects.findIndex((p) => p._id === selectedProject._id);
-          if (idx > 0) setSelectedProject(projects[idx - 1]);
-        }}
-        onNext={() => {
-          if (!selectedProject) return;
-          const idx = projects.findIndex((p) => p._id === selectedProject._id);
-          if (idx < projects.length - 1) setSelectedProject(projects[idx + 1]);
-        }}
+        images={allImages}
+        index={selectedIndex}
+        onClose={() => setSelectedIndex(null)}
+        onPrev={() => setSelectedIndex((i) => (i === null ? i : (i - 1 + allImages.length) % allImages.length))}
+        onNext={() => setSelectedIndex((i) => (i === null ? i : (i + 1) % allImages.length))}
       />
     </>
   );
