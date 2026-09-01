@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { AboutReveal } from "@/components/AboutReveal";
 import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
@@ -47,38 +48,33 @@ export default async function HomePage() {
       {/* ── HERO ── */}
       <ScrollHero image={heroImage} heading="Styling som løfter boligen" />
 
-      {/* Intro */}
-      <section className="px-10 sm:px-16 pt-8 sm:pt-10">
-        <p className="text-body font-normal text-ink/70 max-w-md">
-          Jeg hjelper deg få frem det beste i boligen – enten den skal selges eller bli et bedre sted å bo.
-        </p>
-      </section>
-
       {/* ── ABOUT ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
-        <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
-          <div className="relative w-56 sm:w-72 lg:w-96 aspect-[4/5] shrink-0">
-            <Image
-              src={aboutImage}
-              alt="HAVN Boligstyling prosjekt"
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 384px"
-            />
+      <AboutReveal>
+        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
+          <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
+            <div className="relative w-56 sm:w-72 lg:w-96 aspect-[4/5] shrink-0">
+              <Image
+                src={aboutImage}
+                alt="HAVN Boligstyling prosjekt"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 384px"
+              />
+            </div>
+            <div className="flex flex-col gap-5 max-w-md">
+              <h2 className="text-heading font-normal text-ink">Om meg</h2>
+              <p className="text-body font-normal text-ink">{bodyText1}</p>
+              <p className="text-body font-normal text-ink">{bodyText2}</p>
+              <Link
+                href="/om"
+                className="w-fit text-body font-normal text-ink"
+              >
+                Les mer om Havn boligstyling →
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col gap-5 flex-1">
-            <h2 className="text-heading font-normal text-ink">Om meg</h2>
-            <p className="text-body font-normal text-ink">{bodyText1}</p>
-            <p className="text-body font-normal text-ink">{bodyText2}</p>
-            <Link
-              href="/om"
-              className="w-fit text-body font-normal text-ink"
-            >
-              Les mer om Havn boligstyling →
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      </AboutReveal>
 
       {/* ── GALLERY ── */}
       <ParallaxGallery images={placeholderPhotos} />
