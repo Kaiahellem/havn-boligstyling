@@ -5,6 +5,7 @@ import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
 import ParallaxGallery from "@/components/ParallaxGallery";
+import ServicesGrid from "@/components/ServicesGrid";
 import { getSiteSettings, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
@@ -76,28 +77,13 @@ export default async function HomePage() {
         </section>
       </AboutReveal>
 
-      {/* ── GALLERY ── */}
-      <ParallaxGallery images={placeholderPhotos} />
-
       {/* ── SERVICES ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
-        <div className="flex flex-col gap-10 sm:flex-row sm:gap-8">
-          {services.map(({ title, body, slug, image }) => (
-            <div key={title} className="flex flex-1 flex-col gap-6">
-              <div className="relative w-full aspect-[4/3]">
-                <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-              </div>
-              <div className="flex flex-col gap-2.5">
-                <h2 className="text-heading-sm font-normal text-ink">{title}</h2>
-                <p className="text-body-sm font-normal text-ink/70">{body}</p>
-                <Link href={`/tjenester#${slug}`} className="mt-1 w-fit text-body-sm font-medium uppercase text-ink underline underline-offset-[3px]">
-                  Se tjeneste →
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
+        <ServicesGrid services={services} />
       </section>
+
+      {/* ── GALLERY ── */}
+      <ParallaxGallery images={placeholderPhotos} />
 
       {/* ── INSTAGRAM ── */}
       <InstagramFeed
