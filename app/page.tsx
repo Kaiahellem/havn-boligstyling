@@ -4,7 +4,6 @@ import { AboutReveal } from "@/components/AboutReveal";
 import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
-import ParallaxGallery from "@/components/ParallaxGallery";
 import ServicesGrid from "@/components/ServicesGrid";
 import { getSiteSettings, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
@@ -81,9 +80,6 @@ export default async function HomePage() {
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
         <ServicesGrid services={services} />
       </section>
-
-      {/* ── GALLERY ── */}
-      <ParallaxGallery images={placeholderPhotos} />
 
       {/* ── INSTAGRAM ── */}
       <InstagramFeed

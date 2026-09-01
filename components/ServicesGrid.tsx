@@ -26,21 +26,21 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: false, amount: 0.2 }}
       variants={container}
       className="flex flex-col gap-10 sm:flex-row sm:gap-8"
     >
       {services.map(({ title, body, slug, image }) => (
         <motion.div key={title} variants={item} className="flex flex-1 flex-col gap-6">
-          <div className="relative w-full aspect-[3/4]">
-            <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
-          </div>
           <div className="flex flex-col gap-2.5">
             <h2 className="text-heading-sm font-normal text-ink">{title}</h2>
             <p className="text-body-sm font-normal text-ink/70">{body}</p>
             <Link href={`/tjenester#${slug}`} className="mt-1 w-fit text-body-sm font-medium uppercase text-ink underline underline-offset-[3px]">
               Se tjeneste →
             </Link>
+          </div>
+          <div className="relative w-full aspect-[3/4]">
+            <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
           </div>
         </motion.div>
       ))}
