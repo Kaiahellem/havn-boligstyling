@@ -33,14 +33,21 @@ export default async function HomePage() {
         { title: "Utleiestyling", body: "Vi stiler for salg og utleie slik at potensielle leietakere ser verdien.", slug: "utleiestyling", image: placeholderPhotos[4] },
       ];
 
-  const workSamples = projects.length > 0
+  const placeholderSamples = [
+    { _id: "placeholder-1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Boligstyling" },
+    { _id: "placeholder-2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
+    { _id: "placeholder-3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
+    { _id: "placeholder-4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Boligstyling" },
+    { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
+    { _id: "placeholder-6", title: "Enebolig Nesodden", image: placeholderPhotos[5], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
+  ];
+
+  // Pad with placeholders whenever there aren't yet enough real projects to
+  // fill all three Instagram-section columns, instead of dropping to just
+  // whatever handful of real projects exist.
+  const workSamples = projects.length >= 6
     ? projects.slice(0, 6)
-    : [
-        { _id: "1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Boligstyling" },
-        { _id: "2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
-        { _id: "3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
-        { _id: "4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Boligstyling" },
-      ];
+    : [...projects, ...placeholderSamples].slice(0, 6);
 
   return (
     <div className="bg-paper pt-[70px]">

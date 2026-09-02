@@ -34,8 +34,6 @@ export default async function TjenesterPage() {
   const data = await getTjenester();
 
   const heroImage = data[0]?.heroImage ?? placeholderPhotos[3];
-  const secondaryImage = data[2]?.heroImage ?? placeholderPhotos[1];
-  const introImage = data[1]?.heroImage ?? placeholderPhotos[5];
 
   const services = data.length > 0
     ? data.map((t, i) => ({
@@ -51,48 +49,25 @@ export default async function TjenesterPage() {
   return (
     <div className="bg-paper pt-[70px]">
 
-      {/* Hero + Title — a taller image over the intro text on the left, two
-          images filling the right where one used to be */}
-      <section className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-10 sm:px-16 pt-12 sm:pt-16">
-        <div className="flex flex-col gap-8 lg:w-1/3 lg:h-[560px]">
-          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:flex-[3]">
-            <Image
-              src={introImage}
-              alt="HAVN Boligstyling interiør"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 33vw"
-            />
-          </div>
-          <div className="flex flex-col lg:flex-[2] lg:justify-end">
-            <h1 className="text-display font-normal text-ink">
-              Tjenester
-            </h1>
-            <p className="mt-6 text-body font-normal text-ink/70">
-              Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
-            </p>
-          </div>
+      {/* Hero + Title — one strong image with the title beside it */}
+      <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 px-10 sm:px-16 pt-12 sm:pt-16">
+        <div className="relative w-full lg:w-3/5 aspect-[4/3] lg:aspect-auto lg:h-[560px]">
+          <Image
+            src={heroImage}
+            alt="HAVN Boligstyling interiør"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1024px) 100vw, 60vw"
+          />
         </div>
-        <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 w-full lg:w-2/3 lg:h-[560px]">
-          <div className="relative w-full flex-1 aspect-[4/3] lg:aspect-auto">
-            <Image
-              src={heroImage}
-              alt="HAVN Boligstyling interiør"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1024px) 100vw, 33vw"
-            />
-          </div>
-          <div className="relative w-full flex-1 aspect-[4/3] lg:aspect-auto">
-            <Image
-              src={secondaryImage}
-              alt="HAVN Boligstyling interiør"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 33vw"
-            />
-          </div>
+        <div className="flex flex-col justify-end lg:w-2/5 lg:h-[560px]">
+          <h1 className="text-display font-normal text-ink">
+            Tjenester
+          </h1>
+          <p className="mt-6 text-body font-normal text-ink/70">
+            Vi tilbyr skreddersydd boligstyling, konsultasjon og utleiestyling – slik at boligen din når sitt fulle potensial, enten du skal selge, leie ut eller bare trives bedre hjemme.
+          </p>
         </div>
       </section>
 
