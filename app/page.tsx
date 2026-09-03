@@ -22,7 +22,7 @@ export default async function HomePage() {
   const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 
   const heroImage = s.heroImage ?? placeholderPhotos[0];
-  const aboutImage = om.aboutImage ?? placeholderPhotos[1];
+  const aboutImage = om.aboutImage ?? "/martyportrett.png";
   const bodyText1 = om.bodyText1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
   const bodyText2 = om.bodyText2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
   const services = tjenester.length > 0
@@ -59,13 +59,13 @@ export default async function HomePage() {
       <AboutReveal>
         <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
           <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
-            <div className="relative w-56 sm:w-72 lg:w-96 aspect-[4/5] shrink-0">
+            <div className="relative w-44 sm:w-56 lg:w-72 aspect-[4/5] shrink-0">
               <Image
                 src={aboutImage}
-                alt="HAVN Boligstyling prosjekt"
+                alt="Martine Gullord Engebråten"
                 fill
                 className="object-cover"
-                sizes="(max-width: 640px) 224px, (max-width: 1024px) 288px, 384px"
+                sizes="(max-width: 640px) 176px, (max-width: 1024px) 224px, 288px"
               />
             </div>
             <div className="flex flex-col gap-5 max-w-md">
@@ -89,7 +89,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── WHY STYLING ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-8 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
           <div className="flex flex-col gap-5 lg:w-[380px] shrink-0">
             <p className="text-body-sm font-medium uppercase text-ink">Hvorfor style?</p>

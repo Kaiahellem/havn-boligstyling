@@ -62,7 +62,8 @@ export default function InstagramFeed({ posts, instagramUrl, fallbackProjects }:
 
   return (
     <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
-      <div className="flex flex-col gap-6 pb-8 sm:flex-row sm:items-end sm:justify-between">
+      <span className="block h-px w-full bg-sand-400" aria-hidden="true" />
+      <div className="flex flex-col gap-6 pb-8 mt-[6vh] sm:flex-row sm:items-end sm:justify-between">
         <p className="text-body-sm font-medium uppercase text-ink">Instagram</p>
         <a
           href={instagramUrl ?? "https://instagram.com"}

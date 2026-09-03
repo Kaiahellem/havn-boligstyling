@@ -125,7 +125,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full bg-ink py-[14px] text-body font-medium text-paper hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-200"
+        className="w-full inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
       >
         {status === "submitting" ? "Sender..." : "Send melding"}
       </button>
