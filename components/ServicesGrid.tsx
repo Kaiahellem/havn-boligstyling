@@ -35,7 +35,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
           <div className="flex flex-col gap-2.5">
             <h2 className="text-heading-sm font-normal text-ink">{title}</h2>
             <p className="text-body-sm font-normal text-ink/70">{body}</p>
-            <Link href={`/tjenester#${slug}`} className="mt-1 w-fit text-body-sm font-medium uppercase text-ink underline underline-offset-[3px]">
+            <Link href={`/tjenester#${slug}`} className="mt-1 w-fit text-body-sm font-medium text-ink">
               Se tjeneste →
             </Link>
           </div>

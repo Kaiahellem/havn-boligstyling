@@ -7,14 +7,16 @@ html {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: var(--font-heading), serif;
 }
 
 /* Fraunces at 400 reads heavier than Geist did — thin it out for headings
    specifically, without touching font-normal's meaning everywhere else. */
 h1.font-normal,
-h2.font-normal {
+h2.font-normal,
+h3.font-normal {
   font-weight: 300;
 }
 

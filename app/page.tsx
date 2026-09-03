@@ -28,18 +28,18 @@ export default async function HomePage() {
   const services = tjenester.length > 0
     ? tjenester.slice(0, 3).map((t, i) => ({ title: t.title, body: t.description ?? "", slug: t.slug, image: t.heroImage ?? placeholderPhotos[(i + 2) % placeholderPhotos.length] }))
     : [
-        { title: "Boligstyling", body: "Vi transformerer boligen din til et hjem som speiler din personlighet.", slug: "boligstyling", image: placeholderPhotos[2] },
-        { title: "Konsultasjon", body: "Konkrete råd og veiledning for rom-for-rom, uten full boligstyling.", slug: "konsultasjon", image: placeholderPhotos[3] },
-        { title: "Utleiestyling", body: "Vi stiler for salg og utleie slik at potensielle leietakere ser verdien.", slug: "utleiestyling", image: placeholderPhotos[4] },
+        { title: "Fullstyling", body: "Hele boligen fra A til Å – et helhetlig uttrykk i hvert rom.", slug: "fullstyling", image: placeholderPhotos[2] },
+        { title: "Delstyling", body: "Utvalgte rom stylet med samme kvalitet – uten full prosess.", slug: "delstyling", image: placeholderPhotos[3] },
+        { title: "Rådgivning", body: "Konkrete råd og veiledning, rom for rom – uten full styling.", slug: "radgivning", image: placeholderPhotos[4] },
       ];
 
   const placeholderSamples = [
-    { _id: "placeholder-1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Boligstyling" },
-    { _id: "placeholder-2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
-    { _id: "placeholder-3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
-    { _id: "placeholder-4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Boligstyling" },
-    { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Konsultasjon og møblering.", service: "Konsultasjon" },
-    { _id: "placeholder-6", title: "Enebolig Nesodden", image: placeholderPhotos[5], description: "Styling for korttidsutleie.", service: "Utleiestyling" },
+    { _id: "placeholder-1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Fullstyling" },
+    { _id: "placeholder-2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
+    { _id: "placeholder-4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Fullstyling" },
+    { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-6", title: "Enebolig Nesodden", image: placeholderPhotos[5], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
   ];
 
   // Pad with placeholders whenever there aren't yet enough real projects to
@@ -86,6 +86,46 @@ export default async function HomePage() {
       {/* ── SERVICES ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
         <ServicesGrid services={services} />
+      </section>
+
+      {/* ── WHY STYLING ── */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
+          <div className="flex flex-col gap-5 lg:w-[380px] shrink-0">
+            <p className="text-body-sm font-medium uppercase text-ink">Hvorfor style?</p>
+            <h2 className="text-heading font-normal text-ink">Derfor lønner det seg å style boligen</h2>
+            <p className="text-body font-normal text-ink/70 max-w-md">
+              Ved salg eller utleie er førsteinntrykket alt. En godt stylet bolig hjelper kjøpere og leietakere
+              til å se seg selv bo der – noe rå eller rotete rom sjelden klarer.
+            </p>
+          </div>
+          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-3 flex-1 lg:mt-[38px]">
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-heading-sm font-normal text-ink">Bedre bilder</h3>
+              <p className="text-body-sm font-normal text-ink/70">
+                Stylede rom fotograferer vesentlig bedre, og gode bilder er det som får folk til å klikke seg inn på annonsen.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-heading-sm font-normal text-ink">Flere på visning</h3>
+              <p className="text-body-sm font-normal text-ink/70">
+                Et innbydende og gjennomtenkt hjem trekker flere interesserte til visning.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-heading-sm font-normal text-ink">Sterkere førsteinntrykk</h3>
+              <p className="text-body-sm font-normal text-ink/70">
+                Kjøpere og leietakere bestemmer seg raskt – styling sikrer at det første inntrykket er det rette.
+              </p>
+            </div>
+          </div>
+        </div>
+        <Link
+          href="/prosjekter"
+          className="mt-12 inline-flex w-fit text-body font-normal text-ink"
+        >
+          Se våre prosjekter →
+        </Link>
       </section>
 
       {/* ── INSTAGRAM ── */}

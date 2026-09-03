@@ -62,9 +62,15 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper flex items-center justify-center p-6 sm:p-10 lg:p-16 box-border">
         <motion.div
           style={{ scale }}
-          className="relative z-0 w-full h-full origin-center"
+          className="relative z-0 w-full h-full origin-center overflow-hidden"
         >
-          <Image src={image} alt="HAVN Boligstyling interiør" fill className="object-cover" priority sizes="100vw" />
+          <motion.div
+            className="relative w-full h-full"
+            animate={{ scale: [1, 1.14, 1], x: ["0%", "-3.5%", "0%"], y: ["0%", "2.5%", "0%"] }}
+            transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image src={image} alt="HAVN Boligstyling interiør" fill className="object-cover" priority sizes="100vw" />
+          </motion.div>
         </motion.div>
 
         <motion.h1
