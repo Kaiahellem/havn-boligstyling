@@ -2,18 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground: #544f4d;
-  --background: #f7f4ee;
-}
-
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
 }
 
 h1,
