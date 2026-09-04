@@ -3,7 +3,7 @@ import Link from "next/link";
 const footerLinks = [
   { href: "/tjenester", label: "Tjenester" },
   { href: "/prosjekter", label: "Prosjekter" },
-  { href: "/om", label: "Om oss" },
+  { href: "/om", label: "Om" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -22,7 +22,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-body font-normal text-paper hover:opacity-60 transition-opacity"
+              className="text-body-sm font-medium uppercase tracking-[0.05em] text-paper hover:opacity-60 transition-opacity"
             >
               {link.label}
             </Link>

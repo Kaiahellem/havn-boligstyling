@@ -26,7 +26,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={container}
       className="flex flex-col gap-10 sm:flex-row sm:gap-8"
     >

@@ -78,7 +78,7 @@ export default async function ProsjekterPage({
     <div className="bg-paper pt-[70px]">
 
       {tjeneste && (
-        <div className="flex items-center gap-4 px-10 sm:px-16 pt-10">
+        <div className="mx-auto w-full max-w-[1280px] flex items-center gap-4 px-6 sm:px-10 lg:px-16 pt-10">
           <p className="text-body-sm font-medium uppercase tracking-[0.05em] text-ink/50">
             Viser prosjekter innen {serviceLabels[normalize(tjeneste)] ?? tjeneste}
           </p>

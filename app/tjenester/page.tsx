@@ -49,7 +49,7 @@ export default async function TjenesterPage() {
     <div className="bg-paper pt-[70px]">
 
       {/* Hero — air instead of an image, heading carries the page alone */}
-      <section className="flex flex-col px-10 sm:px-16 pt-10 sm:pt-16">
+      <section className="mx-auto w-full max-w-[1280px] flex flex-col px-6 sm:px-10 lg:px-16 pt-10 sm:pt-16">
         <TjenesterHero label={services.map((s) => s.title).join(" — ")} />
       </section>
 
@@ -57,20 +57,22 @@ export default async function TjenesterPage() {
       <TjenesterList services={services} />
 
       {/* CTA */}
-      <section className="flex flex-col sm:flex-row items-stretch bg-ink">
-        <div className="flex-1 flex flex-col justify-center gap-3 px-10 sm:px-16 py-16">
-          <h2 className="text-heading font-normal text-paper leading-[1.1]">
-            Usikker på hva som passer for deg?
-          </h2>
-          <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å finne ut av det.</p>
-        </div>
-        <div className="flex items-center justify-center px-10 sm:px-16 py-12">
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
-          >
-            Bestill befaring
-          </Link>
+      <section className="bg-ink">
+        <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
+          <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 py-16">
+            <h2 className="text-heading font-normal text-paper leading-[1.1]">
+              Usikker på hva som passer for deg?
+            </h2>
+            <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å finne ut av det.</p>
+          </div>
+          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-12">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
+            >
+              Bestill befaring
+            </Link>
+          </div>
         </div>
       </section>
 

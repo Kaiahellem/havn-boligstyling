@@ -1,7 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getOmOss } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
+import { OmIntro } from "@/components/OmIntro";
+import { OmGallery, type GalleryTile } from "@/components/OmGallery";
 
 const galleryLayout = [
   [
@@ -37,78 +38,52 @@ export default async function OmPage() {
   const bio2 = d.bodyText2 ?? "I dag leder hun hvert prosjekt personlig – fra første befaring til siste pute på plass – med et skarpt blikk for lys, proporsjoner og ro.";
 
   let imageCursor = 0;
+  const galleryColumns: GalleryTile[][] = galleryLayout.map((column) =>
+    column.map((tile) => {
+      const src = placeholderPhotos[imageCursor % placeholderPhotos.length];
+      const num = String(imageCursor + 1).padStart(2, "0");
+      const [stepLabel, stepBody] = processSteps[imageCursor].split(" — ");
+      imageCursor += 1;
+      return { src, aspect: tile.aspect, num, stepLabel, stepBody };
+    })
+  );
 
   return (
     <div className="bg-paper pt-[70px]">
 
       {/* Portrait — photo + intro */}
-      <section className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10 lg:gap-24 px-10 sm:px-16 py-16">
-        <div className="relative w-full lg:w-[280px] aspect-[460/552] lg:aspect-auto shrink-0">
-          <Image src={portraitImage} alt="Martine Gullord Engebråten" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 280px" />
-        </div>
-        <div className="flex flex-col gap-5 max-w-[500px]">
-          <p className="text-caption font-medium uppercase text-ink/50">Gründer og interiørstylist</p>
-          <h2 className="text-display font-normal text-ink">Martine Gullord Engebråten</h2>
-          <p className="text-body font-normal text-ink/70">{bio1}</p>
-          <p className="text-body font-normal text-ink/70">{bio2}</p>
-        </div>
+      <section className="mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-16 py-16">
+        <OmIntro portraitImage={portraitImage} bio1={bio1} bio2={bio2} />
       </section>
 
       {/* Gallery — each image walks through one step of how a project runs */}
-      <section className="flex flex-col gap-8 px-10 sm:px-16 py-16">
+      <section className="mx-auto w-full max-w-[1280px] flex flex-col gap-8 px-6 sm:px-10 lg:px-16 py-16">
         <div className="flex flex-col gap-2">
           <p className="text-body-sm font-medium uppercase text-ink">Slik jobber jeg</p>
           <h2 className="text-heading font-normal text-ink">Fra befaring til ferdig hjem</h2>
         </div>
-        <div className="flex flex-col sm:flex-row gap-4">
-        {galleryLayout.map((column, ci) => (
-          <div key={ci} className="flex flex-1 flex-col gap-8">
-            {column.map((tile, ti) => {
-              const src = placeholderPhotos[imageCursor % placeholderPhotos.length];
-              const num = String(imageCursor + 1).padStart(2, "0");
-              const [stepLabel, stepBody] = processSteps[imageCursor].split(" — ");
-              imageCursor += 1;
-              return (
-                <div key={ti} className="flex flex-col gap-3">
-                  <div className={`relative w-full ${tile.aspect}`}>
-                    <Image
-                      src={src}
-                      alt="HAVN Boligstyling interiør"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                    />
-                    <span className="absolute top-4 right-4 text-caption font-medium text-ink/40">{num}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <p className="text-body-sm font-medium uppercase tracking-[0.05em] text-ink">{stepLabel}</p>
-                    <p className="text-body-sm font-normal text-ink/60">{stepBody}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        ))}
-        </div>
+        <OmGallery columns={galleryColumns} />
       </section>
 
       {/* Dark CTA */}
-      <section className="flex flex-col sm:flex-row items-stretch bg-ink">
-        <div className="flex-1 flex flex-col justify-center gap-3 px-10 sm:px-16 py-16">
-          <h2 className="text-heading font-normal text-paper leading-[1.1]">
-            Klar for en forandring?
-          </h2>
-          <p className="text-body font-normal text-paper/70">
-            La oss hjelpe deg med å presentere boligen din på sitt aller beste.
-          </p>
-        </div>
-        <div className="flex items-center justify-center px-10 sm:px-16 py-12">
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
-          >
-            Ta kontakt
-          </Link>
+      <section className="bg-ink">
+        <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
+          <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 py-16">
+            <h2 className="text-heading font-normal text-paper leading-[1.1]">
+              Klar for en forandring?
+            </h2>
+            <p className="text-body font-normal text-paper/70">
+              La oss hjelpe deg med å presentere boligen din på sitt aller beste.
+            </p>
+          </div>
+          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-12">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
+            >
+              Ta kontakt
+            </Link>
+          </div>
         </div>
       </section>
 

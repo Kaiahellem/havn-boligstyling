@@ -76,7 +76,7 @@ export default function InstagramFeed({ posts, instagramUrl, fallbackProjects }:
         </a>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-1 pb-16 sm:pb-20">
+      <div className="grid grid-cols-3 gap-1 pb-16 sm:pb-20">
         {displayTiles.map((tile) => (
           <Tile key={tile.id} tile={tile} />
         ))}

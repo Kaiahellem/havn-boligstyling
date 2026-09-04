@@ -59,13 +59,13 @@ export default async function HomePage() {
       <AboutReveal>
         <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
           <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
-            <div className="relative w-44 sm:w-56 lg:w-72 aspect-[4/5] shrink-0">
+            <div className="relative w-36 sm:w-48 lg:w-60 aspect-[4/5] shrink-0">
               <Image
                 src={aboutImage}
                 alt="Martine Gullord Engebråten"
                 fill
-                className="object-cover"
-                sizes="(max-width: 640px) 176px, (max-width: 1024px) 224px, 288px"
+                className="object-cover grayscale"
+                sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
               />
             </div>
             <div className="flex flex-col gap-5 max-w-md">

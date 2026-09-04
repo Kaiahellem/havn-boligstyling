@@ -39,7 +39,7 @@ export function TjenesterList({ services }: { services: Service[] }) {
             key={service.id}
             id={service.id}
             variants={item}
-            className={`flex flex-col ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"} items-center lg:items-start gap-10 lg:gap-16 px-10 sm:px-16`}
+            className={`mx-auto w-full max-w-[1280px] flex flex-col ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"} items-center lg:items-start gap-10 lg:gap-16 px-6 sm:px-10 lg:px-16`}
           >
             <div className="relative w-full lg:w-1/2 aspect-[4/3] shrink-0">
               <Image

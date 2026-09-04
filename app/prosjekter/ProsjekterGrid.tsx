@@ -3,9 +3,15 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
 import ProjectModal from "@/components/ProjectModal";
 import type { Project } from "@/lib/projects";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
+
+const reveal: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
 
 interface GalleryTile {
   aspect: string;
@@ -81,8 +87,15 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
         {projects.map((project, i) => {
           const gallery = projectGalleries[i];
           return (
-            <div key={project._id} className="w-full">
-              <div className="flex flex-col gap-2 px-10 sm:px-16 pt-16 pb-8">
+            <motion.div
+              key={project._id}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={reveal}
+              className="mx-auto w-full max-w-[1280px]"
+            >
+              <div className="flex flex-col gap-2 px-6 sm:px-10 lg:px-16 pt-16 pb-8">
                 <span className="text-body font-medium text-ink/50">
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -94,7 +107,7 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 px-10 sm:px-16 pb-16">
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 px-6 sm:px-10 lg:px-16 pb-16">
                 {gallery.map((column, ci) => (
                   <div key={ci} className="flex flex-1 flex-col gap-8">
                     {column.map((tile, ti) => {
@@ -124,26 +137,28 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </section>
 
       {/* CTA */}
-      <section className="flex flex-col sm:flex-row items-stretch bg-ink">
-        <div className="flex-1 flex flex-col justify-center gap-3 px-10 sm:px-16 py-16">
-          <h2 className="text-heading font-normal text-paper leading-[1.1]">
-            Liker du det du ser?
-          </h2>
-          <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å skape noe like bra hos deg.</p>
-        </div>
-        <div className="flex items-center justify-center px-10 sm:px-16 py-12">
-          <Link
-            href="/kontakt"
-            className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
-          >
-            Bestill befaring
-          </Link>
+      <section className="bg-ink">
+        <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
+          <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 py-16">
+            <h2 className="text-heading font-normal text-paper leading-[1.1]">
+              Liker du det du ser?
+            </h2>
+            <p className="text-body font-normal text-paper/70">Vi hjelper deg gjerne med å skape noe like bra hos deg.</p>
+          </div>
+          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-12">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
+            >
+              Bestill befaring
+            </Link>
+          </div>
         </div>
       </section>
 
