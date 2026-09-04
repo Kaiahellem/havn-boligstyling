@@ -65,14 +65,8 @@ export function TjenesterList({ services }: { services: Service[] }) {
                 </ul>
               )}
               <Link
-                href="/kontakt"
-                className="mt-9 w-fit inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
-              >
-                Ta kontakt
-              </Link>
-              <Link
                 href={`/prosjekter?tjeneste=${service.id}`}
-                className="mt-4 w-fit text-body-sm font-normal text-ink/70 hover:text-ink transition-colors"
+                className="mt-9 w-fit text-body-sm font-normal text-ink/70 hover:text-ink transition-colors"
               >
                 Se {service.title.toLowerCase()}-prosjekter →
               </Link>

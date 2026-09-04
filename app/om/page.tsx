@@ -65,21 +65,21 @@ export default async function OmPage() {
         <OmGallery columns={galleryColumns} />
       </section>
 
-      {/* Dark CTA */}
-      <section className="bg-ink">
+      {/* CTA */}
+      <section className="bg-paper border-t border-sand-400">
         <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
-          <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 py-16">
-            <h2 className="text-heading font-normal text-paper leading-[1.1]">
+          <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 pt-10 pb-4 sm:py-16">
+            <h2 className="text-heading font-normal text-ink leading-[1.1]">
               Klar for en forandring?
             </h2>
-            <p className="text-body font-normal text-paper/70">
+            <p className="text-body font-normal text-ink/70">
               La oss hjelpe deg med å presentere boligen din på sitt aller beste.
             </p>
           </div>
-          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 py-12">
+          <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-4 pb-10 sm:py-12">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center bg-paper px-[18px] py-[10px] text-body font-medium text-ink hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
             >
               Ta kontakt
             </Link>

@@ -32,7 +32,7 @@ const config: Config = {
         },
         plate: "#b8b8b8",
         ink: "#544f4d",
-        paper: "#e1ded8",
+        paper: "#f7f4ee",
         greige: "#e1ded8",
       },
       fontFamily: {

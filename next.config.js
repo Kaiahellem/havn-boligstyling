@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  devIndicators: {
+    position: 'bottom-right',
+  },
   images: {
     remotePatterns: [
       {

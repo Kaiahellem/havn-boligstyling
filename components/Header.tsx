@@ -88,8 +88,8 @@ export default function Header({ logoUrl }: HeaderProps) {
     <>
       <header
         role="banner"
-        className={`fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 transition-colors duration-200 ${
-          scrolled ? "bg-paper" : "bg-transparent"
+        className={`fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 border-b transition-colors duration-200 ${
+          scrolled ? "bg-paper border-sand-400" : "bg-transparent border-transparent"
         }`}
       >
         <div className="flex w-full items-center">
@@ -181,7 +181,7 @@ export default function Header({ logoUrl }: HeaderProps) {
             aria-label="Navigasjonsmeny"
             aria-modal="true"
           >
-            <div className="flex items-center justify-between h-[70px] px-6 border-b border-ink">
+            <div className="flex items-center justify-between h-[70px] px-6">
               <span className="text-body-sm font-medium uppercase text-ink">Meny</span>
               <button
                 type="button"
@@ -199,7 +199,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-subheading font-medium uppercase text-ink hover:opacity-60 transition-opacity"
+                  className="text-body font-normal uppercase text-ink hover:opacity-60 transition-opacity"
                   onClick={() => setSideMenuOpen(false)}
                 >
                   {link.label}
@@ -207,7 +207,7 @@ export default function Header({ logoUrl }: HeaderProps) {
               ))}
               <Link
                 href="/kontakt"
-                className="mt-5 inline-flex items-center justify-center rounded-lg border border-ink px-[18px] py-[10px] text-body font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
+                className="mt-5 inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
                 onClick={() => setSideMenuOpen(false)}
               >
                 Bestill befaring

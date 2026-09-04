@@ -14,7 +14,8 @@ export default function Footer() {
     <footer className="bg-ink text-paper">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-10 px-6 py-10 sm:flex-row sm:items-start sm:justify-between sm:px-16 sm:py-14">
         {/* Wordmark */}
-        <span className="text-heading-sm font-medium text-paper">HAVN</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/g172.svg" alt="HAVN Boligstyling" className="h-6 sm:h-7 w-auto" />
 
         {/* Link list */}
         <nav className="flex flex-wrap gap-x-8 gap-y-3">
