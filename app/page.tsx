@@ -40,14 +40,17 @@ export default async function HomePage() {
     { _id: "placeholder-4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Fullstyling" },
     { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Rådgivning og møblering.", service: "Rådgivning" },
     { _id: "placeholder-6", title: "Enebolig Nesodden", image: placeholderPhotos[5], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
+    { _id: "placeholder-7", title: "Loft Sagene", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Fullstyling" },
+    { _id: "placeholder-8", title: "Villa Ullern", image: placeholderPhotos[1], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-9", title: "Leilighet Frogner", image: placeholderPhotos[2], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
   ];
 
   // Pad with placeholders whenever there aren't yet enough real projects to
-  // fill all three Instagram-section columns, instead of dropping to just
-  // whatever handful of real projects exist.
-  const workSamples = projects.length >= 6
-    ? projects.slice(0, 6)
-    : [...projects, ...placeholderSamples].slice(0, 6);
+  // fill all three rows of the Instagram-section grid, instead of dropping
+  // to just whatever handful of real projects exist.
+  const workSamples = projects.length >= 9
+    ? projects.slice(0, 9)
+    : [...projects, ...placeholderSamples].slice(0, 9);
 
   return (
     <div className="bg-paper pt-[70px]">

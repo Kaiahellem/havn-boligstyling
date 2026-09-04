@@ -56,9 +56,9 @@ export default function InstagramFeed({ posts, instagramUrl, fallbackProjects }:
   const tiles: Tile[] =
     posts.length > 0
       ? posts.map((p) => ({ id: p.id, href: p.permalink, imageUrl: p.imageUrl, mediaType: p.mediaType }))
-      : fallbackProjects.slice(0, 6).map((p) => ({ id: p._id, href: "/prosjekter", imageUrl: p.image, mediaType: "IMAGE" }));
+      : fallbackProjects.slice(0, 9).map((p) => ({ id: p._id, href: "/prosjekter", imageUrl: p.image, mediaType: "IMAGE" }));
 
-  const displayTiles = tiles.slice(0, 6);
+  const displayTiles = tiles.slice(0, 9);
 
   return (
     <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
