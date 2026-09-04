@@ -58,38 +58,12 @@ export default async function HomePage() {
       {/* ── HERO ── */}
       <ScrollHero image={heroImage} heading="Styling som løfter boligen" />
 
-      {/* ── ABOUT ── */}
+      {/* ── SERVICES ── */}
       <AboutReveal>
-        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
-          <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-24 lg:pb-32">
-            <div className="relative w-36 sm:w-48 lg:w-60 aspect-[4/5] shrink-0">
-              <Image
-                src={aboutImage}
-                alt="Martine Gullord Engebråten"
-                fill
-                className="object-cover grayscale"
-                sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
-              />
-            </div>
-            <div className="flex flex-col gap-5 max-w-md">
-              <h2 className="text-heading font-normal text-ink">Om meg</h2>
-              <p className="text-body font-normal text-ink">{bodyText1}</p>
-              <p className="text-body font-normal text-ink">{bodyText2}</p>
-              <Link
-                href="/om"
-                className="w-fit text-body font-normal text-ink"
-              >
-                Les mer om Havn boligstyling →
-              </Link>
-            </div>
-          </div>
+        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-16 sm:px-10 sm:pt-20 sm:pb-20 lg:px-16">
+          <ServicesGrid services={services} />
         </section>
       </AboutReveal>
-
-      {/* ── SERVICES ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16">
-        <ServicesGrid services={services} />
-      </section>
 
       {/* ── WHY STYLING ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-8 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
@@ -129,6 +103,32 @@ export default async function HomePage() {
         >
           Se våre prosjekter →
         </Link>
+      </section>
+
+      {/* ── ABOUT ── */}
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
+        <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-12 sm:pb-16">
+          <div className="relative w-36 sm:w-48 lg:w-60 aspect-[4/5] shrink-0">
+            <Image
+              src={aboutImage}
+              alt="Martine Gullord Engebråten"
+              fill
+              className="object-cover grayscale"
+              sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
+            />
+          </div>
+          <div className="flex flex-col gap-5 max-w-md">
+            <h2 className="text-heading font-normal text-ink">Om meg</h2>
+            <p className="text-body font-normal text-ink">{bodyText1}</p>
+            <p className="text-body font-normal text-ink">{bodyText2}</p>
+            <Link
+              href="/om"
+              className="w-fit text-body font-normal text-ink"
+            >
+              Les mer om Havn boligstyling →
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ── INSTAGRAM ── */}

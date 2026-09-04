@@ -37,7 +37,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        mono: ["var(--font-ibm-mono)", "monospace"],
       },
       fontSize: {
         caption: ["11px", { lineHeight: "1.2", letterSpacing: "0.23px" }],
