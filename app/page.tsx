@@ -66,7 +66,7 @@ export default async function HomePage() {
       </AboutReveal>
 
       {/* ── WHY STYLING ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-8 sm:px-10 sm:pt-20 sm:pb-10 lg:px-16">
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-8 pb-4 sm:px-10 sm:pt-10 sm:pb-5 lg:px-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
           <div className="flex flex-col gap-5 lg:w-[380px] shrink-0">
             <p className="text-body-sm font-medium uppercase text-ink">Hvorfor style?</p>
@@ -105,6 +105,14 @@ export default async function HomePage() {
         </Link>
       </section>
 
+      {/* ── INSTAGRAM ── */}
+      <InstagramFeed
+        posts={instagramPosts}
+        instagramUrl={instagramUrl}
+        logoUrl={process.env.NEXT_PUBLIC_LOGO_URL}
+        fallbackProjects={workSamples}
+      />
+
       {/* ── ABOUT ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
         <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-12 sm:pb-16">
@@ -130,14 +138,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ── INSTAGRAM ── */}
-      <InstagramFeed
-        posts={instagramPosts}
-        instagramUrl={instagramUrl}
-        logoUrl={process.env.NEXT_PUBLIC_LOGO_URL}
-        fallbackProjects={workSamples}
-      />
 
       {/* ── CONTACT ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-10 sm:py-20 lg:px-16">

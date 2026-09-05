@@ -39,7 +39,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
               Se tjeneste →
             </Link>
           </div>
-          <div className="relative w-full aspect-[3/4]">
+          <div className="relative w-full aspect-[4/3] sm:aspect-[3/4]">
             <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 33vw" />
           </div>
         </motion.div>

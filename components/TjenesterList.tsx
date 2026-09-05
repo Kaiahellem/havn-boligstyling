@@ -30,7 +30,7 @@ export function TjenesterList({ services }: { services: Service[] }) {
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       variants={container}
-      className="flex flex-col gap-16 sm:gap-20 lg:gap-24 py-16 sm:py-20 lg:py-24"
+      className="flex flex-col gap-16 sm:gap-20 lg:gap-24 pt-6 pb-16 sm:pt-8 sm:pb-20 lg:pt-10 lg:pb-24"
     >
       {services.map((service, i) => {
         const reversed = i % 2 !== 0;
