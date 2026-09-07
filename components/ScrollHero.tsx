@@ -9,8 +9,11 @@ interface ScrollHeroProps {
   heading: string;
 }
 
-const START_TOP = 80;
+const START_TOP = 90;
 const CENTER_TOP = 45;
+// Wide-banner shape for the hero frame — lower and wider than the source
+// photo's own 3:2, so object-cover trims a bit off the top/bottom.
+const FRAME_ASPECT = 16 / 9;
 
 // Static hero — full-width image with the heading overlaid, no scroll-tied
 // motion. Used for reduced-motion at every width, and as the mobile hero
@@ -35,15 +38,10 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  // Matches the current hero photo (2400x1600); corrected once the real
-  // image loads so the frame always matches its actual proportions instead
-  // of a guessed ratio — object-cover then never has to crop anything away,
-  // whatever aspect ratio a future CMS-uploaded photo happens to have.
-  const [aspect, setAspect] = useState(3 / 2);
   // Pixel size of the photo frame, computed to fit fully inside the padded
-  // sticky area (like object-fit: contain) instead of stretching to an
-  // arbitrary viewport-shaped box — that stretch is what forced object-cover
-  // to crop the photo down before.
+  // sticky area (like object-fit: contain) at a fixed wide-banner ratio,
+  // rather than stretching to whatever shape the viewport happens to leave —
+  // that stretch is what forced object-cover to crop unpredictably before.
   const [frameSize, setFrameSize] = useState<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
@@ -53,10 +51,10 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
     const compute = () => {
       const { width, height } = el.getBoundingClientRect();
       if (width <= 0 || height <= 0) return;
-      if (width / height > aspect) {
-        setFrameSize({ width: height * aspect, height });
+      if (width / height > FRAME_ASPECT) {
+        setFrameSize({ width: height * FRAME_ASPECT, height });
       } else {
-        setFrameSize({ width, height: width / aspect });
+        setFrameSize({ width, height: width / FRAME_ASPECT });
       }
     };
 
@@ -64,19 +62,18 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
     const ro = new ResizeObserver(compute);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [aspect]);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1]);
   // Text starts low in the viewport and rises to its resting spot (slightly
-  // above center) during the first 30% of the scroll, then holds still there
+  // above center) during the first 60% of the scroll, then holds still there
   // for the rest of the scroll.
   const textTop = useTransform(scrollYProgress, (v) => {
-    const t = Math.min(v / 0.3, 1);
+    const t = Math.min(v / 0.6, 1);
     // -48px matches the photo frame's own upward shift below, so the
     // heading stays locked to the same spot on the image.
     return `calc(${START_TOP + (CENTER_TOP - START_TOP) * t}% - 48px)`;
@@ -92,12 +89,18 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
           needs real vertical scroll distance and screen width to read right. */}
       <StaticHero image={image} heading={heading} className="sm:hidden" />
 
-      <section ref={containerRef} className="relative hidden h-[200vh] sm:block">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper p-3 lg:p-5 box-border">
+      {/* -mt-[70px] cancels the page wrapper's header-clearance padding just
+          for this section, so its natural top already sits at the viewport's
+          top edge at scroll 0 — matching the sticky child's own top-0 pin
+          point exactly. Without it, the section starts 70px below where
+          sticky wants to hold it, and the whole image visibly slides up
+          that 70px before sticky "catches" and the pin actually engages. */}
+      <section ref={containerRef} className="relative hidden h-[140vh] sm:block -mt-[70px]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper p-1.5 lg:p-2 box-border">
           <div ref={stickyRef} className="relative w-full h-full flex items-center justify-center">
             <motion.div
-              style={{ scale, y: -48, width: frameSize?.width, height: frameSize?.height }}
-              className={`relative z-0 origin-center scale-[0.85] overflow-hidden ${frameSize ? "" : "w-full h-full"}`}
+              style={{ y: -48, width: frameSize?.width, height: frameSize?.height }}
+              className={`relative z-0 origin-center overflow-hidden ${frameSize ? "" : "w-full h-full"}`}
             >
               <motion.div
                 className="relative w-full h-full"
@@ -111,12 +114,6 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
                   className="object-cover"
                   priority
                   sizes="100vw"
-                  onLoad={(e) => {
-                    const img = e.currentTarget;
-                    if (img.naturalWidth && img.naturalHeight) {
-                      setAspect(img.naturalWidth / img.naturalHeight);
-                    }
-                  }}
                 />
               </motion.div>
             </motion.div>

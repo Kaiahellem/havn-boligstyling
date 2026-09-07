@@ -21,17 +21,9 @@ export default function Header({ logoUrl }: HeaderProps) {
   const logoSrc = logoUrl ?? "/HAVN_BS_kuntekst.svg";
   const [logoError, setLogoError] = useState(false);
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const drawerRef = useRef<HTMLElement>(null);
 
   useScrollLock(sideMenuOpen);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -88,9 +80,7 @@ export default function Header({ logoUrl }: HeaderProps) {
     <>
       <header
         role="banner"
-        className={`fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 border-b transition-colors duration-200 ${
-          scrolled ? "bg-paper border-sand-400" : "bg-transparent border-transparent"
-        }`}
+        className="fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 border-b border-sand-400 bg-paper"
       >
         <div className="flex w-full items-center">
           {/* Mobile: hamburger — wordmark */}
