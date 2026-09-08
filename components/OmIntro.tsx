@@ -15,11 +15,13 @@ const item: Variants = {
 
 interface OmIntroProps {
   portraitImage: string;
+  name: string;
+  role: string;
   bio1: string;
   bio2: string;
 }
 
-export function OmIntro({ portraitImage, bio1, bio2 }: OmIntroProps) {
+export function OmIntro({ portraitImage, name, role, bio1, bio2 }: OmIntroProps) {
   return (
     <motion.div
       initial="hidden"
@@ -30,15 +32,15 @@ export function OmIntro({ portraitImage, bio1, bio2 }: OmIntroProps) {
       <motion.div variants={item} className="relative w-full lg:w-[280px] aspect-[460/552] lg:aspect-auto shrink-0">
         <Image
           src={portraitImage}
-          alt="Martine Gullord Engebråten"
+          alt={name}
           fill
           className="object-cover grayscale"
           sizes="(max-width: 1024px) 100vw, 280px"
         />
       </motion.div>
       <motion.div variants={item} className="flex flex-col gap-5 max-w-[500px]">
-        <p className="text-caption font-medium uppercase text-ink/50">Gründer og interiørstylist</p>
-        <h2 className="text-heading font-normal text-ink whitespace-nowrap">Martine Gullord Engebråten</h2>
+        <p className="text-caption font-medium uppercase text-ink/50">{role}</p>
+        <h2 className="text-heading font-normal text-ink whitespace-nowrap">{name}</h2>
         <p className="text-body font-normal text-ink/70">{bio1}</p>
         <p className="text-body font-normal text-ink/70">{bio2}</p>
       </motion.div>

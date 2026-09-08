@@ -7,7 +7,12 @@ const footerLinks = [
   { href: "/kontakt", label: "Kontakt" },
 ];
 
-export default function Footer() {
+interface FooterProps {
+  epost?: string;
+  telefon?: string;
+}
+
+export default function Footer({ epost, telefon }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -32,8 +37,8 @@ export default function Footer() {
 
         {/* Contact + copyright */}
         <div className="flex flex-col gap-2">
-          <span className="text-body-sm font-normal text-paper/70">hei@havn.no</span>
-          <span className="text-body-sm font-normal text-paper/70">+47 400 00 000</span>
+          <span className="text-body-sm font-normal text-paper/70">{epost ?? "hei@havn.no"}</span>
+          <span className="text-body-sm font-normal text-paper/70">{telefon ?? "+47 400 00 000"}</span>
           <span className="font-sans text-[12px] leading-[1.2] text-paper/50">
             © {currentYear} HAVN Boligstyling
           </span>

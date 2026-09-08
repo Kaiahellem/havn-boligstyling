@@ -1,17 +1,18 @@
 import Link from "next/link";
-import { getProjects } from "@/sanity/lib/queries";
+import { getProjects, getProsjekterSide } from "@/sanity/lib/queries";
 import ProsjekterGrid from "./ProsjekterGrid";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import type { Project } from "@/lib/projects";
 
-// Example projects — shown alongside whatever's in Sanity so the page reads
-// full during design/dev. Same fictional cases as the homepage teaser.
+// Example projects — shown only until the client has added real projects in
+// Sanity so the page reads full during design/dev. Same fictional cases as
+// the homepage teaser.
 const exampleProjects: Project[] = [
   {
     _id: "example-villa-bygdoy",
     title: "Villa Bygdøy",
     image: placeholderPhotos[0],
-    images: [placeholderPhotos[0], placeholderPhotos[1], placeholderPhotos[2]],
+    images: [{ url: placeholderPhotos[0] }, { url: placeholderPhotos[1] }, { url: placeholderPhotos[2] }],
     description: "Fullstyling, Oslo",
     service: "Fullstyling",
   },
@@ -19,7 +20,7 @@ const exampleProjects: Project[] = [
     _id: "example-leilighet-grunerlokka",
     title: "Leilighet Grünerløkka",
     image: placeholderPhotos[1],
-    images: [placeholderPhotos[1], placeholderPhotos[2], placeholderPhotos[3]],
+    images: [{ url: placeholderPhotos[1] }, { url: placeholderPhotos[2] }, { url: placeholderPhotos[3] }],
     description: "Rådgivning, Oslo",
     service: "Rådgivning",
   },
@@ -27,7 +28,7 @@ const exampleProjects: Project[] = [
     _id: "example-rekkehus-nordstrand",
     title: "Rekkehus Nordstrand",
     image: placeholderPhotos[2],
-    images: [placeholderPhotos[2], placeholderPhotos[3], placeholderPhotos[4]],
+    images: [{ url: placeholderPhotos[2] }, { url: placeholderPhotos[3] }, { url: placeholderPhotos[4] }],
     description: "Delstyling, Oslo",
     service: "Delstyling",
   },
@@ -35,7 +36,7 @@ const exampleProjects: Project[] = [
     _id: "example-leilighet-majorstuen",
     title: "Leilighet Majorstuen",
     image: placeholderPhotos[3],
-    images: [placeholderPhotos[3], placeholderPhotos[4], placeholderPhotos[5]],
+    images: [{ url: placeholderPhotos[3] }, { url: placeholderPhotos[4] }, { url: placeholderPhotos[5] }],
     description: "Rådgivning, Oslo",
     service: "Rådgivning",
   },
@@ -43,7 +44,7 @@ const exampleProjects: Project[] = [
     _id: "example-enebolig-nesodden",
     title: "Enebolig Nesodden",
     image: placeholderPhotos[4],
-    images: [placeholderPhotos[4], placeholderPhotos[5], placeholderPhotos[0]],
+    images: [{ url: placeholderPhotos[4] }, { url: placeholderPhotos[5] }, { url: placeholderPhotos[0] }],
     description: "Fullstyling, Nesodden",
     service: "Fullstyling",
   },
@@ -67,8 +68,12 @@ export default async function ProsjekterPage({
 }: {
   searchParams: Promise<{ tjeneste?: string }>;
 }) {
-  const [projects, { tjeneste }] = await Promise.all([getProjects(), searchParams]);
-  const allProjects = [...projects, ...exampleProjects];
+  const [projects, prosjekterSide, { tjeneste }] = await Promise.all([
+    getProjects(),
+    getProsjekterSide(),
+    searchParams,
+  ]);
+  const allProjects = projects.length > 0 ? projects : exampleProjects;
 
   const filteredProjects = tjeneste
     ? allProjects.filter((p) => p.service && normalize(p.service) === normalize(tjeneste))
@@ -88,7 +93,7 @@ export default async function ProsjekterPage({
         </div>
       )}
 
-      <ProsjekterGrid projects={filteredProjects} />
+      <ProsjekterGrid projects={filteredProjects} cta={prosjekterSide.cta} />
     </div>
   );
 }

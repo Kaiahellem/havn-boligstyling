@@ -3,6 +3,14 @@ import type { Project } from "@/lib/projects";
 
 const revalidate = { next: { revalidate: 60 } };
 
+export interface CtaBlock {
+  heading?: string;
+  body?: string;
+  buttonText?: string;
+}
+
+const ctaProjection = `cta { heading, body, buttonText }`;
+
 // ── Projects ──────────────────────────────────────────────
 export async function getProjects(): Promise<Project[]> {
   const data = await client.fetch<Project[]>(
@@ -10,9 +18,8 @@ export async function getProjects(): Promise<Project[]> {
       "_id": _id,
       title,
       "image": mainImage.asset->url,
-      "images": images[].asset->url,
+      "images": images[]{ "url": image.asset->url, caption },
       description,
-      city,
       service
     }`,
     {},
@@ -21,31 +28,65 @@ export async function getProjects(): Promise<Project[]> {
   return data ?? [];
 }
 
-// ── Site settings (forsiden) ───────────────────────────────
+// ── Generelt (logo) ─────────────────────────────────────────
 export interface SiteSettings {
-  heroImage?: string;
-  heroLabel?: string;
-  heroTitle?: string;
-  heroBody?: string;
-  heroCta?: string;
-  editorialImage?: string;
-  editorialLabel?: string;
-  editorialTitle?: string;
-  editorialBody?: string;
-  editorialQuote?: string;
-  editorialQuoteAuthor?: string;
-  ctaTitle?: string;
-  ctaBody?: string;
+  logo?: string;
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   const data = await client.fetch<SiteSettings>(
     `*[_type == "siteSettings"][0] {
+      "logo": logo.asset->url
+    }`,
+    {},
+    revalidate
+  );
+  return data ?? {};
+}
+
+// ── Forside ───────────────────────────────────────────────
+export interface Forside {
+  heroImage?: string;
+  heroHeading?: string;
+  whyStyleLabel?: string;
+  whyStyleHeading?: string;
+  whyStyleIntro?: string;
+  whyStyleReasons?: { title?: string; body?: string }[];
+}
+
+export async function getForside(): Promise<Forside> {
+  const data = await client.fetch<Forside>(
+    `*[_type == "forside"][0] {
       "heroImage": heroImage.asset->url,
-      heroLabel, heroTitle, heroBody, heroCta,
-      "editorialImage": editorialImage.asset->url,
-      editorialLabel, editorialTitle, editorialBody, editorialQuote, editorialQuoteAuthor,
-      ctaTitle, ctaBody
+      heroHeading,
+      whyStyleLabel,
+      whyStyleHeading,
+      whyStyleIntro,
+      whyStyleReasons[] { title, body }
+    }`,
+    {},
+    revalidate
+  );
+  return data ?? {};
+}
+
+// ── Kontaktinfo ───────────────────────────────────────────
+export interface Kontaktinfo {
+  epost?: string;
+  telefon?: string;
+  omrade?: string;
+  instagramUrl?: string;
+  ctaButtonText?: string;
+  kontaktLabel?: string;
+  kontaktHeading?: string;
+  kontaktIntro?: string;
+}
+
+export async function getKontaktinfo(): Promise<Kontaktinfo> {
+  const data = await client.fetch<Kontaktinfo>(
+    `*[_type == "kontaktinfo"][0] {
+      epost, telefon, omrade, instagramUrl, ctaButtonText,
+      kontaktLabel, kontaktHeading, kontaktIntro
     }`,
     {},
     revalidate
@@ -81,25 +122,61 @@ export async function getTjenester(): Promise<Tjeneste[]> {
   return data ?? [];
 }
 
-// ── Om oss ────────────────────────────────────────────────
+export interface TjenesterSide {
+  cta?: CtaBlock;
+}
+
+export async function getTjenesterSide(): Promise<TjenesterSide> {
+  const data = await client.fetch<TjenesterSide>(
+    `*[_type == "tjenesterSide"][0] { ${ctaProjection} }`,
+    {},
+    revalidate
+  );
+  return data ?? {};
+}
+
+// ── Om ────────────────────────────────────────────────────
+export interface OmOssGalleryStep {
+  label?: string;
+  body?: string;
+  image?: string;
+}
+
 export interface OmOss {
-  heroImage?: string;
   aboutImage?: string;
-  quote?: string;
-  quoteAuthor?: string;
+  name?: string;
+  role?: string;
   bodyText1?: string;
   bodyText2?: string;
-  values?: { title: string; desc: string }[];
-  stats?: { num: string; label: string; desc: string }[];
+  galleryLabel?: string;
+  galleryHeading?: string;
+  gallerySteps?: OmOssGalleryStep[];
+  cta?: CtaBlock;
 }
 
 export async function getOmOss(): Promise<OmOss> {
   const data = await client.fetch<OmOss>(
     `*[_type == "omOss"][0] {
-      "heroImage": heroImage.asset->url,
       "aboutImage": aboutImage.asset->url,
-      quote, quoteAuthor, bodyText1, bodyText2, values, stats
+      name, role, bodyText1, bodyText2,
+      galleryLabel, galleryHeading,
+      gallerySteps[] { label, body, "image": image.asset->url },
+      ${ctaProjection}
     }`,
+    {},
+    revalidate
+  );
+  return data ?? {};
+}
+
+// ── Prosjekter ────────────────────────────────────────────
+export interface ProsjekterSide {
+  cta?: CtaBlock;
+}
+
+export async function getProsjekterSide(): Promise<ProsjekterSide> {
+  const data = await client.fetch<ProsjekterSide>(
+    `*[_type == "prosjekterSide"][0] { ${ctaProjection} }`,
     {},
     revalidate
   );

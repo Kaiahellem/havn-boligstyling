@@ -5,13 +5,14 @@ import ContactForm from "@/components/ContactForm";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
 import ServicesGrid from "@/components/ServicesGrid";
-import { getSiteSettings, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
+import { getForside, getKontaktinfo, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 
 export default async function HomePage() {
-  const [s, om, projects, tjenester, instagramPosts] = await Promise.all([
-    getSiteSettings(),
+  const [forside, kontaktinfo, om, projects, tjenester, instagramPosts] = await Promise.all([
+    getForside(),
+    getKontaktinfo(),
     getOmOss(),
     getProjects(),
     getTjenester(),
@@ -19,9 +20,22 @@ export default async function HomePage() {
   ]);
 
   const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "";
-  const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
+  const instagramUrl = kontaktinfo.instagramUrl ?? process.env.NEXT_PUBLIC_INSTAGRAM_URL;
 
-  const heroImage = s.heroImage ?? placeholderPhotos[0];
+  const heroImage = forside.heroImage ?? placeholderPhotos[0];
+  const heroHeading = forside.heroHeading ?? "Styling som løfter boligen";
+  const whyStyleLabel = forside.whyStyleLabel ?? "Hvorfor style?";
+  const whyStyleHeading = forside.whyStyleHeading ?? "Derfor lønner det seg å style boligen";
+  const whyStyleIntro = forside.whyStyleIntro ?? "Ved salg eller utleie er førsteinntrykket alt. En godt stylet bolig hjelper kjøpere og leietakere til å se seg selv bo der – noe rå eller rotete rom sjelden klarer.";
+  const defaultReasons = [
+    { title: "Bedre bilder", body: "Stylede rom fotograferer vesentlig bedre, og gode bilder er det som får folk til å klikke seg inn på annonsen." },
+    { title: "Flere på visning", body: "Et innbydende og gjennomtenkt hjem trekker flere interesserte til visning." },
+    { title: "Sterkere førsteinntrykk", body: "Kjøpere og leietakere bestemmer seg raskt – styling sikrer at det første inntrykket er det rette." },
+  ];
+  const whyStyleReasons = forside.whyStyleReasons && forside.whyStyleReasons.length > 0
+    ? forside.whyStyleReasons
+    : defaultReasons;
+
   const aboutImage = om.aboutImage ?? "/martyportrett.png";
   const bodyText1 = om.bodyText1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
   const bodyText2 = om.bodyText2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
@@ -56,7 +70,7 @@ export default async function HomePage() {
     <div className="bg-paper pt-[70px]">
 
       {/* ── HERO ── */}
-      <ScrollHero image={heroImage} heading="Styling som løfter boligen" />
+      <ScrollHero image={heroImage} heading={heroHeading} />
 
       {/* ── SERVICES ── */}
       <AboutReveal>
@@ -69,32 +83,19 @@ export default async function HomePage() {
       <section className="mx-auto w-full max-w-[1280px] px-6 pt-8 pb-4 sm:px-10 sm:pt-10 sm:pb-5 lg:px-16">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
           <div className="flex flex-col gap-5 lg:w-[380px] shrink-0">
-            <p className="text-body-sm font-medium uppercase text-ink">Hvorfor style?</p>
-            <h2 className="text-heading font-normal text-ink">Derfor lønner det seg å style boligen</h2>
+            <p className="text-body-sm font-medium uppercase text-ink">{whyStyleLabel}</p>
+            <h2 className="text-heading font-normal text-ink">{whyStyleHeading}</h2>
             <p className="text-body font-normal text-ink/70 max-w-md">
-              Ved salg eller utleie er førsteinntrykket alt. En godt stylet bolig hjelper kjøpere og leietakere
-              til å se seg selv bo der – noe rå eller rotete rom sjelden klarer.
+              {whyStyleIntro}
             </p>
           </div>
           <div className="grid gap-x-12 gap-y-10 sm:grid-cols-3 flex-1 lg:mt-[38px]">
-            <div className="flex flex-col gap-2.5">
-              <h3 className="text-heading-sm font-normal text-ink">Bedre bilder</h3>
-              <p className="text-body-sm font-normal text-ink/70">
-                Stylede rom fotograferer vesentlig bedre, og gode bilder er det som får folk til å klikke seg inn på annonsen.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <h3 className="text-heading-sm font-normal text-ink">Flere på visning</h3>
-              <p className="text-body-sm font-normal text-ink/70">
-                Et innbydende og gjennomtenkt hjem trekker flere interesserte til visning.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <h3 className="text-heading-sm font-normal text-ink">Sterkere førsteinntrykk</h3>
-              <p className="text-body-sm font-normal text-ink/70">
-                Kjøpere og leietakere bestemmer seg raskt – styling sikrer at det første inntrykket er det rette.
-              </p>
-            </div>
+            {whyStyleReasons.map((reason, i) => (
+              <div key={reason.title ?? i} className="flex flex-col gap-2.5">
+                <h3 className="text-heading-sm font-normal text-ink">{reason.title}</h3>
+                <p className="text-body-sm font-normal text-ink/70">{reason.body}</p>
+              </div>
+            ))}
           </div>
         </div>
         <Link
@@ -119,7 +120,7 @@ export default async function HomePage() {
           <div className="relative w-36 sm:w-48 lg:w-60 aspect-[4/5] shrink-0">
             <Image
               src={aboutImage}
-              alt="Martine Gullord Engebråten"
+              alt={om.name ?? "Martine Gullord Engebråten"}
               fill
               className="object-cover grayscale"
               sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
@@ -144,18 +145,17 @@ export default async function HomePage() {
         <div className="flex flex-col lg:flex-row lg:gap-14">
           <div className="flex flex-col justify-between gap-10 lg:w-[380px] shrink-0 lg:pr-14 pb-10 lg:pb-0">
             <div className="flex flex-col gap-5">
-              <p className="text-body-sm font-medium uppercase text-ink">Kontakt</p>
-              <h2 className="text-heading font-normal text-ink">La oss ta en prat!</h2>
+              <p className="text-body-sm font-medium uppercase text-ink">{kontaktinfo.kontaktLabel ?? "Kontakt"}</p>
+              <h2 className="text-heading font-normal text-ink">{kontaktinfo.kontaktHeading ?? "La oss ta en prat!"}</h2>
               <p className="text-body font-normal text-ink/70 max-w-sm">
-                Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi
-                kontakt så snart vi kan.
+                {kontaktinfo.kontaktIntro ?? "Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi kontakt så snart vi kan."}
               </p>
             </div>
 
             <div className="flex flex-col gap-2">
-              <span className="text-body font-normal text-ink/70">hei@havn.no</span>
-              <span className="text-body font-normal text-ink/70">+47 400 00 000</span>
-              <span className="text-body font-normal text-ink/70">Oslo, Norge</span>
+              <span className="text-body font-normal text-ink/70">{kontaktinfo.epost ?? "hei@havn.no"}</span>
+              <span className="text-body font-normal text-ink/70">{kontaktinfo.telefon ?? "+47 400 00 000"}</span>
+              <span className="text-body font-normal text-ink/70">{kontaktinfo.omrade ?? "Oslo, Norge"}</span>
               {instagramUrl && (
                 <a
                   href={instagramUrl}

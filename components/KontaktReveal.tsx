@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import type { Kontaktinfo } from "@/sanity/lib/queries";
 
 const container: Variants = {
   hidden: {},
@@ -16,9 +17,10 @@ const item: Variants = {
 interface KontaktRevealProps {
   formspreeId: string;
   instagramUrl?: string;
+  kontaktinfo?: Kontaktinfo;
 }
 
-export function KontaktReveal({ formspreeId, instagramUrl }: KontaktRevealProps) {
+export function KontaktReveal({ formspreeId, instagramUrl, kontaktinfo }: KontaktRevealProps) {
   return (
     <motion.div
       initial="hidden"
@@ -28,18 +30,17 @@ export function KontaktReveal({ formspreeId, instagramUrl }: KontaktRevealProps)
     >
       <motion.div variants={item} className="flex flex-col justify-between gap-10 lg:w-[380px] shrink-0 lg:pr-14 pb-10 lg:pb-0">
         <div className="flex flex-col gap-5">
-          <p className="text-body-sm font-medium uppercase text-ink">Kontakt</p>
-          <h1 className="text-heading font-normal text-ink">La oss ta en prat!</h1>
+          <p className="text-body-sm font-medium uppercase text-ink">{kontaktinfo?.kontaktLabel ?? "Kontakt"}</p>
+          <h1 className="text-heading font-normal text-ink">{kontaktinfo?.kontaktHeading ?? "La oss ta en prat!"}</h1>
           <p className="text-body font-normal text-ink/70 max-w-sm">
-            Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi
-            kontakt så snart vi kan.
+            {kontaktinfo?.kontaktIntro ?? "Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi kontakt så snart vi kan."}
           </p>
         </div>
 
         <div className="flex flex-col gap-2">
-          <span className="text-body font-normal text-ink/70">hei@havn.no</span>
-          <span className="text-body font-normal text-ink/70">+47 400 00 000</span>
-          <span className="text-body font-normal text-ink/70">Oslo, Norge</span>
+          <span className="text-body font-normal text-ink/70">{kontaktinfo?.epost ?? "hei@havn.no"}</span>
+          <span className="text-body font-normal text-ink/70">{kontaktinfo?.telefon ?? "+47 400 00 000"}</span>
+          <span className="text-body font-normal text-ink/70">{kontaktinfo?.omrade ?? "Oslo, Norge"}</span>
           {instagramUrl && (
             <a
               href={instagramUrl}

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 import ProjectModal from "@/components/ProjectModal";
 import type { Project } from "@/lib/projects";
+import type { CtaBlock } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 
 const reveal: Variants = {
@@ -59,20 +60,24 @@ const galleryVariants: GalleryTile[][][] = [
 
 function galleryForProject(project: Project, index: number) {
   const variant = galleryVariants[index % galleryVariants.length];
-  const tileCount = variant.reduce((sum, column) => sum + column.length, 0);
-  const sourceImages = project.images?.length ? project.images : placeholderPhotos;
+  const sourceImages: { url: string; caption?: string }[] = project.images?.length
+    ? project.images
+    : placeholderPhotos.map((url) => ({ url }));
 
   let cursor = 0;
   return variant.map((column) =>
     column.map((tile) => {
-      const src = sourceImages[(cursor + index) % sourceImages.length];
+      const image = sourceImages[(cursor + index) % sourceImages.length];
       cursor += 1;
-      return { ...tile, src };
+      return { ...tile, src: image.url, caption: image.caption ?? tile.caption };
     })
   );
 }
 
-export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
+export default function ProsjekterGrid({ projects, cta }: { projects: Project[]; cta?: CtaBlock }) {
+  const ctaHeading = cta?.heading ?? "Liker du det du ser?";
+  const ctaBody = cta?.body ?? "Vi hjelper deg gjerne med å skape noe like bra hos deg.";
+  const ctaButtonText = cta?.buttonText ?? "Bestill befaring";
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const projectGalleries = projects.map((project, i) => galleryForProject(project, i));
@@ -147,16 +152,16 @@ export default function ProsjekterGrid({ projects }: { projects: Project[] }) {
         <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
           <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 pt-10 pb-4 sm:py-16">
             <h2 className="text-heading font-normal text-ink leading-[1.1]">
-              Liker du det du ser?
+              {ctaHeading}
             </h2>
-            <p className="text-body font-normal text-ink/70">Vi hjelper deg gjerne med å skape noe like bra hos deg.</p>
+            <p className="text-body font-normal text-ink/70">{ctaBody}</p>
           </div>
           <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-4 pb-10 sm:py-12">
             <Link
               href="/kontakt"
               className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
             >
-              Bestill befaring
+              {ctaButtonText}
             </Link>
           </div>
         </div>

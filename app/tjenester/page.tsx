@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getTjenester } from "@/sanity/lib/queries";
+import { getTjenester, getTjenesterSide } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import { TjenesterHero } from "@/components/TjenesterHero";
 import { TjenesterList } from "@/components/TjenesterList";
@@ -32,7 +32,11 @@ const fallback = [
 ];
 
 export default async function TjenesterPage() {
-  const data = await getTjenester();
+  const [data, tjenesterSide] = await Promise.all([getTjenester(), getTjenesterSide()]);
+
+  const ctaHeading = tjenesterSide.cta?.heading ?? "Usikker på hva som passer for deg?";
+  const ctaBody = tjenesterSide.cta?.body ?? "Vi hjelper deg gjerne med å finne ut av det.";
+  const ctaButtonText = tjenesterSide.cta?.buttonText ?? "Bestill befaring";
 
   const services = data.length > 0
     ? data.map((t, i) => ({
@@ -61,16 +65,16 @@ export default async function TjenesterPage() {
         <div className="mx-auto w-full max-w-[1280px] flex flex-col sm:flex-row items-stretch">
           <div className="flex-1 flex flex-col justify-center gap-3 px-6 sm:px-10 lg:px-16 pt-10 pb-4 sm:py-16">
             <h2 className="text-heading font-normal text-ink leading-[1.1]">
-              Usikker på hva som passer for deg?
+              {ctaHeading}
             </h2>
-            <p className="text-body font-normal text-ink/70">Vi hjelper deg gjerne med å finne ut av det.</p>
+            <p className="text-body font-normal text-ink/70">{ctaBody}</p>
           </div>
           <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-4 pb-10 sm:py-12">
             <Link
               href="/kontakt"
               className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
             >
-              Bestill befaring
+              {ctaButtonText}
             </Link>
           </div>
         </div>

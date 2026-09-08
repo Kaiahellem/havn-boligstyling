@@ -14,11 +14,13 @@ const navLinks = [
 
 interface HeaderProps {
   logoUrl?: string | null;
+  ctaButtonText?: string;
 }
 
-export default function Header({ logoUrl }: HeaderProps) {
+export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
   const pathname = usePathname();
   const logoSrc = logoUrl ?? "/HAVN_BS_kuntekst.svg";
+  const ctaLabel = ctaButtonText ?? "Bestill befaring";
   const [logoError, setLogoError] = useState(false);
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const drawerRef = useRef<HTMLElement>(null);
@@ -150,7 +152,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                 href="/kontakt"
                 className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
               >
-                Bestill befaring
+                {ctaLabel}
               </Link>
             </div>
           </div>
@@ -200,7 +202,7 @@ export default function Header({ logoUrl }: HeaderProps) {
                 className="mt-5 inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
                 onClick={() => setSideMenuOpen(false)}
               >
-                Bestill befaring
+                {ctaLabel}
               </Link>
             </nav>
           </aside>
