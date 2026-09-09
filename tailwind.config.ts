@@ -31,8 +31,8 @@ const config: Config = {
           500: "#b0aeaa",
         },
         plate: "#b8b8b8",
-        ink: "#544f4d",
-        paper: "#f7f4ee",
+        ink: "#5e503f",
+        paper: "#EAE0D5",
         greige: "#e1ded8",
       },
       fontFamily: {
