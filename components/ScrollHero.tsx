@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
+import { Instrument_Serif } from "next/font/google";
 import { motion, useScroll, useSpring, useTransform, useReducedMotion } from "framer-motion";
+
+const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", display: "swap" });
 
 interface ScrollHeroProps {
   image: string;
@@ -11,9 +14,6 @@ interface ScrollHeroProps {
 
 const START_TOP = 90;
 const CENTER_TOP = 45;
-// Wide-banner shape for the hero frame — lower and wider than the source
-// photo's own 3:2, so object-cover trims a bit off the top/bottom.
-const FRAME_ASPECT = 16 / 9;
 
 // Static hero — full-width image with the heading overlaid, no scroll-tied
 // motion. Used for reduced-motion at every width, and as the mobile hero
@@ -23,10 +23,10 @@ const FRAME_ASPECT = 16 / 9;
 // of the desktop effect.
 function StaticHero({ image, heading, className = "" }: ScrollHeroProps & { className?: string }) {
   return (
-    <section className={`w-full bg-paper p-6 sm:p-10 lg:p-16 pb-0 box-border ${className}`}>
+    <section className={`w-full bg-paper box-border ${className}`}>
       <div className="relative h-[520px] sm:h-[600px] lg:h-[848px] w-full">
         <Image src={image} alt="HAVN Boligstyling interiør" fill className="object-cover" priority sizes="100vw" />
-        <h1 className="absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]">
+        <h1 className={`${instrumentSerif.className} absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]`}>
           {heading}
         </h1>
       </div>
@@ -36,33 +36,7 @@ function StaticHero({ image, heading, className = "" }: ScrollHeroProps & { clas
 
 export default function ScrollHero({ image, heading }: ScrollHeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  // Pixel size of the photo frame, computed to fit fully inside the padded
-  // sticky area (like object-fit: contain) at a fixed wide-banner ratio,
-  // rather than stretching to whatever shape the viewport happens to leave —
-  // that stretch is what forced object-cover to crop unpredictably before.
-  const [frameSize, setFrameSize] = useState<{ width: number; height: number } | null>(null);
-
-  useEffect(() => {
-    const el = stickyRef.current;
-    if (!el) return;
-
-    const compute = () => {
-      const { width, height } = el.getBoundingClientRect();
-      if (width <= 0 || height <= 0) return;
-      if (width / height > FRAME_ASPECT) {
-        setFrameSize({ width: height * FRAME_ASPECT, height });
-      } else {
-        setFrameSize({ width, height: width / FRAME_ASPECT });
-      }
-    };
-
-    compute();
-    const ro = new ResizeObserver(compute);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -82,9 +56,7 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
   // for the rest of the scroll.
   const textTop = useTransform(smoothProgress, (v) => {
     const t = Math.min(v / 0.6, 1);
-    // -48px matches the photo frame's own upward shift below, so the
-    // heading stays locked to the same spot on the image.
-    return `calc(${START_TOP + (CENTER_TOP - START_TOP) * t}% - 48px)`;
+    return `${START_TOP + (CENTER_TOP - START_TOP) * t}%`;
   });
 
   if (prefersReducedMotion) {
@@ -104,35 +76,28 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
           sticky wants to hold it, and the whole image visibly slides up
           that 70px before sticky "catches" and the pin actually engages. */}
       <section ref={containerRef} className="relative hidden h-[140vh] sm:block -mt-[70px]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper p-1.5 lg:p-2 box-border">
-          <div ref={stickyRef} className="relative w-full h-full flex items-center justify-center">
-            <motion.div
-              style={{ y: -48, width: frameSize?.width, height: frameSize?.height }}
-              className={`relative z-0 origin-center overflow-hidden ${frameSize ? "" : "w-full h-full"}`}
-            >
-              <motion.div
-                className="relative w-full h-full"
-                animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
-                transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Image
-                  src={image}
-                  alt="HAVN Boligstyling interiør"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="100vw"
-                />
-              </motion.div>
-            </motion.div>
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper">
+          <motion.div
+            className="relative w-full h-full"
+            animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
+            transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src={image}
+              alt="HAVN Boligstyling interiør"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </motion.div>
 
-            <motion.h1
-              style={{ top: textTop }}
-              className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
-            >
-              {heading}
-            </motion.h1>
-          </div>
+          <motion.h1
+            style={{ top: textTop }}
+            className={`${instrumentSerif.className} absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]`}
+          >
+            {heading}
+          </motion.h1>
         </div>
       </section>
     </>
