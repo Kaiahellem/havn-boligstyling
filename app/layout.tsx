@@ -24,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   ...buildMetadata({
-    title: "HAVN Boligstyling | Profesjonell boligstyling i Norge",
+    title: "HAVN Boligstyling | Profesjonell boligstyling i Oslo og Akershus",
     description:
       "HAVN Boligstyling tilbyr fullstyling, delstyling og veiledning for salg og utleie. Vi hjelper boligen din vise sitt beste.",
     path: "/",
