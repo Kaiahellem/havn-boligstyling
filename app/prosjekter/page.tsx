@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getProjects, getProsjekterSide } from "@/sanity/lib/queries";
 import ProsjekterGrid from "./ProsjekterGrid";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import type { Project } from "@/lib/projects";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Prosjekter | HAVN Boligstyling",
+  description:
+    "Se referanseprosjekter fra HAVN Boligstyling — fullstyling, delstyling og rådgivning for boliger i Oslo-området.",
+  path: "/prosjekter",
+});
 
 // Example projects — shown only until the client has added real projects in
 // Sanity so the page reads full during design/dev. Same fictional cases as
@@ -81,6 +90,7 @@ export default async function ProsjekterPage({
 
   return (
     <div className="bg-paper pt-[70px]">
+      <h1 className="sr-only">Prosjekter</h1>
 
       {tjeneste && (
         <div className="mx-auto w-full max-w-[1280px] flex items-center gap-4 px-6 sm:px-10 lg:px-16 pt-10">

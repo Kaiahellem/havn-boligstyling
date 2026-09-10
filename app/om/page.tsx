@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getOmOss, type OmOssGalleryStep } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import { OmIntro } from "@/components/OmIntro";
 import { OmGallery, type GalleryTile } from "@/components/OmGallery";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Om oss | HAVN Boligstyling",
+  description:
+    "Møt HAVN Boligstyling — bakgrunnen, arbeidsmåten og hvorfor vi brenner for å style boliger som selger eller leies raskere.",
+  path: "/om",
+});
 
 const galleryLayout = [
   [

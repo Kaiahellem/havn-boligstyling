@@ -37,7 +37,7 @@ export function OmGallery({ columns }: { columns: GalleryTile[][] }) {
               <div className={`relative w-full ${tile.aspect}`}>
                 <Image
                   src={tile.src}
-                  alt="HAVN Boligstyling interiør"
+                  alt={tile.stepLabel || "HAVN Boligstyling interiør"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 33vw"

@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getTjenester, getTjenesterSide } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import { TjenesterHero } from "@/components/TjenesterHero";
 import { TjenesterList } from "@/components/TjenesterList";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Tjenester | HAVN Boligstyling",
+  description:
+    "Fullstyling, delstyling og rådgivning — se hvilke boligstylingstjenester HAVN tilbyr for salg og utleie av bolig.",
+  path: "/tjenester",
+});
 
 const fallback = [
   {

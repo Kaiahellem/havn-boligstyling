@@ -40,7 +40,7 @@ export function OmIntro({ portraitImage, name, role, bio1, bio2 }: OmIntroProps)
       </motion.div>
       <motion.div variants={item} className="flex flex-col gap-5 max-w-[500px]">
         <p className="text-caption font-medium uppercase text-ink/50">{role}</p>
-        <h2 className="text-heading font-normal text-ink whitespace-nowrap">{name}</h2>
+        <h1 className="text-heading font-normal text-ink whitespace-nowrap">{name}</h1>
         <p className="text-body font-normal text-ink/70">{bio1}</p>
         <p className="text-body font-normal text-ink/70">{bio2}</p>
       </motion.div>

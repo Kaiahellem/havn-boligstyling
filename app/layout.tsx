@@ -12,6 +12,7 @@ import ConsentBanner from "@/components/analytics/ConsentBanner";
 import ClarityLoader from "@/components/analytics/ClarityLoader";
 import OutboundLinkTracker from "@/components/analytics/OutboundLinkTracker";
 import { getSiteSettings, getKontaktinfo } from "@/sanity/lib/queries";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -21,9 +22,13 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "HAVN Boligstyling | Profesjonell boligstyling i Norge",
-  description:
-    "HAVN Boligstyling tilbyr boligstyling, konsultasjon og utleiestyling. Vi transformerer hjem til å speile ditt unike uttrykk.",
+  metadataBase: new URL(siteUrl),
+  ...buildMetadata({
+    title: "HAVN Boligstyling | Profesjonell boligstyling i Norge",
+    description:
+      "HAVN Boligstyling tilbyr boligstyling, konsultasjon og utleiestyling. Vi transformerer hjem til å speile ditt unike uttrykk.",
+    path: "/",
+  }),
   // Paste the verification code from Google Search Console into
   // GOOGLE_SITE_VERIFICATION in .env.local (and in Vercel's env vars).
   verification: process.env.GOOGLE_SITE_VERIFICATION

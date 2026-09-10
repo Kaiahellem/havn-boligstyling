@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { KontaktReveal } from "@/components/KontaktReveal";
 import { getKontaktinfo } from "@/sanity/lib/queries";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Kontakt oss | HAVN Boligstyling",
+  description:
+    "Ta kontakt med HAVN Boligstyling for befaring, tilbud eller spørsmål om boligstyling.",
+  path: "/kontakt",
+});
 
 export default async function KontaktPage() {
   const kontaktinfo = await getKontaktinfo();
