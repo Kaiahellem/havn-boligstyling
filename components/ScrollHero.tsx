@@ -2,10 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { Instrument_Serif } from "next/font/google";
 import { motion, useScroll, useSpring, useTransform, useReducedMotion } from "framer-motion";
-
-const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: "400", display: "swap" });
 
 interface ScrollHeroProps {
   image: string;
@@ -26,7 +23,7 @@ function StaticHero({ image, heading, className = "" }: ScrollHeroProps & { clas
     <section className={`w-full bg-paper box-border ${className}`}>
       <div className="relative h-[520px] sm:h-[600px] lg:h-[848px] w-full">
         <Image src={image} alt="HAVN Boligstyling interiør" fill className="object-cover" priority sizes="100vw" />
-        <h1 className={`${instrumentSerif.className} absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]`}>
+        <h1 className="absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]">
           {heading}
         </h1>
       </div>
@@ -94,7 +91,7 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
 
           <motion.h1
             style={{ top: textTop }}
-            className={`${instrumentSerif.className} absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]`}
+            className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
           >
             {heading}
           </motion.h1>

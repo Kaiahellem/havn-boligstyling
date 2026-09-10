@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Fraunces } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getSiteSettings, getKontaktinfo } from "@/sanity/lib/queries";
 
-const fraunces = Fraunces({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: "400",
   variable: "--font-heading",
   display: "swap",
 });
@@ -28,7 +28,7 @@ export default async function RootLayout({
 
   return (
     <html lang="no">
-      <body className={`${GeistSans.variable} ${fraunces.variable} font-sans antialiased min-h-screen flex flex-col bg-paper text-ink`}>
+      <body className={`${GeistSans.variable} ${instrumentSerif.variable} font-sans antialiased min-h-screen flex flex-col bg-paper text-ink`}>
         <Header
           logoUrl={siteSettings.logo ?? process.env.NEXT_PUBLIC_LOGO_URL ?? "/HAVN_BS_kuntekst.svg"}
           ctaButtonText={kontaktinfo.ctaButtonText}
