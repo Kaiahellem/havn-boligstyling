@@ -42,7 +42,7 @@ export function OmGallery({ columns }: { columns: GalleryTile[][] }) {
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
-                <span className="absolute top-4 right-4 text-caption font-medium text-ink/40">{tile.num}</span>
+                <span className="absolute top-4 right-4 text-heading-sm font-medium text-ink/40">{tile.num}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <p className="text-body-sm font-medium uppercase tracking-[0.05em] text-ink">{tile.stepLabel}</p>
