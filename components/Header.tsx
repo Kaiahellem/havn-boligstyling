@@ -130,7 +130,7 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
               )}
             </Link>
 
-            <nav className="flex shrink-0 items-center gap-6">
+            <nav className="flex shrink-0 items-center gap-14">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                 return (
