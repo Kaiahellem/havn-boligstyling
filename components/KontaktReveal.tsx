@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
+import ContactLinks from "@/components/ContactLinks";
 import type { Kontaktinfo } from "@/sanity/lib/queries";
 
 const container: Variants = {
@@ -38,8 +39,7 @@ export function KontaktReveal({ formspreeId, instagramUrl, kontaktinfo }: Kontak
         </div>
 
         <div className="flex flex-col gap-2">
-          <span className="text-body font-normal text-ink/70">{kontaktinfo?.epost ?? "hei@havn.no"}</span>
-          <span className="text-body font-normal text-ink/70">{kontaktinfo?.telefon ?? "+47 400 00 000"}</span>
+          <ContactLinks epost={kontaktinfo?.epost} telefon={kontaktinfo?.telefon} location="kontakt_page" />
           <span className="text-body font-normal text-ink/70">{kontaktinfo?.omrade ?? "Oslo, Norge"}</span>
           {instagramUrl && (
             <a

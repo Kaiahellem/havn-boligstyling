@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useScrollLock } from "@/lib/useScrollLock";
+import { trackEvent } from "@/lib/analytics";
 
 const navLinks = [
   { href: "/tjenester", label: "Tjenester" },
@@ -150,6 +151,7 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
             <div className="flex flex-1 items-center justify-end">
               <Link
                 href="/kontakt"
+                onClick={() => trackEvent("cta_click", { label: ctaLabel, location: "header" })}
                 className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
               >
                 {ctaLabel}
@@ -200,7 +202,10 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
               <Link
                 href="/kontakt"
                 className="mt-5 inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
-                onClick={() => setSideMenuOpen(false)}
+                onClick={() => {
+                  trackEvent("cta_click", { label: ctaLabel, location: "mobile_menu" });
+                  setSideMenuOpen(false);
+                }}
               >
                 {ctaLabel}
               </Link>

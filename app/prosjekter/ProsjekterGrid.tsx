@@ -8,6 +8,7 @@ import ProjectModal from "@/components/ProjectModal";
 import type { Project } from "@/lib/projects";
 import type { CtaBlock } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
+import { trackEvent } from "@/lib/analytics";
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -122,7 +123,13 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
                         <div key={ti} className="flex flex-col gap-2">
                           <button
                             type="button"
-                            onClick={() => setSelectedIndex(imageIndex)}
+                            onClick={() => {
+                              trackEvent("project_image_click", {
+                                project: project.title,
+                                image_index: imageIndex,
+                              });
+                              setSelectedIndex(imageIndex);
+                            }}
                             className={`relative block w-full overflow-hidden group cursor-pointer ${tile.aspect}`}
                           >
                             <Image
@@ -159,6 +166,7 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
           <div className="flex items-center justify-center px-6 sm:px-10 lg:px-16 pt-4 pb-10 sm:py-12">
             <Link
               href="/kontakt"
+              onClick={() => trackEvent("cta_click", { label: ctaButtonText, location: "prosjekter_footer" })}
               className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
             >
               {ctaButtonText}

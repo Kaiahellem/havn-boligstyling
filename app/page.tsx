@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { AboutReveal } from "@/components/AboutReveal";
 import ContactForm from "@/components/ContactForm";
+import ContactLinks from "@/components/ContactLinks";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
 import ServicesGrid from "@/components/ServicesGrid";
+import ScrollDepthTracker from "@/components/analytics/ScrollDepthTracker";
 import { getForside, getKontaktinfo, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
@@ -68,6 +70,7 @@ export default async function HomePage() {
 
   return (
     <div className="bg-paper pt-[70px]">
+      <ScrollDepthTracker />
 
       {/* ── HERO ── */}
       <ScrollHero image={heroImage} heading={heroHeading} />
@@ -153,8 +156,7 @@ export default async function HomePage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <span className="text-body font-normal text-ink/70">{kontaktinfo.epost ?? "hei@havn.no"}</span>
-              <span className="text-body font-normal text-ink/70">{kontaktinfo.telefon ?? "+47 400 00 000"}</span>
+              <ContactLinks epost={kontaktinfo.epost} telefon={kontaktinfo.telefon} location="home_contact_section" />
               <span className="text-body font-normal text-ink/70">{kontaktinfo.omrade ?? "Oslo, Norge"}</span>
               {instagramUrl && (
                 <a

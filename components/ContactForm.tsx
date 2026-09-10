@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface ContactFormProps {
   formspreeId: string;
@@ -20,6 +21,7 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
     }
 
     setStatus("submitting");
+    trackEvent("form_submit_attempt", { form: "contact" });
     const form = e.currentTarget;
     const formData = new FormData(form);
 
@@ -32,12 +34,15 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
 
       if (response.ok) {
         setStatus("success");
+        trackEvent("form_submit_success", { form: "contact" });
         form.reset();
       } else {
         setStatus("error");
+        trackEvent("form_submit_error", { form: "contact", reason: "response_not_ok" });
       }
     } catch {
       setStatus("error");
+      trackEvent("form_submit_error", { form: "contact", reason: "network_error" });
     }
   }
 
