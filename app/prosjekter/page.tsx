@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Prosjekter | HAVN Boligstyling",
   description:
-    "Se referanseprosjekter fra HAVN Boligstyling — fullstyling, delstyling og rådgivning for boliger i Oslo-området.",
+    "Se referanseprosjekter fra HAVN Boligstyling — fullstyling, delstyling og rådgivning for boliger i Oslo og Akershus.",
   path: "/prosjekter",
 });
 

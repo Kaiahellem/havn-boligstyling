@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: "HAVN Boligstyling | Profesjonell boligstyling i Norge",
     description:
-      "HAVN Boligstyling tilbyr boligstyling, konsultasjon og utleiestyling. Vi transformerer hjem til å speile ditt unike uttrykk.",
+      "HAVN Boligstyling tilbyr fullstyling, delstyling og rådgivning for salg og utleie. Vi hjelper boligen din vise sitt beste.",
     path: "/",
   }),
   // Paste the verification code from Google Search Console into
