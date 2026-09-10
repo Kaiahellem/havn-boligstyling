@@ -46,18 +46,18 @@ export default async function HomePage() {
     : [
         { title: "Fullstyling", body: "Hele boligen fra A til Å – et helhetlig uttrykk i hvert rom.", slug: "fullstyling", image: placeholderPhotos[2] },
         { title: "Delstyling", body: "Utvalgte rom stylet med samme kvalitet – uten full prosess.", slug: "delstyling", image: placeholderPhotos[3] },
-        { title: "Rådgivning", body: "Konkrete råd og veiledning, rom for rom – uten full styling.", slug: "radgivning", image: placeholderPhotos[4] },
+        { title: "Veiledning", body: "Konkrete råd og veiledning, rom for rom – uten full styling.", slug: "veiledning", image: placeholderPhotos[4] },
       ];
 
   const placeholderSamples = [
     { _id: "placeholder-1", title: "Villa Bygdøy", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Fullstyling" },
-    { _id: "placeholder-2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-2", title: "Leilighet Grünerløkka", image: placeholderPhotos[1], description: "Veiledning og møblering.", service: "Veiledning" },
     { _id: "placeholder-3", title: "Utleiebolig Frogner", image: placeholderPhotos[2], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
     { _id: "placeholder-4", title: "Rekkehus Nordstrand", image: placeholderPhotos[3], description: "Full boligstyling før salg.", service: "Fullstyling" },
-    { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-5", title: "Leilighet Majorstuen", image: placeholderPhotos[4], description: "Veiledning og møblering.", service: "Veiledning" },
     { _id: "placeholder-6", title: "Enebolig Nesodden", image: placeholderPhotos[5], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
     { _id: "placeholder-7", title: "Loft Sagene", image: placeholderPhotos[0], description: "Full boligstyling før salg.", service: "Fullstyling" },
-    { _id: "placeholder-8", title: "Villa Ullern", image: placeholderPhotos[1], description: "Rådgivning og møblering.", service: "Rådgivning" },
+    { _id: "placeholder-8", title: "Villa Ullern", image: placeholderPhotos[1], description: "Veiledning og møblering.", service: "Veiledning" },
     { _id: "placeholder-9", title: "Leilighet Frogner", image: placeholderPhotos[2], description: "Delstyling for korttidsutleie.", service: "Delstyling" },
   ];
 

@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Tjenester | HAVN Boligstyling",
   description:
-    "Fullstyling, delstyling og rådgivning — se hvilke boligstylingstjenester HAVN tilbyr for salg og utleie av bolig.",
+    "Fullstyling, delstyling og veiledning — se hvilke boligstylingstjenester HAVN tilbyr for salg og utleie av bolig.",
   path: "/tjenester",
 });
 
@@ -31,10 +31,10 @@ const fallback = [
     heroImage: placeholderPhotos[1],
   },
   {
-    id: "radgivning",
+    id: "veiledning",
     num: "03",
-    title: "Rådgivning",
-    description: "Trenger du råd uten å styles helt? Vi tilbyr rådgivning der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
+    title: "Veiledning",
+    description: "Trenger du råd uten å styles helt? Vi tilbyr veiledning der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
     highlights: ["Rom-for-rom vurdering", "Konkrete anbefalinger", "Kjøpsveiledning", "Farge- og stilråd"],
     heroImage: placeholderPhotos[2],
   },

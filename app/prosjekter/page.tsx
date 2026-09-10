@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Prosjekter | HAVN Boligstyling",
   description:
-    "Se referanseprosjekter fra HAVN Boligstyling — fullstyling, delstyling og rådgivning for boliger i Oslo og Akershus.",
+    "Se referanseprosjekter fra HAVN Boligstyling — fullstyling, delstyling og veiledning for boliger i Oslo og Akershus.",
   path: "/prosjekter",
 });
 
@@ -30,8 +30,8 @@ const exampleProjects: Project[] = [
     title: "Leilighet Grünerløkka",
     image: placeholderPhotos[1],
     images: [{ url: placeholderPhotos[1] }, { url: placeholderPhotos[2] }, { url: placeholderPhotos[3] }],
-    description: "Rådgivning, Oslo",
-    service: "Rådgivning",
+    description: "Veiledning, Oslo",
+    service: "Veiledning",
   },
   {
     _id: "example-rekkehus-nordstrand",
@@ -46,8 +46,8 @@ const exampleProjects: Project[] = [
     title: "Leilighet Majorstuen",
     image: placeholderPhotos[3],
     images: [{ url: placeholderPhotos[3] }, { url: placeholderPhotos[4] }, { url: placeholderPhotos[5] }],
-    description: "Rådgivning, Oslo",
-    service: "Rådgivning",
+    description: "Veiledning, Oslo",
+    service: "Veiledning",
   },
   {
     _id: "example-enebolig-nesodden",
@@ -59,9 +59,9 @@ const exampleProjects: Project[] = [
   },
 ];
 
-// "fullstyling" / "delstyling" / "radgivning" (matches the tjeneste slugs) →
+// "fullstyling" / "delstyling" / "veiledning" (matches the tjeneste slugs) →
 // compared against Project.service with accents stripped, so CMS entries
-// authored as "Rådgivning" still match the accent-free query param.
+// authored as "Veiledning" still match the accent-free query param.
 function normalize(value: string) {
   return value.toLowerCase().replaceAll("å", "a").replaceAll("æ", "ae").replaceAll("ø", "o");
 }
@@ -69,7 +69,7 @@ function normalize(value: string) {
 const serviceLabels: Record<string, string> = {
   fullstyling: "Fullstyling",
   delstyling: "Delstyling",
-  radgivning: "Rådgivning",
+  veiledning: "Veiledning",
 };
 
 export default async function ProsjekterPage({
