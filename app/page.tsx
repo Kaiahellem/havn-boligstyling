@@ -137,7 +137,7 @@ export default async function HomePage() {
               href="/om"
               className="w-fit text-body font-normal text-ink"
             >
-              Les mer om Havn boligstyling →
+              Les mer om hvordan jeg jobber →
             </Link>
           </div>
         </div>
