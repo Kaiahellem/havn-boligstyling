@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getOmOss, type OmOssGalleryStep } from "@/sanity/lib/queries";
+import { getOmOss } from "@/sanity/lib/queries";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 import { OmIntro } from "@/components/OmIntro";
 import { OmGallery, type GalleryTile } from "@/components/OmGallery";
@@ -28,18 +28,6 @@ const galleryLayout = [
   ],
 ];
 
-// Fallback steps, in the order the images are laid out (column by column,
-// top to bottom) — walks through how a project runs. Used only until the
-// client fills in gallerySteps in Sanity.
-const defaultSteps: OmOssGalleryStep[] = [
-  { label: "Befaring", body: "Vi besøker boligen og kartlegger mulighetene" },
-  { label: "Konsept", body: "Plan for uttrykk, farger og møblering" },
-  { label: "Møblering", body: "Riktige møbler velges og settes på plass" },
-  { label: "Detaljer", body: "Tekstiler, farger og pyntegjenstander finpusses" },
-  { label: "Kvalitetssjekk", body: "Hvert rom vurderes med et kritisk blikk" },
-  { label: "Klar for visning", body: "Boligen viser fram sitt beste" },
-];
-
 export default async function OmPage() {
   const d = await getOmOss();
 
@@ -54,16 +42,14 @@ export default async function OmPage() {
   const ctaBody = d.cta?.body ?? "La oss hjelpe deg med å presentere boligen din på sitt aller beste.";
   const ctaButtonText = d.cta?.buttonText ?? "Ta kontakt";
 
-  const steps = d.gallerySteps && d.gallerySteps.length > 0 ? d.gallerySteps : defaultSteps;
-
   let imageCursor = 0;
   const galleryColumns: GalleryTile[][] = galleryLayout.map((column) =>
     column.map((tile) => {
-      const step = steps[imageCursor % steps.length];
-      const src = step.image ?? placeholderPhotos[imageCursor % placeholderPhotos.length];
+      const step = d.gallerySteps?.[imageCursor];
+      const src = step?.image ?? placeholderPhotos[imageCursor % placeholderPhotos.length];
       const num = String(imageCursor + 1).padStart(2, "0");
       imageCursor += 1;
-      return { src, aspect: tile.aspect, num, stepLabel: step.label ?? "", stepBody: step.body ?? "" };
+      return { src, aspect: tile.aspect, num, stepLabel: step?.label ?? "", stepBody: step?.body ?? "" };
     })
   );
 

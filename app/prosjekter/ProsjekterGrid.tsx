@@ -21,40 +21,21 @@ interface GalleryTile {
 }
 
 // Three column-composition variants, cycled per project — matches the staggered
-// editorial gallery layout designed in Paper (varied image sizes, a caption on a
-// couple of images per project calling out an interior detail).
+// editorial gallery layout designed in Paper (varied image sizes).
 const galleryVariants: GalleryTile[][][] = [
   [
-    [
-      { aspect: "aspect-[21/19]", caption: "Kjøkkenøy i eik med benkeplate i honet marmor" },
-      { aspect: "aspect-[21/13]" },
-    ],
+    [{ aspect: "aspect-[21/19]" }, { aspect: "aspect-[21/13]" }],
     [{ aspect: "aspect-[21/32]" }],
-    [
-      { aspect: "aspect-[7/5]" },
-      { aspect: "aspect-[21/17]", caption: "Håndvevd ullteppe og vintage lyspendel i stuen" },
-    ],
+    [{ aspect: "aspect-[7/5]" }, { aspect: "aspect-[21/17]" }],
   ],
   [
     [{ aspect: "aspect-[21/32]" }],
-    [
-      { aspect: "aspect-[7/5]" },
-      { aspect: "aspect-[21/17]", caption: "Skreddersydd sofa i bouclé, farget i varm sand" },
-    ],
-    [
-      { aspect: "aspect-[21/13]", caption: "Original flisegulv bevart og restaurert i entreen" },
-      { aspect: "aspect-[21/19]" },
-    ],
+    [{ aspect: "aspect-[7/5]" }, { aspect: "aspect-[21/17]" }],
+    [{ aspect: "aspect-[21/13]" }, { aspect: "aspect-[21/19]" }],
   ],
   [
-    [
-      { aspect: "aspect-[7/5]" },
-      { aspect: "aspect-[21/17]", caption: "Peis kledd i kalkpuss, med innfelte bokhyller" },
-    ],
-    [
-      { aspect: "aspect-[21/19]", caption: "Fransk balkongdør med original sprosseinndeling" },
-      { aspect: "aspect-[21/13]" },
-    ],
+    [{ aspect: "aspect-[7/5]" }, { aspect: "aspect-[21/17]" }],
+    [{ aspect: "aspect-[21/19]" }, { aspect: "aspect-[21/13]" }],
     [{ aspect: "aspect-[21/13]" }, { aspect: "aspect-[21/19]" }],
   ],
 ];
@@ -70,7 +51,7 @@ function galleryForProject(project: Project, index: number) {
     column.map((tile) => {
       const image = sourceImages[(cursor + index) % sourceImages.length];
       cursor += 1;
-      return { ...tile, src: image.url, caption: image.caption ?? tile.caption };
+      return { ...tile, src: image.url, caption: image.caption };
     })
   );
 }
