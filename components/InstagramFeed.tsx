@@ -38,7 +38,6 @@ function Tile({ tile }: { tile: Tile }) {
         src={tile.imageUrl}
         alt="Instagram-innlegg"
         fill
-        unoptimized
         className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
       />
