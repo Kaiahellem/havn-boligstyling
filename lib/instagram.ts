@@ -1,3 +1,5 @@
+import { client } from "@/sanity/lib/client";
+
 export interface InstagramPost {
   id: string;
   permalink: string;
@@ -16,16 +18,22 @@ interface GraphMediaItem {
   children?: { data: { media_url: string }[] };
 }
 
-const GRAPH_VERSION = "v21.0";
+async function getAccessToken(): Promise<string | undefined> {
+  const stored = await client
+    .fetch<string | null>(`*[_type == "siteSettings"][0].instagramAccessToken`, {}, { next: { revalidate: 3600 } })
+    .catch(() => null);
+
+  return stored ?? process.env.INSTAGRAM_ACCESS_TOKEN;
+}
 
 export async function getInstagramPosts(limit = 6): Promise<InstagramPost[]> {
   const userId = process.env.INSTAGRAM_USER_ID;
-  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+  const accessToken = await getAccessToken();
 
   if (!userId || !accessToken) return [];
 
   const fields = "id,permalink,media_type,media_url,thumbnail_url,caption,children{media_url}";
-  const url = `https://graph.facebook.com/${GRAPH_VERSION}/${userId}/media?fields=${fields}&limit=${limit}&access_token=${accessToken}`;
+  const url = `https://graph.instagram.com/${userId}/media?fields=${fields}&limit=${limit}&access_token=${accessToken}`;
 
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });

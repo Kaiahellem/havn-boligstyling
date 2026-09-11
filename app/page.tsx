@@ -18,7 +18,7 @@ export default async function HomePage() {
     getOmOss(),
     getProjects(),
     getTjenester(),
-    getInstagramPosts(),
+    getInstagramPosts(9),
   ]);
 
   const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "";
