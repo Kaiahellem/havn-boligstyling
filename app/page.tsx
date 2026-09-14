@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AboutReveal } from "@/components/AboutReveal";
 import ContactForm from "@/components/ContactForm";
 import ContactLinks from "@/components/ContactLinks";
 import InstagramFeed from "@/components/InstagramFeed";
@@ -76,11 +75,9 @@ export default async function HomePage() {
       <ScrollHero image={heroImage} heading={heroHeading} />
 
       {/* ── SERVICES ── */}
-      <AboutReveal>
-        <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-16 sm:px-10 sm:pt-20 sm:pb-20 lg:px-16">
-          <ServicesGrid services={services} />
-        </section>
-      </AboutReveal>
+      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 pb-16 sm:px-10 sm:pt-20 sm:pb-20 lg:px-16">
+        <ServicesGrid services={services} />
+      </section>
 
       {/* ── WHY STYLING ── */}
       <section className="mx-auto w-full max-w-[1280px] px-6 pt-8 pb-4 sm:px-10 sm:pt-10 sm:pb-5 lg:px-16">
