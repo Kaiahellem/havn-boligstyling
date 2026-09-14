@@ -115,9 +115,9 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Desktop: wordmark — nav (centered) — CTA */}
-          <div className="hidden w-full min-[1100px]:flex items-center">
-            <Link href="/" className="flex flex-1 items-center">
+          {/* Desktop: wordmark — nav (equal gap both sides) — CTA */}
+          <div className="hidden w-full min-[1100px]:flex items-center justify-between">
+            <Link href="/" className="flex shrink-0 items-center">
               {logoSrc && !logoError ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -148,15 +148,13 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
               })}
             </nav>
 
-            <div className="flex flex-1 items-center justify-end">
-              <Link
-                href="/kontakt"
-                onClick={() => trackEvent("cta_click", { label: ctaLabel, location: "header" })}
-                className="inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
-              >
-                {ctaLabel}
-              </Link>
-            </div>
+            <Link
+              href="/kontakt"
+              onClick={() => trackEvent("cta_click", { label: ctaLabel, location: "header" })}
+              className="inline-flex shrink-0 items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
+            >
+              {ctaLabel}
+            </Link>
           </div>
         </div>
       </header>
