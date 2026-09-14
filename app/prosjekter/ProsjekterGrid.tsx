@@ -40,18 +40,23 @@ const galleryVariants: GalleryTile[][][] = [
   ],
 ];
 
-function galleryForProject(project: Project, index: number) {
+function sourceImagesForProject(project: Project): { url: string; caption?: string }[] {
+  return project.images?.length ? project.images : placeholderPhotos.map((url) => ({ url }));
+}
+
+function galleryForProject(
+  index: number,
+  sourceImages: { url: string; caption?: string }[]
+) {
   const variant = galleryVariants[index % galleryVariants.length];
-  const sourceImages: { url: string; caption?: string }[] = project.images?.length
-    ? project.images
-    : placeholderPhotos.map((url) => ({ url }));
 
   let cursor = 0;
   return variant.map((column) =>
     column.map((tile) => {
-      const image = sourceImages[(cursor + index) % sourceImages.length];
+      const imageIndex = (cursor + index) % sourceImages.length;
       cursor += 1;
-      return { ...tile, src: image.url, caption: image.caption };
+      const image = sourceImages[imageIndex];
+      return { ...tile, src: image.url, caption: image.caption, imageIndex };
     })
   );
 }
@@ -60,12 +65,12 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
   const ctaHeading = cta?.heading ?? "Liker du det du ser?";
   const ctaBody = cta?.body ?? "Vi hjelper deg gjerne med å skape noe like bra hos deg.";
   const ctaButtonText = cta?.buttonText ?? "Bestill befaring";
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selected, setSelected] = useState<{ project: number; image: number } | null>(null);
 
-  const projectGalleries = projects.map((project, i) => galleryForProject(project, i));
-  const allImages = projectGalleries.flatMap((gallery) => gallery.flat().map((tile) => tile.src));
+  const projectSourceImages = projects.map(sourceImagesForProject);
+  const projectGalleries = projects.map((project, i) => galleryForProject(i, projectSourceImages[i]));
 
-  let globalCursor = 0;
+  const selectedImages = selected ? projectSourceImages[selected.project].map((img) => img.url) : [];
 
   return (
     <>
@@ -73,6 +78,9 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
       <section>
         {projects.map((project, i) => {
           const gallery = projectGalleries[i];
+          const sourceImages = projectSourceImages[i];
+          const shownCount = gallery.flat().length;
+          const hasMoreImages = sourceImages.length > shownCount;
           return (
             <motion.div
               key={project._id}
@@ -94,42 +102,53 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 px-6 sm:px-10 lg:px-16 pb-16">
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-6 px-6 sm:px-10 lg:px-16 pb-8">
                 {gallery.map((column, ci) => (
                   <div key={ci} className="flex flex-1 flex-col gap-8">
-                    {column.map((tile, ti) => {
-                      const imageIndex = globalCursor;
-                      globalCursor += 1;
-                      return (
-                        <div key={ti} className="flex flex-col gap-2">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              trackEvent("project_image_click", {
-                                project: project.title,
-                                image_index: imageIndex,
-                              });
-                              setSelectedIndex(imageIndex);
-                            }}
-                            className={`relative block w-full overflow-hidden group cursor-pointer ${tile.aspect}`}
-                          >
-                            <Image
-                              src={tile.src}
-                              alt={project.title}
-                              fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                              sizes="(max-width: 640px) 100vw, 33vw"
-                            />
-                          </button>
-                          {tile.caption && (
-                            <p className="text-body-sm font-normal text-ink/55">{tile.caption}</p>
-                          )}
-                        </div>
-                      );
-                    })}
+                    {column.map((tile, ti) => (
+                      <div key={ti} className="flex flex-col gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            trackEvent("project_image_click", {
+                              project: project.title,
+                              image_index: tile.imageIndex,
+                            });
+                            setSelected({ project: i, image: tile.imageIndex });
+                          }}
+                          className={`relative block w-full overflow-hidden group cursor-pointer ${tile.aspect}`}
+                        >
+                          <Image
+                            src={tile.src}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                            sizes="(max-width: 640px) 100vw, 33vw"
+                          />
+                        </button>
+                        {tile.caption && (
+                          <p className="text-body-sm font-normal text-ink/55">{tile.caption}</p>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
+
+              {hasMoreImages && (
+                <div className="px-6 sm:px-10 lg:px-16 pb-16">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackEvent("project_more_images_click", { project: project.title });
+                      setSelected({ project: i, image: 0 });
+                    }}
+                    className="text-body-sm font-medium text-ink underline underline-offset-[3px] hover:opacity-70 transition-opacity"
+                  >
+                    Se flere bilder
+                  </button>
+                </div>
+              )}
             </motion.div>
           );
         })}
@@ -157,11 +176,17 @@ export default function ProsjekterGrid({ projects, cta }: { projects: Project[];
       </section>
 
       <ProjectModal
-        images={allImages}
-        index={selectedIndex}
-        onClose={() => setSelectedIndex(null)}
-        onPrev={() => setSelectedIndex((i) => (i === null ? i : (i - 1 + allImages.length) % allImages.length))}
-        onNext={() => setSelectedIndex((i) => (i === null ? i : (i + 1) % allImages.length))}
+        images={selectedImages}
+        index={selected ? selected.image : null}
+        onClose={() => setSelected(null)}
+        onPrev={() =>
+          setSelected((s) =>
+            s === null ? s : { ...s, image: (s.image - 1 + selectedImages.length) % selectedImages.length }
+          )
+        }
+        onNext={() =>
+          setSelected((s) => (s === null ? s : { ...s, image: (s.image + 1) % selectedImages.length }))
+        }
       />
     </>
   );
