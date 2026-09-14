@@ -168,13 +168,12 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
           />
           <aside
             ref={drawerRef}
-            className="fixed top-0 left-0 h-full w-72 bg-paper z-[70] flex flex-col animate-slide-in min-[1100px]:hidden"
+            className="fixed top-0 right-0 h-full w-72 bg-paper z-[70] flex flex-col animate-slide-in-right min-[1100px]:hidden"
             role="dialog"
             aria-label="Navigasjonsmeny"
             aria-modal="true"
           >
-            <div className="flex items-center justify-between h-[70px] px-6">
-              <span className="text-body-sm font-medium uppercase text-ink">Meny</span>
+            <div className="flex items-center justify-end h-[70px] px-6">
               <button
                 type="button"
                 className="text-ink"
