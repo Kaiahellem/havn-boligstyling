@@ -86,20 +86,8 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
         className="fixed top-0 inset-x-0 z-50 flex h-[70px] items-center pl-6 pr-4 sm:pl-10 sm:pr-6 lg:pl-16 lg:pr-8 border-b border-sand-400 bg-paper"
       >
         <div className="flex w-full items-center">
-          {/* Mobile: hamburger — wordmark */}
+          {/* Mobile: wordmark — hamburger */}
           <div className="flex w-full items-center justify-between min-[1100px]:hidden">
-            <button
-              type="button"
-              className="flex items-center justify-center text-ink"
-              onClick={() => setSideMenuOpen(true)}
-              aria-label="Åpne meny"
-              aria-expanded={sideMenuOpen}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-
             <Link href="/" className="flex items-center">
               {logoSrc && !logoError ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -113,6 +101,18 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
                 <span className="text-heading font-medium text-ink">HAVN</span>
               )}
             </Link>
+
+            <button
+              type="button"
+              className="flex items-center justify-center text-ink"
+              onClick={() => setSideMenuOpen(true)}
+              aria-label="Åpne meny"
+              aria-expanded={sideMenuOpen}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
 
           {/* Desktop: wordmark — nav (equal gap both sides) — CTA */}
