@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { InstagramPost } from "@/lib/instagram";
 import type { Project } from "@/lib/projects";
 
@@ -26,13 +29,17 @@ function handleFromUrl(url?: string) {
   }
 }
 
-function Tile({ tile }: { tile: Tile }) {
+function Tile({ tile, index }: { tile: Tile; index: number }) {
   return (
-    <a
+    <motion.a
       href={tile.href}
       target={tile.href.startsWith("http") ? "_blank" : undefined}
       rel={tile.href.startsWith("http") ? "noopener noreferrer" : undefined}
       className="group relative block w-full aspect-square overflow-hidden bg-greige"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.08 }}
     >
       <Image
         src={tile.imageUrl}
@@ -46,7 +53,7 @@ function Tile({ tile }: { tile: Tile }) {
           {tile.mediaType === "VIDEO" ? <PlayIcon className="w-3 h-3" /> : <CarouselIcon className="w-3 h-3" />}
         </span>
       )}
-    </a>
+    </motion.a>
   );
 }
 
@@ -77,8 +84,8 @@ export default function InstagramFeed({ posts, instagramUrl, fallbackProjects }:
       </div>
 
       <div className="grid grid-cols-3 gap-1 pb-16 sm:pb-20">
-        {displayTiles.map((tile) => (
-          <Tile key={tile.id} tile={tile} />
+        {displayTiles.map((tile, i) => (
+          <Tile key={tile.id} tile={tile} index={i} />
         ))}
       </div>
     </section>

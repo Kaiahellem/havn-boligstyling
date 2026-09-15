@@ -1,10 +1,9 @@
-import Link from "next/link";
-import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
-import ContactLinks from "@/components/ContactLinks";
+import HomeAbout from "@/components/HomeAbout";
+import HomeContact from "@/components/HomeContact";
 import InstagramFeed from "@/components/InstagramFeed";
 import ScrollHero from "@/components/ScrollHero";
 import ServicesGrid from "@/components/ServicesGrid";
+import WhyStyling from "@/components/WhyStyling";
 import ScrollDepthTracker from "@/components/analytics/ScrollDepthTracker";
 import { getForside, getKontaktinfo, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
@@ -80,31 +79,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── WHY STYLING ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pt-8 pb-4 sm:px-10 sm:pt-10 sm:pb-5 lg:px-16">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-20">
-          <div className="flex flex-col gap-5 lg:w-[380px] shrink-0">
-            <p className="text-body-sm font-medium uppercase text-ink">{whyStyleLabel}</p>
-            <h2 className="text-heading font-normal text-ink">{whyStyleHeading}</h2>
-            <p className="text-body font-normal text-ink/70 max-w-md">
-              {whyStyleIntro}
-            </p>
-          </div>
-          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-3 flex-1 lg:mt-[38px]">
-            {whyStyleReasons.map((reason, i) => (
-              <div key={reason.title ?? i} className="flex flex-col gap-2.5">
-                <h3 className="text-heading-sm font-normal text-ink">{reason.title}</h3>
-                <p className="text-body-sm font-normal text-ink/70">{reason.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <Link
-          href="/prosjekter"
-          className="mt-12 inline-flex w-fit text-body font-normal text-ink"
-        >
-          Se våre prosjekter →
-        </Link>
-      </section>
+      <WhyStyling label={whyStyleLabel} heading={whyStyleHeading} intro={whyStyleIntro} reasons={whyStyleReasons} />
 
       {/* ── INSTAGRAM ── */}
       <InstagramFeed
@@ -115,64 +90,24 @@ export default async function HomePage() {
       />
 
       {/* ── ABOUT ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 pt-16 sm:px-10 sm:pt-20 lg:px-16">
-        <div className="flex flex-col sm:flex-row items-start justify-center gap-8 sm:gap-12 lg:gap-16 pb-12 sm:pb-16">
-          <div className="relative w-36 sm:w-48 lg:w-60 aspect-[4/5] shrink-0">
-            <Image
-              src={aboutImage}
-              alt={om.name ?? "Martine Gullord Engebråten"}
-              fill
-              className="object-cover grayscale"
-              sizes="(max-width: 640px) 144px, (max-width: 1024px) 192px, 240px"
-            />
-          </div>
-          <div className="flex flex-col gap-5 max-w-md">
-            <h2 className="text-heading font-normal text-ink">Om meg</h2>
-            <p className="text-body font-normal text-ink">{bodyText1}</p>
-            <p className="text-body font-normal text-ink">{bodyText2}</p>
-            <Link
-              href="/om"
-              className="w-fit text-body font-normal text-ink"
-            >
-              Les mer om hvordan jeg jobber →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HomeAbout
+        aboutImage={aboutImage}
+        name={om.name ?? "Martine Gullord Engebråten"}
+        bodyText1={bodyText1}
+        bodyText2={bodyText2}
+      />
 
       {/* ── CONTACT ── */}
-      <section className="mx-auto w-full max-w-[1280px] px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
-        <div className="flex flex-col lg:flex-row lg:gap-14">
-          <div className="flex flex-col justify-between gap-10 lg:w-[380px] shrink-0 lg:pr-14 pb-10 lg:pb-0">
-            <div className="flex flex-col gap-5">
-              <p className="text-body-sm font-medium uppercase text-ink">{kontaktinfo.kontaktLabel ?? "Kontakt"}</p>
-              <h2 className="text-heading font-normal text-ink">{kontaktinfo.kontaktHeading ?? "La oss ta en prat!"}</h2>
-              <p className="text-body font-normal text-ink/70 max-w-sm">
-                {kontaktinfo.kontaktIntro ?? "Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi kontakt så snart vi kan."}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <ContactLinks epost={kontaktinfo.epost} telefon={kontaktinfo.telefon} location="home_contact_section" />
-              <span className="text-body font-normal text-ink/70">{kontaktinfo.omrade ?? "Oslo, Norge"}</span>
-              {instagramUrl && (
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 w-fit text-body font-normal text-ink"
-                >
-                  Følg oss på Instagram
-                </a>
-              )}
-            </div>
-          </div>
-
-          <div className="flex-1 pt-10 lg:pt-0">
-            <ContactForm formspreeId={formspreeId} />
-          </div>
-        </div>
-      </section>
+      <HomeContact
+        label={kontaktinfo.kontaktLabel ?? "Kontakt"}
+        heading={kontaktinfo.kontaktHeading ?? "La oss ta en prat!"}
+        intro={kontaktinfo.kontaktIntro ?? "Ønsker du en befaring eller har du spørsmål? Fyll ut skjemaet, så tar vi kontakt så snart vi kan."}
+        epost={kontaktinfo.epost}
+        telefon={kontaktinfo.telefon}
+        omrade={kontaktinfo.omrade ?? "Oslo, Norge"}
+        instagramUrl={instagramUrl}
+        formspreeId={formspreeId}
+      />
 
     </div>
   );

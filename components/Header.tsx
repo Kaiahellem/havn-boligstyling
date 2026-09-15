@@ -3,8 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { useScrollLock } from "@/lib/useScrollLock";
 import { trackEvent } from "@/lib/analytics";
+
+const MotionLink = motion.create(Link);
 
 const navLinks = [
   { href: "/tjenester", label: "Tjenester" },
@@ -148,13 +151,16 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
               })}
             </nav>
 
-            <Link
+            <MotionLink
               href="/kontakt"
               onClick={() => trackEvent("cta_click", { label: ctaLabel, location: "header" })}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               className="inline-flex shrink-0 items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
             >
               {ctaLabel}
-            </Link>
+            </MotionLink>
           </div>
         </div>
       </header>
@@ -196,16 +202,18 @@ export default function Header({ logoUrl, ctaButtonText }: HeaderProps) {
                   {link.label}
                 </Link>
               ))}
-              <Link
+              <MotionLink
                 href="/kontakt"
                 className="mt-5 inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 transition-opacity"
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
                 onClick={() => {
                   trackEvent("cta_click", { label: ctaLabel, location: "mobile_menu" });
                   setSideMenuOpen(false);
                 }}
               >
                 {ctaLabel}
-              </Link>
+              </MotionLink>
             </nav>
           </aside>
         </>

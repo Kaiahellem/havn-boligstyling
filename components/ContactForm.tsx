@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
 
 interface ContactFormProps {
@@ -127,13 +128,16 @@ export default function ContactForm({ formspreeId }: ContactFormProps) {
         </p>
       )}
 
-      <button
+      <motion.button
         type="submit"
         disabled={status === "submitting"}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.15, ease: "easeOut" }}
         className="w-full inline-flex items-center justify-center border border-ink bg-paper px-8 py-[14px] text-body-sm font-medium uppercase tracking-[0.05em] text-ink hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
       >
         {status === "submitting" ? "Sender..." : "Send melding"}
-      </button>
+      </motion.button>
     </form>
   );
 }
