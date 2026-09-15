@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import Image from "next/image";
 import { motion, useScroll, useSpring, useTransform, useReducedMotion } from "framer-motion";
 
@@ -12,35 +12,34 @@ interface ScrollHeroProps {
 const START_TOP = 90;
 const CENTER_TOP = 45;
 
-// A custom object-position (rather than the object-right-top keyword) keeps
-// the photo's crop shifted left of the right edge on the narrow mobile crop,
-// so both the wall art and the flowers stay in frame instead of just the
-// flowers; sm:object-center resets to the original centered framing from
-// screen widths where object-cover was already barely cropping anything.
 function HeroImage({ image, heading }: ScrollHeroProps) {
-  return (
-    <Image
-      src={image}
-      alt={heading}
-      fill
-      className="object-cover object-[85%_15%] sm:object-center"
-      priority
-      sizes="100vw"
-    />
-  );
+  return <Image src={image} alt={heading} fill className="object-cover object-center" priority sizes="100vw" />;
+}
+
+// The image box: on mobile it's 75% of the viewport tall instead of
+// stretched to fill the screen — tall enough that object-cover's centered
+// crop still shows the room's full height plus most of its width (the
+// wall art and both pillows stay in frame), short enough to leave a strip
+// of plain paper background below as breathing room before the next
+// section, instead of cropping the photo down to a sliver to force full
+// coverage. From sm up the box fills its full-height parent exactly as
+// before, since screen and photo aspect ratios are already close there.
+function ImageBox({ children }: { children: ReactNode }) {
+  return <div className="relative w-full h-[75vh] overflow-hidden sm:h-full">{children}</div>;
 }
 
 // Static hero — full-width image with the heading overlaid, no scroll-tied
-// motion. Used for reduced-motion at every width, filling the screen on
-// mobile the same way the animated version does.
+// motion. Used for reduced-motion at every width.
 function StaticHero({ image, heading }: ScrollHeroProps) {
   return (
     <section className="w-full bg-paper box-border">
-      <div className="relative h-screen sm:h-[600px] lg:h-[848px] w-full overflow-hidden">
-        <HeroImage image={image} heading={heading} />
-        <h1 className="absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]">
-          {heading}
-        </h1>
+      <div className="relative w-full sm:h-[600px] lg:h-[848px]">
+        <ImageBox>
+          <HeroImage image={image} heading={heading} />
+          <h1 className="absolute inset-x-0 top-[45%] -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]">
+            {heading}
+          </h1>
+        </ImageBox>
       </div>
     </section>
   );
@@ -63,9 +62,12 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
     mass: 0.5,
   });
 
-  // Text starts low in the viewport and rises to its resting spot (slightly
+  // Text starts low in the image box and rises to its resting spot (slightly
   // above center) during the first 60% of the scroll, then holds still there
-  // for the rest of the scroll.
+  // for the rest of the scroll. Percentages are relative to the image box
+  // itself (see ImageBox), not the full screen, so on mobile the motion
+  // stays scoped to the photo rather than sweeping through the empty paper
+  // space below it.
   const textTop = useTransform(smoothProgress, (v) => {
     const t = Math.min(v / 0.6, 1);
     return `${START_TOP + (CENTER_TOP - START_TOP) * t}%`;
@@ -92,20 +94,30 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
     // screen. A static unit keeps scrollYProgress tied to actual scroll only.
     <section ref={containerRef} className="relative h-[140vh] -mt-[70px]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper">
-        <motion.div
-          className="relative w-full h-full"
-          animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
-          transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <HeroImage image={image} heading={heading} />
-        </motion.div>
+        {/* pt-[70px] excludes the fixed header's own height from the
+            centering math below, so the mobile image box (shorter than the
+            screen) sits with equal paper margins above and below it rather
+            than touching the header with all the leftover space pushed to
+            the bottom. sm:pt-0 sm:block drops this on desktop, where the
+            image box already fills the full height exactly as before. */}
+        <div className="flex h-full flex-col justify-center pt-[70px] sm:block sm:pt-0">
+          <ImageBox>
+            <motion.div
+              className="relative w-full h-full"
+              animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
+              transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <HeroImage image={image} heading={heading} />
+            </motion.div>
 
-        <motion.h1
-          style={{ top: textTop }}
-          className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
-        >
-          {heading}
-        </motion.h1>
+            <motion.h1
+              style={{ top: textTop }}
+              className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
+            >
+              {heading}
+            </motion.h1>
+          </ImageBox>
+        </div>
       </div>
     </section>
   );
