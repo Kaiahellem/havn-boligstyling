@@ -20,6 +20,17 @@ interface Service {
 const ROW_START = ["row-start-1", "row-start-2", "row-start-3", "row-start-4", "row-start-5", "row-start-6"];
 const COL_START = ["sm:col-start-1", "sm:col-start-2", "sm:col-start-3"];
 
+// Only the first card (Fullstyling) sits inside the initial viewport on
+// mobile, right below the hero — it should just be there on load, not wait
+// for a scroll event that may never come if the page loaded already in
+// view. The rest genuinely require scrolling to reach, so they keep the
+// whileInView reveal.
+function revealProps(i: number) {
+  return i === 0
+    ? { animate: { opacity: 1, y: 0 } }
+    : { whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.2 } };
+}
+
 export default function ServicesGrid({ services }: { services: Service[] }) {
   return (
     <div className="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-3 sm:gap-y-6">
@@ -27,8 +38,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
         <motion.div
           key={`${title}-text`}
           initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          {...revealProps(i)}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
           className={`flex flex-col gap-2.5 ${ROW_START[i * 2]} sm:row-start-1 ${COL_START[i]}`}
         >
@@ -46,8 +56,7 @@ export default function ServicesGrid({ services }: { services: Service[] }) {
         <motion.div
           key={`${title}-image`}
           initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          {...revealProps(i)}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 }}
           className={`relative w-full aspect-[4/3] sm:aspect-[3/4] ${ROW_START[i * 2 + 1]} sm:row-start-2 ${COL_START[i]}`}
         >
