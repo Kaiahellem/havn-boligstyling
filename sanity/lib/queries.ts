@@ -52,6 +52,11 @@ export interface Forside {
   whyStyleHeading?: string;
   whyStyleIntro?: string;
   whyStyleReasons?: { title?: string; body?: string }[];
+  aboutHeading?: string;
+  aboutImage?: string;
+  aboutBody1?: string;
+  aboutBody2?: string;
+  aboutLinkText?: string;
 }
 
 export async function getForside(): Promise<Forside> {
@@ -62,7 +67,12 @@ export async function getForside(): Promise<Forside> {
       whyStyleLabel,
       whyStyleHeading,
       whyStyleIntro,
-      whyStyleReasons[] { title, body }
+      whyStyleReasons[] { title, body },
+      aboutHeading,
+      "aboutImage": aboutImage.asset->url,
+      aboutBody1,
+      aboutBody2,
+      aboutLinkText
     }`,
     {},
     revalidate

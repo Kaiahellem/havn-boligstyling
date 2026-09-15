@@ -5,15 +5,14 @@ import ScrollHero from "@/components/ScrollHero";
 import ServicesGrid from "@/components/ServicesGrid";
 import WhyStyling from "@/components/WhyStyling";
 import ScrollDepthTracker from "@/components/analytics/ScrollDepthTracker";
-import { getForside, getKontaktinfo, getOmOss, getProjects, getTjenester } from "@/sanity/lib/queries";
+import { getForside, getKontaktinfo, getProjects, getTjenester } from "@/sanity/lib/queries";
 import { getInstagramPosts } from "@/lib/instagram";
 import { placeholderPhotos } from "@/lib/placeholderPhotos";
 
 export default async function HomePage() {
-  const [forside, kontaktinfo, om, projects, tjenester, instagramPosts] = await Promise.all([
+  const [forside, kontaktinfo, projects, tjenester, instagramPosts] = await Promise.all([
     getForside(),
     getKontaktinfo(),
-    getOmOss(),
     getProjects(),
     getTjenester(),
     getInstagramPosts(9),
@@ -36,9 +35,11 @@ export default async function HomePage() {
     ? forside.whyStyleReasons
     : defaultReasons;
 
-  const aboutImage = om.aboutImage ?? "/martyportrett.png";
-  const bodyText1 = om.bodyText1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
-  const bodyText2 = om.bodyText2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
+  const aboutHeading = forside.aboutHeading ?? "Om meg";
+  const aboutImage = forside.aboutImage ?? "/martyportrett.png";
+  const aboutBody1 = forside.aboutBody1 ?? "HAVN Boligstyling ble startet med en enkel visjon: å hjelpe folk å skape hjem som speiler hvem de er. Vi tror på at hvert rom har potensial til å bli et sted du virkelig trives – uansett størrelse eller budsjett.";
+  const aboutBody2 = forside.aboutBody2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
+  const aboutLinkText = forside.aboutLinkText ?? "Les mer om hvordan jeg jobber";
   const services = tjenester.length > 0
     ? tjenester.slice(0, 3).map((t, i) => ({ title: t.title, body: t.description ?? "", slug: t.slug, image: t.heroImage ?? placeholderPhotos[(i + 2) % placeholderPhotos.length] }))
     : [
@@ -91,10 +92,11 @@ export default async function HomePage() {
 
       {/* ── ABOUT ── */}
       <HomeAbout
+        heading={aboutHeading}
         aboutImage={aboutImage}
-        name={om.name ?? "Martine Gullord Engebråten"}
-        bodyText1={bodyText1}
-        bodyText2={bodyText2}
+        bodyText1={aboutBody1}
+        bodyText2={aboutBody2}
+        linkText={aboutLinkText}
       />
 
       {/* ── CONTACT ── */}
