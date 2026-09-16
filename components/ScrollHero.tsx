@@ -13,7 +13,7 @@ const START_TOP = 90;
 const CENTER_TOP = 45;
 
 function HeroImage({ image, heading }: ScrollHeroProps) {
-  return <Image src={image} alt={heading} fill className="object-cover object-center" priority sizes="100vw" />;
+  return <Image src={image} alt={heading} fill className="object-cover object-[56%_50%] sm:object-center" priority sizes="100vw" />;
 }
 
 // The image box: on mobile it's 75% of the viewport tall instead of
@@ -93,31 +93,41 @@ export default function ScrollHero({ image, heading }: ScrollHeroProps) {
     // its own — the heading visibly rose without the user touching the
     // screen. A static unit keeps scrollYProgress tied to actual scroll only.
     <section ref={containerRef} className="relative h-[140vh] -mt-[70px]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper">
-        {/* pt-[70px] excludes the fixed header's own height from the
-            centering math below, so the mobile image box (shorter than the
-            screen) sits with equal paper margins above and below it rather
-            than touching the header with all the leftover space pushed to
-            the bottom. sm:pt-0 sm:block drops this on desktop, where the
-            image box already fills the full height exactly as before. */}
-        <div className="flex h-full flex-col justify-center pt-[70px] sm:block sm:pt-0">
-          <ImageBox>
-            <motion.div
-              className="relative w-full h-full"
-              animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
-              transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <HeroImage image={image} heading={heading} />
-            </motion.div>
+      {/* pt-[70px] on mobile only: the image box is 75% of the viewport
+          tall (see ImageBox), and object-cover shows the photo's full
+          height edge-to-edge within that box with no vertical crop — so
+          without this offset, the box starts at y:0 right underneath the
+          fixed header, and the header's own 70px simply paints over
+          (hides) the top of the photo, cutting off the wall art's top
+          margin. Padding pushes the box down to start exactly where the
+          header ends instead, with the leftover slack staying below it as
+          before. sm:pt-0 drops this on desktop, unaffected. */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-paper pt-[70px] sm:pt-0">
+        <ImageBox>
+          {/* Mobile: static crop, no ambient motion. The ambient zoom/pan
+              below is built for desktop's much roomier box, and on this
+              tighter one it pushes scale past 1 almost immediately after
+              mount, cropping into the image and panning it sideways. */}
+          <div className="relative h-full w-full sm:hidden">
+            <HeroImage image={image} heading={heading} />
+          </div>
 
-            <motion.h1
-              style={{ top: textTop }}
-              className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
-            >
-              {heading}
-            </motion.h1>
-          </ImageBox>
-        </div>
+          {/* Desktop: same photo with a slow ambient zoom/pan for subtle motion. */}
+          <motion.div
+            className="relative hidden h-full w-full sm:block"
+            animate={{ scale: [1, 1.22, 1], x: ["0%", "-6%", "0%"], y: ["0%", "4.5%", "0%"] }}
+            transition={{ duration: 34, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <HeroImage image={image} heading={heading} />
+          </motion.div>
+
+          <motion.h1
+            style={{ top: textTop }}
+            className="absolute inset-x-0 z-10 -translate-y-1/2 text-center text-[7vw] sm:text-[4.5vw] leading-[0.95] font-normal text-paper whitespace-pre-line select-none px-4 drop-shadow-[0_4px_32px_rgba(0,0,0,0.35)]"
+          >
+            {heading}
+          </motion.h1>
+        </ImageBox>
       </div>
     </section>
   );
