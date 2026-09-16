@@ -13,7 +13,7 @@ const START_TOP = 90;
 const CENTER_TOP = 45;
 
 function HeroImage({ image, heading }: ScrollHeroProps) {
-  return <Image src={image} alt={heading} fill className="object-cover object-[56%_50%] sm:object-center" priority sizes="100vw" />;
+  return <Image src={image} alt={heading} fill className="object-cover object-[57.5%_50%] sm:object-center" priority sizes="100vw" />;
 }
 
 // The image box: on mobile it's 85% of the viewport tall instead of
