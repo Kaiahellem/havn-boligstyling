@@ -16,16 +16,18 @@ function HeroImage({ image, heading }: ScrollHeroProps) {
   return <Image src={image} alt={heading} fill className="object-cover object-[56%_50%] sm:object-center" priority sizes="100vw" />;
 }
 
-// The image box: on mobile it's 75% of the viewport tall instead of
-// stretched to fill the screen — tall enough that object-cover's centered
-// crop still shows the room's full height plus most of its width (the
-// wall art and both pillows stay in frame), short enough to leave a strip
-// of plain paper background below as breathing room before the next
-// section, instead of cropping the photo down to a sliver to force full
-// coverage. From sm up the box fills its full-height parent exactly as
-// before, since screen and photo aspect ratios are already close there.
+// The image box: on mobile it's 85% of the viewport tall instead of
+// stretched to fill the screen — tall enough to leave only a slim strip of
+// plain paper background below as breathing room before the next section,
+// short enough that object-cover's centered crop still shows the room's
+// full height plus most of its width (the wall art and both pillows stay
+// in frame). The photo's own height is already shown edge-to-edge at any
+// height here — going taller doesn't reveal more of the photo, it re-crops
+// the same full height larger and trims a bit more off the sides. From sm
+// up the box fills its full-height parent exactly as before, since screen
+// and photo aspect ratios are already close there.
 function ImageBox({ children }: { children: ReactNode }) {
-  return <div className="relative w-full h-[75vh] overflow-hidden sm:h-full">{children}</div>;
+  return <div className="relative w-full h-[85vh] overflow-hidden sm:h-full">{children}</div>;
 }
 
 // Static hero — full-width image with the heading overlaid, no scroll-tied
