@@ -113,6 +113,7 @@ export interface Tjeneste {
   shortDescription?: string;
   description?: string;
   prices?: { label: string; price: string }[];
+  priceInfo?: string;
   heroImage?: string;
 }
 
@@ -126,6 +127,7 @@ export async function getTjenester(): Promise<Tjeneste[]> {
       shortDescription,
       description,
       "prices": prices[]{ label, price },
+      priceInfo,
       "heroImage": heroImage.asset->url
     }`,
     {},

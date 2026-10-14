@@ -10,6 +10,7 @@ interface Service {
   title: string;
   description: string;
   prices: { label: string; price: string }[];
+  priceInfo: string;
   heroImage: string;
 }
 
@@ -22,6 +23,14 @@ const item: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 };
+
+// Each line break the editor types in Sanity becomes its own paragraph
+function toParagraphs(text: string) {
+  return text
+    .split("\n")
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
 
 export function TjenesterList({ services }: { services: Service[] }) {
   return (
@@ -54,25 +63,30 @@ export function TjenesterList({ services }: { services: Service[] }) {
               <span className="text-body-sm font-medium text-ink/60">{service.num}</span>
               <h2 className="mt-2 text-heading font-normal text-ink leading-[1.1]">{service.title}</h2>
               <div className="mt-3 flex flex-col gap-4 max-w-2xl">
-                {service.description
-                  .split("\n")
-                  .map((paragraph) => paragraph.trim())
-                  .filter(Boolean)
-                  .map((paragraph, j) => (
-                    <p key={j} className="text-body font-normal text-ink/70">{paragraph}</p>
-                  ))}
+                {toParagraphs(service.description).map((paragraph, j) => (
+                  <p key={j} className="text-body font-normal text-ink/70">{paragraph}</p>
+                ))}
               </div>
-              {service.prices.length > 0 && (
+              {(service.prices.length > 0 || service.priceInfo) && (
                 <div className="mt-9 max-w-2xl">
                   <h3 className="text-body-sm font-medium uppercase text-ink">Priser</h3>
-                  <dl className="mt-3 border-t border-sand-400">
-                    {service.prices.map(({ label, price }, j) => (
-                      <div key={j} className="flex items-baseline justify-between gap-6 border-b border-sand-400 py-3">
-                        <dt className="text-body font-normal text-ink/70">{label}</dt>
-                        <dd className="text-body font-normal text-ink text-right">{price}</dd>
-                      </div>
-                    ))}
-                  </dl>
+                  {service.prices.length > 0 && (
+                    <dl className="mt-3 border-t border-sand-400">
+                      {service.prices.map(({ label, price }, j) => (
+                        <div key={j} className="flex items-baseline justify-between gap-6 border-b border-sand-400 py-3">
+                          <dt className="text-body font-normal text-ink/70">{label}</dt>
+                          <dd className="text-body font-normal text-ink text-right">{price}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                  {service.priceInfo && (
+                    <div className="mt-4 flex flex-col gap-3">
+                      {toParagraphs(service.priceInfo).map((paragraph, j) => (
+                        <p key={j} className="text-body-sm font-normal text-ink/70">{paragraph}</p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
               <Link

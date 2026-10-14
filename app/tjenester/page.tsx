@@ -20,6 +20,7 @@ const fallback = [
     title: "Fullstyling",
     description: "Vi tar hele boligen fra A til Å – møblering, farger, tekstiler og detaljer satt sammen til et helhetlig uttrykk som føles gjennomtenkt i hvert eneste rom.",
     prices: [],
+    priceInfo: "",
     heroImage: placeholderPhotos[0],
   },
   {
@@ -28,6 +29,7 @@ const fallback = [
     title: "Delstyling",
     description: "Trenger du ikke hele boligen stylet? Vi tar for oss utvalgte rom – stue, soverom eller kjøkken – og gir dem et løft uten at du må gjennom en full prosess.",
     prices: [],
+    priceInfo: "",
     heroImage: placeholderPhotos[1],
   },
   {
@@ -36,6 +38,7 @@ const fallback = [
     title: "Veiledning",
     description: "Trenger du råd uten å styles helt? Vi tilbyr veiledning der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
     prices: [],
+    priceInfo: "",
     heroImage: placeholderPhotos[2],
   },
 ];
@@ -54,6 +57,7 @@ export default async function TjenesterPage() {
         title: t.title,
         description: t.description ?? "",
         prices: t.prices ?? [],
+        priceInfo: t.priceInfo ?? "",
         heroImage: t.heroImage ?? placeholderPhotos[(i + 3) % placeholderPhotos.length],
       }))
     : fallback;
