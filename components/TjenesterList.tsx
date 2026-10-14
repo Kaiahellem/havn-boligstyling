@@ -9,7 +9,7 @@ interface Service {
   num: string;
   title: string;
   description: string;
-  highlights: string[];
+  prices: { label: string; price: string }[];
   heroImage: string;
 }
 
@@ -62,15 +62,18 @@ export function TjenesterList({ services }: { services: Service[] }) {
                     <p key={j} className="text-body font-normal text-ink/70">{paragraph}</p>
                   ))}
               </div>
-              {service.highlights.length > 0 && (
-                <ul className="mt-9 grid sm:grid-cols-2 gap-x-12 gap-y-3">
-                  {service.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-body-sm font-medium uppercase text-ink/70">
-                      <span className="w-1 h-1 bg-ink shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              {service.prices.length > 0 && (
+                <div className="mt-9 max-w-2xl">
+                  <h3 className="text-body-sm font-medium uppercase text-ink">Priser</h3>
+                  <dl className="mt-3 border-t border-sand-400">
+                    {service.prices.map(({ label, price }, j) => (
+                      <div key={j} className="flex items-baseline justify-between gap-6 border-b border-sand-400 py-3">
+                        <dt className="text-body font-normal text-ink/70">{label}</dt>
+                        <dd className="text-body font-normal text-ink text-right">{price}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
               )}
               <Link
                 href={`/prosjekter?tjeneste=${service.id}`}

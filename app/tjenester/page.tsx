@@ -19,7 +19,7 @@ const fallback = [
     num: "01",
     title: "Fullstyling",
     description: "Vi tar hele boligen fra A til Å – møblering, farger, tekstiler og detaljer satt sammen til et helhetlig uttrykk som føles gjennomtenkt i hvert eneste rom.",
-    highlights: ["Møblering og innredning", "Fargevalg og materialer", "Tekstiler og detaljer", "Helhetlig designkonsept"],
+    prices: [],
     heroImage: placeholderPhotos[0],
   },
   {
@@ -27,7 +27,7 @@ const fallback = [
     num: "02",
     title: "Delstyling",
     description: "Trenger du ikke hele boligen stylet? Vi tar for oss utvalgte rom – stue, soverom eller kjøkken – og gir dem et løft uten at du må gjennom en full prosess.",
-    highlights: ["Ett eller flere utvalgte rom", "Rask og fleksibel prosess", "Fotoklar styling for salg/utleie", "Skreddersydd etter budsjett"],
+    prices: [],
     heroImage: placeholderPhotos[1],
   },
   {
@@ -35,7 +35,7 @@ const fallback = [
     num: "03",
     title: "Veiledning",
     description: "Trenger du råd uten å styles helt? Vi tilbyr veiledning der vi går gjennom rom, gir konkrete tips og veileder deg mot det uttrykket du ønsker.",
-    highlights: ["Rom-for-rom vurdering", "Konkrete anbefalinger", "Kjøpsveiledning", "Farge- og stilråd"],
+    prices: [],
     heroImage: placeholderPhotos[2],
   },
 ];
@@ -53,7 +53,7 @@ export default async function TjenesterPage() {
         num: String(i + 1).padStart(2, "0"),
         title: t.title,
         description: t.description ?? "",
-        highlights: t.highlights ?? [],
+        prices: t.prices ?? [],
         heroImage: t.heroImage ?? placeholderPhotos[(i + 3) % placeholderPhotos.length],
       }))
     : fallback;
