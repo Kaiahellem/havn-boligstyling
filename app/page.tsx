@@ -41,7 +41,7 @@ export default async function HomePage() {
   const aboutBody2 = forside.aboutBody2 ?? "Med erfaring fra boligstyling, innredning og salg/utleie, kombinerer vi estetikk med funksjon for å levere resultater du blir fornøyd med.";
   const aboutLinkText = forside.aboutLinkText ?? "Les mer om hvordan jeg jobber";
   const services = tjenester.length > 0
-    ? tjenester.slice(0, 3).map((t, i) => ({ title: t.title, body: t.description ?? "", slug: t.slug, image: t.heroImage ?? placeholderPhotos[(i + 2) % placeholderPhotos.length] }))
+    ? tjenester.slice(0, 3).map((t, i) => ({ title: t.title, body: t.shortDescription ?? "", slug: t.slug, image: t.heroImage ?? placeholderPhotos[(i + 2) % placeholderPhotos.length] }))
     : [
         { title: "Fullstyling", body: "Hele boligen fra A til Å – et helhetlig uttrykk i hvert rom.", slug: "fullstyling", image: placeholderPhotos[2] },
         { title: "Delstyling", body: "Utvalgte rom stylet med samme kvalitet – uten full prosess.", slug: "delstyling", image: placeholderPhotos[3] },

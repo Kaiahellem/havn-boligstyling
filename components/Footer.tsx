@@ -4,7 +4,7 @@ import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
 const footerLinks = [
-  { href: "/tjenester", label: "Tjenester" },
+  { href: "/tjenester", label: "Tjenester og priser" },
   { href: "/prosjekter", label: "Prosjekter" },
   { href: "/om", label: "Om" },
   { href: "/kontakt", label: "Kontakt" },

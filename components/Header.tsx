@@ -10,7 +10,7 @@ import { trackEvent } from "@/lib/analytics";
 const MotionLink = motion.create(Link);
 
 const navLinks = [
-  { href: "/tjenester", label: "Tjenester" },
+  { href: "/tjenester", label: "Tjenester og priser" },
   { href: "/prosjekter", label: "Prosjekter" },
   { href: "/om", label: "Om" },
   { href: "/kontakt", label: "Kontakt" },

@@ -110,6 +110,7 @@ export interface Tjeneste {
   title: string;
   slug: string;
   order?: number;
+  shortDescription?: string;
   description?: string;
   highlights?: string[];
   heroImage?: string;
@@ -122,6 +123,7 @@ export async function getTjenester(): Promise<Tjeneste[]> {
       title,
       "slug": slug.current,
       order,
+      shortDescription,
       description,
       highlights,
       "heroImage": heroImage.asset->url

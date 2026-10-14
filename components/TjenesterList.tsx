@@ -53,7 +53,15 @@ export function TjenesterList({ services }: { services: Service[] }) {
             <div className="flex flex-col lg:w-1/2">
               <span className="text-body-sm font-medium text-ink/60">{service.num}</span>
               <h2 className="mt-2 text-heading font-normal text-ink leading-[1.1]">{service.title}</h2>
-              <p className="mt-3 text-body font-normal text-ink/70 max-w-2xl">{service.description}</p>
+              <div className="mt-3 flex flex-col gap-4 max-w-2xl">
+                {service.description
+                  .split("\n")
+                  .map((paragraph) => paragraph.trim())
+                  .filter(Boolean)
+                  .map((paragraph, j) => (
+                    <p key={j} className="text-body font-normal text-ink/70">{paragraph}</p>
+                  ))}
+              </div>
               {service.highlights.length > 0 && (
                 <ul className="mt-9 grid sm:grid-cols-2 gap-x-12 gap-y-3">
                   {service.highlights.map((item) => (
